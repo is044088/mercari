@@ -9,7 +9,7 @@ working_directory app_path
 
 #Unicornの起動に必要なファイルの設置場所を指定
 pid "#{app_path}/tmp/pids/unicorn.pid"
-# listen "#{rails_root}/tmp/sockets/unicorn.sock" #？？「Unicornのプロセスをlistenするアドレストポートを指定
+listen "#{rails_root}/tmp/sockets/unicorn.sock" #？？「Unicornのプロセスをlistenするアドレストポートを指定
 
 #ポート番号を指定
 listen 3000
