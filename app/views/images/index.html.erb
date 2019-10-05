@@ -1,5 +1,5 @@
 <div class="lower-message">
-  <%= image_tag @image.image, class: 'lower-messageimage' if @image.image.present? %>
+  <%= image_tag @image.image.to_s, class: 'lower-messageimage' if @image.image.present? %>
 </div>
 
 <div class="form">
