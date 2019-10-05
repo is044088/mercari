@@ -17,3 +17,5 @@ CarrierWave.configure do |config|
   config.fog_directory  = 'finalechallenge-mercari'
   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/finalechallenge-mercari'
 end
+
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
