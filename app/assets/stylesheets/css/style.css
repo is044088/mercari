@@ -1,0 +1,655 @@
+* {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* header始まり */
+
+
+header {
+  background-color: #ffffff;
+  width: 100vw;
+  height: 120px;
+}
+
+.header-inner {
+  margin: 0 auto;
+}
+
+.top_header {
+  width: 1020px;
+  height: 60px;
+  margin: 0 auto;
+  padding-top: 8px;
+}
+
+.logo_main {
+  width: 134px;
+  height: 36px;
+  float: left;
+  margin: 0 45px 0 0;
+}
+
+.top_header form {
+  float: right;
+  width: 840px;
+  height: 100%;
+  position: relative;
+}
+
+.search_products .search_bar {
+  background-color: #F5F5F5;
+  padding: 0 40px 0 10px;
+  height: 40px;
+  width: 790px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(204, 204, 204);
+  border-image: initial;
+  border-radius: 4px;
+  outline: none;
+  position: relative;
+}
+
+.search_products button {
+  background-color: transparent;
+  cursor: pointer;
+  height: 45px;
+  width: 40px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 0px 4px 4px 0px;
+  padding: 0px;
+  right: 50px;
+}
+
+.bottom_header {
+  width: 1020px;
+  height: 44px;
+  margin: 0 auto;
+  padding-top: 8;
+}
+
+.nav_left {
+  float: left;
+  width: 308px;
+  height: 44px;
+}
+
+.search_tag {
+  float: left;
+  padding: 0;
+}
+
+.nav_left ul li {
+  display: inline;
+}
+
+.nav_left .category_search {
+float: left;
+margin-right: 22px;
+}
+
+.nav_left .brand_search {
+  float: right;
+}
+
+.search_type {
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.nav_right {
+  float: right;
+
+}
+
+.nav_right ul {
+  margin: 14px 0;
+  width: 200px;
+  height: 32px;
+  padding: 0;
+
+}
+
+.nav_right ul li {
+  display: inline;
+  /* margin-top: 15px; */
+}
+
+.nav_right ul .user_sign_up {
+  background-color: #EA352D;
+  color: white;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.nav_right ul .user_sign_in {
+  background-color: white;
+  padding: 8px;
+  color: #0099E8;
+  border: solid 1px #0099E8;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-left: 10px;
+ 
+}
+
+/* header終わり */
+
+
+/* スライドショー始まり */
+
+ul {
+  height: 390px;
+  margin: 0px auto 0;
+}
+
+#slick_container {
+  width:100%;
+  margin:0 auto;
+  position:relative;
+}
+
+.slick-prev, .slick-next {
+  width:30px; 
+  height:45px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  content:"";
+}
+
+button.slick-prev, button.slick-next {
+  z-index:2;
+}
+.slick-prev{
+  left:70px;
+}
+
+.slick-next{
+  right:70px;
+}
+
+.arrows{z-index:10;}
+
+/* スライドショー終わり */
+
+/* 人気のカテゴリー始まり */
+
+.popular_categories {
+  height:170px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(255, 255, 255);
+  left: 50%;
+  margin-left: -50vw;
+  position: relative;
+  top: 0px;
+  width: 100vw;
+}
+
+.popular_categories_head {
+  padding-top: 35px;
+
+}
+
+.popular_categories h2 {
+  font-size: 28px;
+  margin-bottom:16px;
+  text-align:center;
+  color: #333333
+}
+
+.categories {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin: -10px 0px 0px -10px;  
+}
+
+.categories ul {
+  display:inline-block;
+  font-size:14px;
+  font-weight:600;
+  height: auto;
+}
+
+.categories li {
+  cursor:pointer;  
+  background-color:#EFEFEF;
+  float: left;
+  border-radius:15px;
+  border-radius: 15px;
+  margin-right:10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 172px;
+  height: 30px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.-btn:hover {
+  opacity: .8;
+}
+
+.-bg {
+  background: #EFEFEF;
+}
+
+.-txt {
+  color: black;
+}
+
+.-xs {
+  font-size: 14px;
+}
+
+/* 人気のカテゴリー終わり */
+
+/* 商品一覧その1始まり */
+
+.main {
+  background-color:#F5F5F5;
+}
+
+.container {
+  
+  width: 1020px;
+  height: 650px;
+  margin: 0 auto;
+  padding: 40px 0 100px;
+}
+
+.heading {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.heading h3 {
+  font-size: 24px;
+  color: #333333;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  flex-grow: 10; 
+}
+
+.more {
+  display: block;
+  color: #0095EE;
+  font-size: 14px;
+  padding: 15px 16px 5px 5px;
+  line-height: 1.4em;
+  font-weight: 600;
+  position: relative;
+}
+
+.fa-angle-right {
+ position: absolute;
+ padding-top: 10px;
+ top: 7px; 
+ margin-left:8px;
+ width: 14px;
+ height: 14px;
+}
+
+.main-container {
+  margin: 10px auto 0;
+  max-width: 1060px;
+  position: relative;
+}
+
+.items-wrapper {
+  display: grid;
+  grid-template-columns: 188px 188px 188px 188px 188px;
+  grid-template-rows: 252px 252px;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+
+.item-box {
+  height: 64px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-left: 4px;
+  border: 1px solid transparent;
+  transition-duration: .1s;
+  transition-timing-function: ease-in-out;
+  width: 100%;
+  z-index: 1;
+}
+
+.item-box  :hover {
+  border: solid 1px #0099E8;
+}
+
+.item-image {
+  display: block;
+  font-size: 0px;
+}
+
+
+.item-description {
+  display: block;
+  height: 64px;
+  background-color: white;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.1));
+  color: #333333;
+}
+
+/* 商品一覧終わり */
+
+/* アプリダウンロード始まり */
+
+
+.aside {
+  height: 260px;
+  background: url("https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?61716930");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.app-text {
+  padding: 30px;
+}
+
+.app-text h2 {
+  display: block;
+  color: #FFF;
+  font-size: 24px;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.app-text p {
+  color: #FFF;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: left;
+  }
+
+.app-text__figure {
+  display: flex;
+  padding: 24px;
+  height: 68px;
+}
+.app-text__figure ul {
+  display: flex;
+}
+.app-text__figure li {
+  padding: 10px;
+}
+.app-text__figure li a:hover {
+  opacity: 0.7;
+}
+  
+/* アプリダウンロード終わり */
+
+/* footer始まり */
+
+/* .footer {
+  background: #222;
+  height: 400px;
+}
+
+.footer h2 {
+  color: #fff;
+  font-size: 16px;
+  text-align: left;
+}
+
+
+.footer a {
+  color: #BCBCBC;
+  font-size: 12px;
+}
+
+.footer i {
+  color: #fff;
+  font-size: 3em;
+	font-size: 30px;
+}
+
+.footer span {
+  color: white;
+}
+
+.footer-content {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.footer-top__content {
+  width: 80%;
+  margin: 0 30px;
+  text-align: left;
+}
+
+.footer-top__content li {
+  margin-top: 12px;
+}
+
+.footer-top__content li :hover {
+  text-decoration: underline;
+}
+
+.footer-top__content--social {
+display: flex;
+margin-top: 30px;
+}
+
+.footer-top__content--social li {
+  padding-right: 20px;
+  text-decoration: none;
+}
+
+.footer-top__content--social--divide {
+  display: flex;
+}
+
+.footer-top__content--social--left {
+  width: 50%;
+  margin-right: 20px;
+}
+
+.footer-top__content--social--right {
+  width: 50%;
+  margin-right: 20px;
+}
+
+.footer-bottom {
+  display: flex;
+  height: auto;
+}
+
+.footer-bottom a {
+  width: 50%;
+}
+
+.footer-bottom a :hover {
+  opacity: 0.7;
+}
+
+.footer-bottom span {
+  line-height: 33px;
+  font-size: 12px;
+} */
+
+
+/* footer終わり */
+
+.aside {
+  height: 260px;
+  background: url("https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?61716930");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.app-text {
+  padding: 30px;
+}
+.app-text h2 {
+  color: #FFF;
+  font-size: 24px;
+  text-align: left;
+  font-weight: bold;
+}
+.app-text p {
+  color: #FFF;
+  font-size: 36px;
+  text-align: left;
+}
+.app-text__figure {
+  display: flex;
+  padding: 24px;
+}
+.app-text__figure ul {
+  display: flex;
+}
+.app-text__figure ul li {
+  padding: 10px;
+}
+.app-text__figure ul a:hover {
+  opacity: 0.7;
+}
+
+.footer {
+  background: #222;
+  height: 400px;
+}
+.footer h2 {
+  color: #fff;
+  font-size: 16px;
+  text-align: left;
+}
+.footer a {
+  color: #BCBCBC;
+  font-size: 12px;
+}
+.footer i {
+  color: #fff;
+  font-size: 3em;
+}
+.footer span {
+  color: white;
+}
+
+.footer-content {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.footer-top__content {
+  margin: 0 30px;
+  text-align: left;
+}
+.footer-top__content li {
+  margin-top: 12px;
+}
+.footer-top__content li:hover {
+  text-decoration: underline;
+}
+.footer-top__content--social {
+  display: flex;
+}
+.footer-top__content--social li {
+  padding-right: 20px;
+}
+.footer-top__content--divide {
+  display: flex;
+}
+.footer-top__content--divide--left {
+  width: 50%;
+  margin-right: 20px;
+}
+
+.footer-bottom {
+  display: flex;
+  padding: 20px 0;
+}
+.footer-bottom a {
+  width: 50%;
+}
+.footer-bottom a:hover {
+  opacity: 0.7;
+}
+.footer-bottom span {
+  line-height: 33px;
+  font-size: 12px;
+}
+
+.footer-lists {
+  max-height: 250px;
+}
+
+
+.sell-btn{
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 100;
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #ea352d;
+}
+
+.sell-btn div {
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0 5px;
+}
+.sell-btn i {
+  color: #fff;
+  font-size: 3.8em;
+  display: inline-block;
+  padding: 0 50px;
+}
