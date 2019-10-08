@@ -3,8 +3,9 @@
 ## usersテーブル（ユーザー）
 
 1. User（ユーザー）はcard(クレカ情報）を１つしか持てない→１対１のため`has_one`使用
-2. Trades(取引)とは多対多の関係のため、trade_member（中間テーブル）を通して関連づける
-3. User（ユーザー）はreputations（評価）テーブル内にidを２つ(評価者と対象者)持っている
+2. User（ユーザー）はadress(発送用住所）を１つしか持てない→１対１のため`has_one`使用
+3. Trades(取引)とは多対多の関係のため、trade_member（中間テーブル）を通して関連づける
+4. User（ユーザー）はreputations（評価）テーブル内にidを２つ(評価者と対象者)持っている
 
 |Column|Type|Options|
 |------|----|-------|
@@ -18,34 +19,46 @@
 |ja_family_name|string|null: false|
 |ja_first_name|string|null: false|
 |birthday|integer|null: false|
-|postal_code|inteder|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|address|string|null: false|
-|building_name|string|null: false|
-|delivery_phone|integer| |
 |authenticate_phone|integer|null: false, unique: true|
 
 ### Association
-- has_one :cards
+- has_one :card
+- has_one :address
 - has_many :items
 - has_many :item_comments
 - has_many :likes
 - has_many :trade_comments
 - has_many :rater_users, foreign_key: "rater_id", class_name: "reputation"
-　→`class_name`で、reputations（評価）テーブル内のrater_idを「rater_user」として紐付け。
+  →`class_name`で、reputations（評価）テーブル内のrater_idを「rater_user」として紐付け。
 - has_many :target_users, foreign_key: "target_id", class_name: "reputation"
-　→同上
+  →同上
 - has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
-　→出品中
+  →出品中
 - has_many :trading_sold_items, -> { where("buyer_id is not NULL" AND "received_buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
-　→出品取引中
+  →出品取引中
 - has_many :sold_items, -> { where("buyer_id is not NULL" AND "received_buyer_id is not NULL")  }, foreign_key: "saler_id", class_name: "Item"
-　→売却済
+  →売却済
 - has_many :trading_bought_items, -> { where("received_buyer_id is NULL") }, foreign_key: "buyer_id", class_name: "Item"
-　→購入取引中
+  →購入取引中
 - has_many :bought_items, -> { where("received_buyer_id is not NULL") }, foreign_key: "buyer_id", class_name: "Item"
-　→購入済
+  →購入済
+
+---
+
+## addressesテーブル（発送用住所）
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|postal_code|inteder|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|street_number|string|null: false|
+|building_name|string|null: false|
+|delivery_phone|integer| |
+
+## Association
+- belongs_to :user
 ---
 
 ## cardsテーブル（クレカ）
