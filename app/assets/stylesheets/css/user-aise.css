@@ -1,0 +1,74 @@
+a {
+  text-decoration: none;
+}
+
+
+
+body {
+  background-color: #eee;
+}
+
+li {
+  list-style: none;
+}
+
+.user{
+  background-color: white;
+  height: 672px;
+  width: 280px;
+  margin: 100px 0 0 100px;
+  padding: 0;
+}
+
+.user-info-list {
+  padding: 0;
+  width: 280px;
+  height: 48px;
+  border-bottom: #eee solid 1px;
+  margin: 0;
+}
+
+.user-info-various {
+  width: 280px;
+  height: 48px;
+  
+}
+.user-info-list .user-info-various a {
+  font-size: 14px;
+  color: #333333;
+  display: block;
+  height: 48px;
+  line-height: 48px;
+  padding-left: 8px;
+}
+
+.user-info-list .user-info-various a:hover {
+  color: black;
+  padding-left: 10px;
+  font-weight: bold;
+  background-color: #eee;
+}
+
+
+.blank {
+  opacity: 0;}
+
+.list-name {
+  display: block;
+  margin: 50px 0 0 100px;
+}
+.user-merpay {
+  background-color: white;
+  height: 95px;
+  width: 280px;
+  margin: 0 0 0 100px;
+  padding: 0;
+}
+
+.user-config {
+  background-color: white;
+  height: 338px;
+  width: 280px;
+  margin: 0 0 0 100px;
+  padding: 0;
+}
