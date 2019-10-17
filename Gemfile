@@ -69,3 +69,4 @@ gem 'devise'
 gem 'ancestry'
 
 gem 'haml-rails'
+gem 'font-awesome-sass'
