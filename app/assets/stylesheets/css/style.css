@@ -84,9 +84,25 @@ header {
   height: 44px;
 }
 
-.search_tag {
+i.search_tag {
   float: left;
   padding: 0;
+}
+
+i.fa-list-ul {
+  color:#EA352D;
+}
+
+i.fa-tag {
+  color:#EA352D;
+}
+
+i.fa-angle-right {
+  color: #0099E8;;
+}
+
+i.fa-search {
+  color:#333;
 }
 
 .nav_left ul li {
@@ -274,7 +290,6 @@ a {
 }
 
 .container {
-  
   width: 1020px;
   height: 650px;
   margin: 0 auto;
@@ -313,52 +328,60 @@ a {
  height: 14px;
 }
 
-.main-container {
-  margin: 10px auto 0;
-  max-width: 1060px;
-  position: relative;
+#flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.items-wrapper {
-  display: grid;
-  grid-template-columns: 188px 188px 188px 188px 188px;
-  grid-template-rows: 252px 252px;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  justify-items: stretch;
-  align-items: stretch;
+#flex-container__item-box {
+  margin-top:20px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
-
-.item-box {
-  height: 64px;
-  display: inline-block;
-  box-sizing: border-box;
-  padding-left: 4px;
-  border: 1px solid transparent;
-  transition-duration: .1s;
-  transition-timing-function: ease-in-out;
-  width: 100%;
-  z-index: 1;
+#flex-container__item-box :hover {
+  box-shadow: 4px 4px 4px rgba(0,149,238,0.1);
 }
 
-.item-box  :hover {
-  border: solid 1px #0099E8;
-}
-
-.item-image {
+.figure {
+  position:relative;
   display: block;
-  font-size: 0px;
+  line-height: 1;
+  overflow: hidden;
 }
 
-
-.item-description {
-  display: block;
-  height: 64px;
-  background-color: white;
-  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.1));
-  color: #333333;
+figure img {
+  vertical-align: text-bottom;
 }
+
+.flex-container__item-box__yen {
+  color:#FFFFFF;
+  font-size:17px;
+  font-weight:600;
+  background-color:rgba(0,0,0,0.4);
+  padding:0 12px;
+  border-top-right-radius:1em;
+  border-bottom-right-radius:1em;
+  box-sizing:border-box;
+  position:absolute;
+  top:160px;
+}
+
+.figure figcaption {
+  max-width: 188px;
+  height:65px;
+  color: #222;
+  box-sizing:border-box;
+  background-color: #ffffff;
+  font-size:14px;
+  padding:10px 10px;
+  text-overflow:ellipsis;
+  line-height: 1.4em;
+  white-space: normal;
+  word-break: break-word;
+  display:block;
+}
+
 
 /* 商品一覧終わり */
 
