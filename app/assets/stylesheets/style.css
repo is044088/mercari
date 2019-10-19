@@ -235,7 +235,7 @@ header {
   background-color: #F5F5F5;
   padding: 0 40px 0 10px;
   height: 40px;
-  width: 790px;
+  width: 840px;
   border-width: 1px;
   border-style: solid;
   border-color: rgb(204, 204, 204);
@@ -259,7 +259,6 @@ header {
   border-image: initial;
   border-radius: 0px 4px 4px 0px;
   padding: 0px;
-  right: 50px;
 }
 
 .bottom_header {
@@ -273,6 +272,7 @@ header {
   float: left;
   width: 308px;
   height: 44px;
+  margin-top: 13px;
 }
 
 i.search_tag {
@@ -334,6 +334,10 @@ margin-right: 22px;
   border-radius: 4px;
   font-size: 14px;
   margin-left: 10px;
+}
+.nav_right ul .user_sign_in:hover {
+  color: white;
+  background-color: #0095EE;
 }
 
 /* header終わり */
