@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     get 'logout', to: 'users/sessions#logout', as: 'logout'
   end
 
-  resources :items
+  get "items/index" => "items#index"
+  get "items/show" => "items#show"
 end
