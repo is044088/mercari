@@ -1,0 +1,8 @@
+.contents
+  .logout-content
+    .logout-box
+      .logout-box__btn
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+    - if user_signed_in?
+      =current_user.nickname
+
