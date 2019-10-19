@@ -104,9 +104,6 @@ header {
   list-style: none;
 }
 
- i.fas {
-  color:#EA352D;
-}
 
 .gnav li a {
   background: #fff;
@@ -565,7 +562,7 @@ figure img {
 
 /* アプリダウンロード始まり */
 
-
+/* 
 .aside {
   height: 260px;
   background: url("https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?61716930");
@@ -610,7 +607,7 @@ figure img {
 }
 .app-text__figure li a:hover {
   opacity: 0.7;
-}
+} */
   
 /* アプリダウンロード終わり */
 
@@ -715,7 +712,7 @@ margin-top: 30px;
 
 /* footer終わり */
 
-.aside {
+/* .aside {
   height: 260px;
   background: url("https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?61716930");
   background-position: center;
@@ -752,9 +749,9 @@ margin-top: 30px;
 }
 .app-text__figure ul a:hover {
   opacity: 0.7;
-}
+} */
 
-.footer {
+/* .footer {
   background: #222;
   height: 400px;
 }
@@ -827,9 +824,9 @@ margin-top: 30px;
 
 .footer-lists {
   max-height: 250px;
-}
+} */
 
-
+/* 
 .sell-btn{
   position: fixed;
   bottom: 32px;
@@ -853,4 +850,4 @@ margin-top: 30px;
   font-size: 3.8em;
   display: inline-block;
   padding: 0 50px;
-}
+} */
