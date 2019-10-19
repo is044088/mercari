@@ -1,0 +1,44 @@
+.contents
+  .login-content
+    .login-box
+      .new-box__header
+        = image_tag "mrcr-logo.png",class:"login-logo"
+      .login-box__signup
+        %p.login-text
+          アカウントをお持ちでない方はこちら
+        %a{href:"/",class:"login-signup-btn login-btn"}
+          新規会員登録
+      .login-box__other-login
+        %a{href:"/",class:""}
+          .other-btn.facebook-btn
+            = icon 'fab', 'facebook-square',class:"other-icon facebook-icon"
+            Facebookでログイン
+        %a{href:"/",class:""}
+          .other-btn.google-btn.F-black
+            Googleでログイン
+      .login-box__form
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .login-box__form__group
+            = f.email_field :email, autofocus: true, class:'login-form', placeholder:"メールアドレス", value:""
+          .login-box__form__group
+            = f.password_field :password, autocomplete: "current-password",class:"login-form", placeholder:"パスワード", value:""
+          .login-box__form__captcha
+            （仮）reCAPTCHA
+          .login-box__form__btn
+            = f.submit "ログイン", class:"login-send-btn login-btn"
+        %a{href:"/",class:"login-link"}
+          パスワードをお忘れの方
+      .new-box__footer
+        .new-box__footer__nav
+          %ul
+            %li.new-nav-list
+              %a{href:"/"}
+                プライバシーポリシー
+            %li.new-nav-list
+              %a{href:"/"}
+                メルカリ利用規約
+            %li.new-nav-list
+              %a{href:"/"}
+                特定商取引に関する規約
+        .new-box__footer__icon
+          = image_tag 'mrcr-footer-icon.png',class:"new-footer-icon"

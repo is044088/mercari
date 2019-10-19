@@ -4,6 +4,9 @@
 Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( slick.css )
 Rails.application.config.assets.precompile += %w( slick-theme.css )
+Rails.application.config.assets.precompile += %w( ress.css )
+Rails.application.config.assets.precompile += %w( style.css )
+Rails.application.config.assets.precompile += %w( item_show.css )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

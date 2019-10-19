@@ -6,10 +6,201 @@
   box-sizing: border-box;
 }
 
+/* fontawesome共通 */
+
+i.fa-list-ul {
+  color:#EA352D;
+}
+
+i.fa-tag {
+  color:#EA352D;
+}
+
+i.fa-angle-right {
+  color: #0099E8;;
+}
+
+i.fa-search {
+  color:#333;
+}
+
+/* fontawesome共通 */
+
 /* header始まり */
 
-
 header {
+  background-color:#ffffff;
+  width:100%;
+  margin:0;
+  padding-top:8px;
+}
+
+.header-inner {
+  margin:0 auto;
+  width:1020px;
+}
+
+.header-top {
+  height:40px;
+  display:flexbox;
+}
+
+.header-top__logo {
+  float:left;
+  margin-right:10px;
+}
+
+.header-top__search .search_products .search_bar {
+  background-color: #F5F5F5;
+  padding: 0 40px 0 10px;
+  height: 40px;
+  width: 790px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(204, 204, 204);
+  border-image: initial;
+  border-radius: 4px;
+  outline: none;
+  position: relative;
+}
+
+.search_products button {
+  background-color: transparent;
+  cursor: pointer;
+  height: 45px;
+  width: 40px;
+  position: absolute;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 0px 4px 4px 0px;
+  padding: 0px;
+  top:10px;
+  right: 300px;
+}
+
+
+.header-bottom__left {
+  display:block;
+}
+
+
+.gnav {
+  display: flex;
+  height: 2rem;
+  width: 1020px;
+}
+
+/*親階層のみ幅を25%にする*/
+.gnav > li {
+  height:45px;
+  width: 310px;
+  font-weight:600;
+}
+
+/*全てのリスト・リンク共通*/
+.gnav li {
+  list-style: none;
+}
+
+ i.fas {
+  color:#EA352D;
+}
+
+.gnav li a {
+  background: #fff;
+  border-right: 1px solid #eee;
+  color: black;
+  display: block;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.gnav li a span.search-category:hover {
+  color:#0095EE;
+}
+
+.gnav li a span.search-brand:hover {
+  color:#0095EE;
+}
+
+/*子階層以降共通*/
+.gnav li li {
+  height: 0;
+  overflow: hidden;
+  transition: .3s;
+  z-index: 2000;
+}
+.gnav li li a {
+  border-top: 1px solid #eee;
+  font-weight:100;
+}
+
+.gnav li:hover > ul > li {
+  height: 2rem;
+  overflow: visible;
+  color:white;
+  background-color:#EA352D;
+}
+
+.gnav #search-category:hover > ul > li.parent a.parent-a:hover{
+  color:white;
+  background-color:#EA352D;
+}
+
+.gnav #search-category:hover > ul > li.parent a.parent-a:hover > ul > li.child > a.child-a:hover {
+  color:white;
+  background-color:#EA352D;
+}
+
+/*孫階層以降共通*/
+/* 子要素狙い撃ちする */
+.gnav li ul li ul {
+  font-size:14px;
+  left: 100%;
+  position: absolute;
+  top: 33px;
+  left:465px;
+  width: 260px;
+}
+
+.gnav li ul li ul :hover {
+  background-color:#EEEEEE;
+}
+
+/* 孫要素狙い撃ちする */
+.gnav li ul li ul li ul {
+  font-size:14px;
+  left: 100%;
+  position: absolute;
+  top: 0px;
+  left:255px;
+  width: 260px;
+}
+
+.gnav li ul li ul li ul {
+  background-color:#EEEEEE;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* header {
   background-color: #ffffff;
   width: 100vw;
   height: 120px;
@@ -44,7 +235,7 @@ header {
   background-color: #F5F5F5;
   padding: 0 40px 0 10px;
   height: 40px;
-  width: 840px;
+  width: 790px;
   border-width: 1px;
   border-style: solid;
   border-color: rgb(204, 204, 204);
@@ -68,6 +259,7 @@ header {
   border-image: initial;
   border-radius: 0px 4px 4px 0px;
   padding: 0px;
+  right: 50px;
 }
 
 .bottom_header {
@@ -81,28 +273,11 @@ header {
   float: left;
   width: 308px;
   height: 44px;
-  margin-top: 13px;
 }
 
 i.search_tag {
   float: left;
   padding: 0;
-}
-
-i.fa-list-ul {
-  color:#EA352D;
-}
-
-i.fa-tag {
-  color:#EA352D;
-}
-
-i.fa-angle-right {
-  color: #0099E8;;
-}
-
-i.fa-search {
-  color:#333;
 }
 
 .nav_left ul li {
@@ -140,7 +315,7 @@ margin-right: 22px;
 .nav_right ul li {
   display: inline;
   /* margin-top: 15px; */
-}
+
 
 .nav_right ul .user_sign_up {
   background-color: #EA352D;
@@ -159,11 +334,6 @@ margin-right: 22px;
   border-radius: 4px;
   font-size: 14px;
   margin-left: 10px;
- 
-}
-.nav_right ul .user_sign_in:hover {
-  color: white;
-  background-color: #0095EE;
 }
 
 /* header終わり */
