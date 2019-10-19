@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   get "items/index" => "items#index"
   get "items/show" => "items#show"
+  get "items/delete" => "items#delete"
 end
