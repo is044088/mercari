@@ -9,7 +9,7 @@ $(function () {
     draggable: false,//ドラッグでスライダーを動かせるか(true or false)
     speed: 800,//ページ送りの速度(ミリ秒単位)
     centerMode: true,//表示中の画像を中おい配置するか(true or false)
-    pauseOnHover:false,//マウスオーバー時にスライドを止めるか(true or false)
+    pauseOnHover: false,//マウスオーバー時にスライドを止めるか(true or false)
     dots: true,//現在の表示を示すポインタを表示するか(true or false)
     arrows: true,//ページ送りの矢印を表示するか(true or false)
     fade: false,//スライドの仕方をフェードインアウトにするか(true or false)

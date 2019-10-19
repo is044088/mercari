@@ -79,39 +79,39 @@
 
 .slick-prev
 {
-    left: -25px;
+    left: 50px;
 }
 [dir='rtl'] .slick-prev
 {
-    right: -25px;
-    left: auto;
+    left: 50px;
+
 }
-.slick-prev:before
-{
-    content: '←';
-}
-[dir='rtl'] .slick-prev:before
-{
-    content: '→';
-}
+// .slick-prev:before
+// {
+//     content: '←';
+// }
+// [dir='rtl'] .slick-prev:before
+// {
+//     content: '→';
+// }
 
 .slick-next
 {
-    right: -25px;
+    right: 50px;
 }
 [dir='rtl'] .slick-next
 {
-    right: auto;
-    left: -25px;
+
+    left: 50px;
 }
-.slick-next:before
-{
-    content: '→';
-}
-[dir='rtl'] .slick-next:before
-{
-    content: '←';
-}
+// .slick-next:before
+// {
+//     content: '→';
+// }
+// [dir='rtl'] .slick-next:before
+// {
+//     content: '←';
+// }
 
 /* Dots */
 /*.slick-dotted.slick-slider
