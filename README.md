@@ -42,7 +42,6 @@
   →購入取引中
 - has_many :bought_items, -> { where("received_buyer_id is not NULL") }, foreign_key: "buyer_id", class_name: "Item"
   →購入済
-
 ---
 
 ## addressesテーブル（発送用住所）
@@ -118,8 +117,8 @@
 　→`class_name`でUserモデルと紐付け（擬似的に「raterモデル」を作り出すことで、rater_idとuser_idが紐づく）。
 - belongs_to :target, class_name: 'User'
 　→同上
-
 ---
+
 ## trade_commentsテーブル（取引コメント）
 
 |Column|Type|Options|
@@ -131,8 +130,8 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-
 ---
+
 ## itemsテーブル
 
 |Column|Type|Options|
@@ -148,7 +147,7 @@
 |profit|integer|null: false|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
-|size_id|references|null: false, foreign_key: true|
+|size_id|references|foreign_key: true|
 |saler_id|integer|null: false, foreign_key: true|
 |buyer_id|integer|foreign_key: true|
 |shipped_saler_id|integer|foreign_key: true|
@@ -167,8 +166,8 @@
 - belongs_to :buyer, class_name: 'User'
 - belongs_to :shipped_saler, class_name: 'User'
 - belongs_to :received_buyer, class_name: 'User'
-
 ---
+
 ## imagesテーブル
 
 |Column|Type|Options|
@@ -178,17 +177,21 @@
 
 ### Association
 - belongs_to :item
-
 ---
+
 ## categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|ancestry|string|add_index|
 |name|string|null: false|
+|ancestry|string|add_index|
 
 ### Association
 - has_many :items
+- has_many :categories_sizes
+- has_many :sizes, through: :categories_sizes
+- has_many :categories_brands
+- has_many :brands, through: :categories_brands
 - has_ancestry
 ---
 
@@ -197,17 +200,49 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|brand_group_num|integer|null: false|
+|ancestry|string|add_index|
 
 ### Association
 - has_many :items
+- has_many :categories_brands
+- has_many :categories, through: :categories_brands
+- has_ancestry
+---
+
+## categories_brandsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|category_id|references|null: false, foreign_key: true|
+|brand_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :category
+- belongs_to :brand
+---
 
 ## sizesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|size_group_num|integer|null: false|
+|ancestry|string|add_index|
 
 ### Association
 - has_many :items
+- has_many :categories_sizes
+- has_many :categories, through: :categories_sizes
+- has_ancestry
+---
+
+## categories_sizesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|category_id|references|null: false, foreign_key: true|
+|size_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :category
+- belongs_to :size
+---

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'mypage/todo' => 'users#todo'
   get 'mypage/purchase' => 'users#purchase'
   get 'mypage/purchased' => 'users#purchased'
+  get "items/index" => "items#index"
+  get "items/show" => "items#show"
+  get "items/delete" => "items#delete"
   resources :items
-
 end
