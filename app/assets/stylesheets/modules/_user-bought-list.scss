@@ -6,7 +6,7 @@
 
 .bought-content{
   @include content;
-
+  float: right;
   &__head{
     padding: 0 16px;
     background: #fafafa;
@@ -55,6 +55,8 @@
       &__lists {
         padding: 0px;
         margin: 0px;
+        height: auto;
+        overflow: hidden;
         &__item{
           padding: 16px;
           border-bottom: 1px solid #eee;
@@ -70,6 +72,7 @@
             .bought-item-status{
               margin: 8px 0 0 0;
               padding: 2px 6px;
+              box-sizing: content-box;
               font-size: 12px;
               color: #fff;
               border-radius: 2px;

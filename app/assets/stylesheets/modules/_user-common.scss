@@ -21,8 +21,15 @@ a{
   weight: 50px;
 }
 
-.other-icon{
-  
+.mypage-flash-notice{
+  width:100vw;
+  height:65px;
+  background-color: #E0F0E0;
+  text-align: center;
+  line-height: 65px;
+  font-size: 16px;
+  color: #557722;
+  transition: opacity 1s ease 0s;
 }
 
 .form-bottom-text-link {
