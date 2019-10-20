@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
   root 'items#index'
-  devise_for :users, :controllers => {
- :registrations => 'users/registrations',
- :sessions => 'users/sessions'
-}
-  devise_scope :user do
-    get 'logout', to: 'users/sessions#logout', as: 'logout'
-  end
+  devise_for :users
 
+  resources :users
+  get 'logout' => 'users#logout'
   resources :items
+
 end
