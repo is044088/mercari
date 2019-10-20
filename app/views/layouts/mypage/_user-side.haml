@@ -3,118 +3,113 @@
     %ul.user
       %li.user-info-list
         .user-info-various
-          = link_to 'マイページ', 'mypage'
+          = link_to 'マイページ', mypage_path
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to 'お知らせ', mypage_notification_path
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to 'やることリスト', mypage_todo_path
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          %a.products-state{:href => "#"}
+            いいね！一覧  (未)
+            = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          %a{:href => "#"}
+            出品する  (未)
+            = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          %a{:href => "#"}
+            出品した商品ー出品中  (未)
+            = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          %a{:href => "#"}
+            出品した商品ー取引中  (未)
+            = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          %a{:href => "#"}
+            出品した商品-売却済み (未)
+            = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '購入した商品-取引中', mypage_purchase_path
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '購入した商品-過去の取引', mypage_purchased_path
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
           %a{:href => "#"}
-            お知らせ
+            ニュース一覧  (未)
             = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
           %a{:href => "#"}
-            やることリスト
-            = icon "fas", "chevron-right",class:"other-icon next-icon"
-      %li.user-info-list
-        .user-info-various
-          %a.products-state{:href => "#"}
-            いいね！一覧
+            評価一覧  (未)
             = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
           %a{:href => "#"}
-            出品する
+            ガイド  (未)
             = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
           %a{:href => "#"}
-            出品した商品ー出品中
-            = icon "fas", "chevron-right",class:"other-icon next-icon"
-      %li.user-info-list
-        .user-info-various
-          %a{:href => "#"}
-            出品した商品ー取引中
-            = icon "fas", "chevron-right",class:"other-icon next-icon"
-      %li.user-info-list
-        .user-info-various
-          %a{:href => "#"}
-            出品した商品-売却済み
-            = icon "fas", "chevron-right",class:"other-icon next-icon"
-      %li.user-info-list
-        .user-info-various
-          %a{:href => "#"}
-            購入した商品-取引中
-            = icon "fas", "chevron-right",class:"other-icon next-icon"
-      %li.user-info-list
-        .user-info-various
-          %a.products-state{:href => "#"}
-            購入した商品-過去の取引
-            = icon "fas", "chevron-right",class:"other-icon next-icon"
-      %li.user-info-list
-        .user-info-various
-          %a{:href => "#"}
-            ニュース一覧
-            = icon "fas", "chevron-right",class:"other-icon next-icon"
-      %li.user-info-list
-        .user-info-various
-          %a{:href => "#"}
-            評価一覧
-            = icon "fas", "chevron-right",class:"other-icon next-icon"
-      %li.user-info-list
-        .user-info-various
-          %a{:href => "#"}
-            ガイド
-            = icon "fas", "chevron-right",class:"other-icon next-icon"
-      %li.user-info-list
-        .user-info-various
-          %a{:href => "#"}
-            お問い合わせ
+            お問い合わせ  (未)
             = icon "fas", "chevron-right",class:"other-icon next-icon"
     %h3.list-name メルペイ
     %ul.user-merpay
       %li.user-info-list
         .user-info-various
           %a{:href => "#"}
-            売り上げ・振込申請
+            売り上げ・振込申請  (未)
             = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
           %a{:href => "#"}
-            ポイント
+            ポイント  (未)
             = icon "fas", "chevron-right",class:"other-icon next-icon"
     %h3.list-name 設定
     %ul.user-config
       %li.user-info-list
         .user-info-various
+          = link_to 'プロフィール', mypage_profile_path
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
           %a{:href => "#"}
-            プロフィール
+            発送元・お届け先住所変更  (未)
             = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
           %a{:href => "#"}
-            発送元・お届け先住所変更
+            支払い方法  (未)
             = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
           %a{:href => "#"}
-            支払い方法
+            メール/パスワード (未)
             = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
           %a{:href => "#"}
-            メール/パスワード
+            本人情報  (未)
             = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
           %a{:href => "#"}
-            本人情報
+            電話番号の確認  (未)
             = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
-          %a{:href => "#"}
-            電話番号の確認
-            = icon "fas", "chevron-right",class:"other-icon next-icon"
-      %li.user-info-list
-        .user-info-various
-          = link_to 'ログアウト', 'logout'
+          = link_to 'ログアウト', logout_path
           = icon "fas", "chevron-right",class:"other-icon next-icon"
