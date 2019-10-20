@@ -1,0 +1,22 @@
+-# = render '/items/header'
+
+.mypage_contents
+  .bought-content
+    .bought-content__head
+      %h1.bought-content__head__title.F-bold.F-black
+        購入した商品
+    .bought-content__tab
+      %input#bought-tab1{name:"bought-tab", type:"radio"}
+      %label{for:"bought-tab1",class:"bought-tab-label"}
+        取引中
+      %input#bought-tab2{name:"bought-tab", type:"radio", checked:"checked"}
+      %label{for:"bought-tab2",class:"bought-tab-label"}
+        過去の取引
+
+      -# お知らせタブの中身
+      = render "/layouts/mypage/purchase"
+      = render "/layouts/mypage/purchased"
+  = render '/layouts/mypage/user-side'
+
+= render '/items/aside'
+= render '/items/footer'
