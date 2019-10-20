@@ -25,7 +25,7 @@
       %label{for:"mypage-tab2", class:"mypage-tab-label"}
         やることリスト
       -# お知らせタブの中身
-      = render "/layouts/mypage/notificatio"
+      = render "/layouts/mypage/notification"
       -# やることリストタブの中身
       = render "/layouts/mypage/todolist"
 
@@ -46,7 +46,7 @@
         .bought-content__tab__box#bought-tab1-box
           %ul.bought-content__tab__box__lists
             %li.bought-content__tab__box__lists__item
-              %a{ href: '/'}
+              = link_to "#", class:"user-link login-link" do
                 %figure
                   = image_tag "no_img_icon.png", class:"list-icon"
                 .bought-content__tab__box__lists__item__text
@@ -55,7 +55,7 @@
                   .bought-item-status.F-bold.action-required
                     受取評価待ち
             %li.bought-content__tab__box__lists__item
-              %a{ href: '/'}
+              = link_to "#", class:"user-link login-link" do
                 %figure
                   = image_tag "no_img_icon.png", class:"list-icon"
                 .bought-content__tab__box__lists__item__text
@@ -64,7 +64,7 @@
                   .bought-item-status.F-bold.action-required
                     受取評価待ち
             %li.bought-content__tab__box__lists__item
-              %a{ href: '/'}
+              = link_to "#", class:"user-link login-link" do
                 %figure
                   = image_tag "no_img_icon.png", class:"list-icon"
                 .bought-content__tab__box__lists__item__text
@@ -73,13 +73,15 @@
                   .bought-item-status.F-bold.action-required
                     受取評価待ち
             %li.mypage-content__tab__box__lists__all
-              .mypage-content__tab__box__lists__all__box
-                = link_to '一覧を見る', mypage_purchase_path, class:"F-black"
+              = link_to mypage_purchase_path, class:"user-link login-link" do
+                .mypage-content__tab__box__lists__all__box
+                  %p.F-black
+                    一覧を見る'
         -# 過去の取引タブの中身
         .bought-content__tab__box#bought-tab2-box
           %ul.bought-content__tab__box__lists
             %li.bought-content__tab__box__lists__item
-              %a{ href: '/'}
+              = link_to "#", class:"user-link login-link" do
                 %figure
                   = image_tag "no_img_icon.png", class:"list-icon"
                 .bought-content__tab__box__lists__item__text
@@ -88,7 +90,7 @@
                   .bought-item-status.F-bold.done
                     取引完了
             %li.bought-content__tab__box__lists__item
-              %a{ href: '/'}
+              = link_to "#", class:"user-link login-link" do
                 %figure
                   = image_tag "no_img_icon.png", class:"list-icon"
                 .bought-content__tab__box__lists__item__text
@@ -97,7 +99,7 @@
                   .bought-item-status.F-bold.done
                     取引完了
             %li.bought-content__tab__box__lists__item
-              %a{ href: '/'}
+              = link_to "#", class:"user-link login-link" do
                 %figure
                   = image_tag "no_img_icon.png", class:"list-icon"
                 .bought-content__tab__box__lists__item__text
@@ -106,8 +108,10 @@
                   .bought-item-status.F-bold.done
                     取引完了
             %li.mypage-content__tab__box__lists__all
-              .mypage-content__tab__box__lists__all__box
-                = link_to '一覧を見る', mypage_purchased_path,class:"F-black"
+              = link_to mypage_purchased_path, class:"user-link login-link" do
+                .mypage-content__tab__box__lists__all__box
+                  %p.F-black
+                    一覧を見る'
 
   = render '/layouts/mypage/user-side'
 
