@@ -1,0 +1,108 @@
+// マイページ
+.mypage-content{
+  @include content;
+
+  .mypage-nickname{
+    font-size: 13px;
+  }
+
+  .mypage-number{
+    margin: 5px;
+  }
+  
+  &__header{
+    background: url("user-bg.jpg");
+    height: 200px;
+    text-align: center;
+    position: relative;
+    &__icons{
+      position: absolute;
+      top: 25px;
+      left: 0;
+      right: 0;
+    }
+    &__number{
+      font-size: 15px;
+      margin: 8px;
+      display: inline-block;
+    }
+  }
+// マイページ   タブの見た目
+  &__tab {
+    width: 700px;
+    background-color: #fff;
+    .mypage-tab-label {
+      height: 75px;
+      background-color: #eee;
+      width: calc(50%);
+      height: 75%;
+      line-height: 70px;
+      font-size: 16px;
+      text-align: center;
+      color: $mrcrFColor;
+      display: block;
+      text-align: center;
+      font-weight: bold;
+      float: left;
+      &:hover{
+        color:#999;
+      }
+    }
+    // マイページ タブの切り替え
+    input[name="mypage-tab"] {
+      display: none;
+    }
+    // マイページ タブの中身
+    &__box {
+      display: none;
+      width: 700px;
+      background-color: #fff;
+      font-size: 13px;
+      clear: both;
+      &__lists {
+        padding: 0px;
+        margin: 0px;
+        &__item{
+          padding: 16px;
+          border-bottom: 1px solid #eee;
+          figure {
+            float: left;
+            height: 50px;
+          }
+          &__text{
+            margin: 0 40px 0 68px;
+            min-height: 50px;
+            color: $mrcrFColor;
+            .mypage-time{
+              color: #888; 
+            }
+          }
+        }
+        &__all{
+          padding:16px;
+          &__box{
+            background-color: #eee;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+          }
+          &__box:hover{
+            background-color: rgb(245, 245, 245);
+          }
+        }
+      }
+    }
+
+    // タブの切り替え
+    // mypage-tabをクリックしたら、tab-boxが表示
+    #mypage-tab1:checked ~ #mypage-tab1-box, #mypage-tab2:checked ~ #mypage-tab2-box {
+      display: block;
+    }
+
+    input[name="mypage-tab"]:checked + .mypage-tab-label {
+      background-color: #fff;
+      border-top: 2px solid #ea352d;
+    }
+  }
+
+}

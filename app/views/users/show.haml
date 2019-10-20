@@ -1,0 +1,117 @@
+= render '/items/header'
+
+.mypage_contents
+  .mypage-content
+    .mypage-content__header
+      .mypage-content__header__icons
+        = image_tag "my-icon.jpg", class:"profile-icon"
+        %h1.mypage-nickname.F-bold.F-black
+          = current_user.nickname
+        .mypage-content__header__number
+          評価
+          %span.mypage-number.F-bold.F-black
+            3
+        .mypage-content__header__number
+          出品数
+          %span.mypage-number.F-bold.F-black
+            3
+
+    -# タブ：お知らせとやることリスト
+    .mypage-content__tab
+      %input#mypage-tab1{name:"mypage-tab", type:"radio", checked:"checked"}
+      %label{for:"mypage-tab1", class:"mypage-tab-label"}
+        お知らせ
+      %input#mypage-tab2{name:"mypage-tab", type:"radio"}
+      %label{for:"mypage-tab2", class:"mypage-tab-label"}
+        やることリスト
+      -# お知らせタブの中身
+      = render "/layouts/mypage/notificatio"
+      -# やることリストタブの中身
+      = render "/layouts/mypage/todolist"
+
+    -#  タブ：購入した商品情報 
+    .mypage-bought-content
+      .bought-content__head
+        %h1.bought-content__head__title.F-bold.F-black
+          購入した商品
+      .bought-content__tab
+        %input#bought-tab1{name:"bought-tab",  type:"radio", checked:"checked"}
+        %label{for:"bought-tab1", class:"bought-tab-label"}
+          取引中
+        %input#bought-tab2{name:"bought-tab",  type:"radio"}
+        %label{for:"bought-tab2", class:"bought-tab-label"}
+          過去の取引
+
+        -# 取引中の中身
+        .bought-content__tab__box#bought-tab1-box
+          %ul.bought-content__tab__box__lists
+            %li.bought-content__tab__box__lists__item
+              %a{ href: '/'}
+                %figure
+                  = image_tag "no_img_icon.png", class:"list-icon"
+                .bought-content__tab__box__lists__item__text
+                  .mypage-item-text
+                    《速報》今なら販売手数料が実質無料！出品が超お得♪
+                  .bought-item-status.F-bold.action-required
+                    受取評価待ち
+            %li.bought-content__tab__box__lists__item
+              %a{ href: '/'}
+                %figure
+                  = image_tag "no_img_icon.png", class:"list-icon"
+                .bought-content__tab__box__lists__item__text
+                  .mypage-item-text
+                    《速報》今なら販売手数料が実質無料！出品が超お得♪
+                  .bought-item-status.F-bold.action-required
+                    受取評価待ち
+            %li.bought-content__tab__box__lists__item
+              %a{ href: '/'}
+                %figure
+                  = image_tag "no_img_icon.png", class:"list-icon"
+                .bought-content__tab__box__lists__item__text
+                  .mypage-item-text
+                    《速報》今なら販売手数料が実質無料！出品が超お得♪
+                  .bought-item-status.F-bold.action-required
+                    受取評価待ち
+            %li.mypage-content__tab__box__lists__all
+              .mypage-content__tab__box__lists__all__box
+                %a{ href: '/', class: "F-black"}
+                  一覧を見る
+        -# 過去の取引タブの中身
+        .bought-content__tab__box#bought-tab2-box
+          %ul.bought-content__tab__box__lists
+            %li.bought-content__tab__box__lists__item
+              %a{ href: '/'}
+                %figure
+                  = image_tag "no_img_icon.png", class:"list-icon"
+                .bought-content__tab__box__lists__item__text
+                  .bought-item-text
+                    「秋冬感満載 フープ × フェザー ピアス イヤリング」 を購入しました。
+                  .bought-item-status.F-bold.done
+                    取引完了
+            %li.bought-content__tab__box__lists__item
+              %a{ href: '/'}
+                %figure
+                  = image_tag "no_img_icon.png", class:"list-icon"
+                .bought-content__tab__box__lists__item__text
+                  .bought-item-text
+                    「秋冬感満載 フープ × フェザー ピアス イヤリング」 を購入しました。
+                  .bought-item-status.F-bold.done
+                    取引完了
+            %li.bought-content__tab__box__lists__item
+              %a{ href: '/'}
+                %figure
+                  = image_tag "no_img_icon.png", class:"list-icon"
+                .bought-content__tab__box__lists__item__text
+                  .bought-item-text
+                    「秋冬感満載 フープ × フェザー ピアス イヤリング」 を購入しました。
+                  .bought-item-status.F-bold.done
+                    取引完了
+            %li.mypage-content__tab__box__lists__all
+              .mypage-content__tab__box__lists__all__box
+                %a{ href: '/', class: "F-black"}
+                  一覧を見る
+
+  = render '/layouts/mypage/user-side'
+
+= render '/items/aside'
+= render '/items/footer'

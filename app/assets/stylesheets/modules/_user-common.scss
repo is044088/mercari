@@ -21,18 +21,25 @@ a{
   weight: 50px;
 }
 
+.other-icon{
+  
+}
+
 .form-bottom-text-link {
   color: #0099e8;
   font-size: 14px;
 }
+
 .text-right{
   text-align: right;
 }
 
-.contents{
+.mypage_contents{
   background-color: $bodyColor;
   min-height: 100vh;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
+  margin: 40px 90px 0px 90px;
+  overflow: hidden;
 }
 
 .profile-icon{

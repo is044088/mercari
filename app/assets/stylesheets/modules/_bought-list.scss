@@ -1,0 +1,102 @@
+// 取引リスト
+
+.mypage-bought-content{
+  margin: 40px 0 0;
+}
+
+.bought-content{
+  @include content;
+
+  &__head{
+    padding: 0 16px;
+    background: #fafafa;
+    height: 70px;
+    clear: both;
+    &__title{
+      font-size: 16px;
+      line-height: 70px;
+    }
+  }
+
+// 取引リスト   タブの見た目
+  &__tab {
+    width: 700px;
+    background-color: #fff;
+    clear: both;
+    .bought-tab-label {
+      height: 75px;
+      background-color: #eee;
+      width: calc(50%);
+      height: 75%;
+      line-height: 70px;
+      font-size: 16px;
+      text-align: center;
+      color: $mrcrFColor;
+      display: block;
+      float: left;
+      text-align: center;
+      font-weight: bold;
+      &:hover{
+        color:#999;
+      }
+    }
+
+    // タブの切り替え
+    input[name="bought-tab"] {
+      display: none;
+    }
+    // タブの中身
+    &__box {
+      display: none;
+      width: 700px;
+      background-color: #fff;
+      font-size: 13px;
+      clear: both;
+      &__lists {
+        padding: 0px;
+        margin: 0px;
+        &__item{
+          padding: 16px;
+          border-bottom: 1px solid #eee;
+          figure {
+            float: left;
+            height: 50px;
+          }
+          &__text{
+            margin: 0 40px 0 68px;
+            min-height: 50px;
+            color: $mrcrFColor;
+
+            .bought-item-status{
+              margin: 8px 0 0 0;
+              padding: 2px 6px;
+              font-size: 12px;
+              color: #fff;
+              border-radius: 2px;
+            }
+            .done{
+              width: 48px;
+              background-color: #888;
+            }
+            .action-required{
+              width: 72px;
+              background-color: $mrcrRed;
+            }
+          }
+        }
+      }
+    }
+
+    // タブの切り替え
+    // bought-tabをクリックしたら、tab-boxが表示
+    #bought-tab1:checked ~ #bought-tab1-box, #bought-tab2:checked ~ #bought-tab2-box {
+      display: block;
+    }
+
+    input[name="bought-tab"]:checked + .bought-tab-label {
+      background-color: #fff;
+      border-top: 2px solid #ea352d;
+    }
+  }
+
+}

@@ -20,6 +20,7 @@
     text-align: center;
     ul{
       padding:0px;
+      height:30px;
     }
     .new-nav-list{
       display: inline-block;
@@ -198,7 +199,8 @@
   height: 179px;
   background-color: #fff;
   position: relative;
-
+  float: right;
+  margin:0;
   a{
     color:  #fff;
   }
