@@ -1,0 +1,19 @@
+= render '/items/header'
+
+.mypage_contents
+  .mypage-content
+    .mypage-content__tab
+      %input#mypage-tab1{name:"mypage-tab", type:"radio"}
+      %label{for:"mypage-tab1",class:"mypage-tab-label"}
+        お知らせ
+      %input#mypage-tab2{name:"mypage-tab", type:"radio", checked:"checked"}
+      %label{for:"mypage-tab2",class:"mypage-tab-label"}
+        やることリスト
+
+      -# お知らせタブの中身
+      = render '/layouts/mypage/notificationAll'
+      = render '/layouts/mypage/todolist'
+  = render '/layouts/mypage/user-side'
+
+= render '/items/aside'
+= render '/items/footer'

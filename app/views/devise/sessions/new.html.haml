@@ -6,16 +6,13 @@
       .login-box__signup
         %p.login-text
           アカウントをお持ちでない方はこちら
-        %a{href:"/",class:"login-signup-btn login-btn"}
-          新規会員登録
+        = link_to '新規会員登録', root_path, class:"login-signup-btn login-btn"
       .login-box__other-login
-        %a{href:"/",class:""}
-          .other-btn.facebook-btn
-            = icon 'fab', 'facebook-square',class:"other-icon facebook-icon"
-            Facebookでログイン
-        %a{href:"/",class:""}
-          .other-btn.google-btn.F-black
-            Googleでログイン
+        .other-btn.facebook-btn
+          = icon 'fab', 'facebook-square',class:"other-icon facebook-icon"
+          = link_to 'Facebookでログイン', root_path, class:"user-link"
+        .other-btn.google-btn.F-black
+          = link_to 'Googleでログイン', root_path, class:"user-link"
       .login-box__form
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .login-box__form__group
@@ -26,19 +23,15 @@
             （仮）reCAPTCHA
           .login-box__form__btn
             = f.submit "ログイン", class:"login-send-btn login-btn"
-        %a{href:"/",class:"login-link"}
-          パスワードをお忘れの方
+        = link_to 'パスワードをお忘れの方', root_path, class:"user-link login-link"
       .new-box__footer
         .new-box__footer__nav
           %ul
             %li.new-nav-list
-              %a{href:"/"}
-                プライバシーポリシー
+              = link_to 'プライバシーポリシー', root_path, class:"user-link"
             %li.new-nav-list
-              %a{href:"/"}
-                メルカリ利用規約
+              = link_to 'メルカリ利用規約', root_path, class:"user-link"
             %li.new-nav-list
-              %a{href:"/"}
-                特定商取引に関する規約
+              = link_to '特定商取引に関する規約', root_path, class:"user-link"
         .new-box__footer__icon
           = image_tag 'mrcr-footer-icon.png',class:"new-footer-icon"

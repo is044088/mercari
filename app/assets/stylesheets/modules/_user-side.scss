@@ -1,22 +1,36 @@
+
 a {
   text-decoration: none;
 }
 
-
-
 body {
-  background-color: #eee;
+  background-color: $bodyColor;
 }
 
 li {
   list-style: none;
 }
 
+.mypage-sideber{
+  float: left;
+  margin: 0px;
+  font-size:14px;
+  .user-info-list{
+    position: relative;
+    .next-icon{
+      color: #ccc;
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      transform: translate(0, -50%);
+    }
+  }
+}
+
 .user{
   background-color: white;
   height: 672px;
   width: 280px;
-  margin: 100px 0 0 100px;
   padding: 0;
 }
 
@@ -26,6 +40,7 @@ li {
   height: 48px;
   border-bottom: #eee solid 1px;
   margin: 0;
+  
 }
 
 .user-info-various {
@@ -47,28 +62,40 @@ li {
   padding-left: 10px;
   font-weight: bold;
   background-color: #eee;
+  .next-icon{
+    color: #333;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translate(0, -50%);
+    transition: all ease-out .2s;
+  }
 }
 
 
 .blank {
-  opacity: 0;}
+  opacity: 0;
+}
 
 .list-name {
+  font-size: 16px;
   display: block;
-  margin: 50px 0 0 100px;
+  margin: 50px 0 0 0px;
+  text-align: left;
 }
+
 .user-merpay {
   background-color: white;
   height: 95px;
   width: 280px;
-  margin: 0 0 0 100px;
   padding: 0;
+  margin-top: 8px;
 }
 
 .user-config {
   background-color: white;
   height: 338px;
   width: 280px;
-  margin: 0 0 0 100px;
   padding: 0;
+  margin-top: 8px;
 }
