@@ -141,6 +141,7 @@
 |explanation|text|null: false|
 |condition|string|null: false|
 |shopping_charge|string|null: false|
+|how_to_ship|string|null: false|
 |delivery_source_area|string|null: false|
 |delivery_days|integer|null: false|
 |commission|integer|null: false|
