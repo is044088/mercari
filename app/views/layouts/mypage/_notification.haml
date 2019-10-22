@@ -1,0 +1,29 @@
+.mypage-content__tab__box#mypage-tab1-box
+  %ul.mypage-content__tab__box__lists
+    %li.mypage-content__tab__box__lists__item
+      = link_to "#", class:"user-link login-link" do
+        %figure
+          = image_tag "no_img_icon.png", class:"list-icon"
+        .mypage-content__tab__box__lists__item__text
+          .mypage-item-text
+            《速報》今なら販売手数料が実質無料！出品が超お得♪
+          %time.mypage-time
+            = icon 'far', 'clock',class:"mypage-time-icon"
+            %span
+              3 日前
+    %li.mypage-content__tab__box__lists__item
+      = link_to "#", class:"user-link login-link" do
+        %figure
+          = image_tag "no_img_icon.png", class:"list-icon"
+        .mypage-content__tab__box__lists__item__text
+          .mypage-item-text
+            《抽選で当たるおトクなクーポン配信中》人気商品が半額以下で買えるかも！？チャンスは1日1回♪
+          %time.mypage-time
+            = icon 'far', 'clock',class:"mypage-time-icon"
+            %span
+              6 日前
+    %li.mypage-content__tab__box__lists__all
+      = link_to mypage_notification_path, class:"user-link login-link" do
+        .mypage-content__tab__box__lists__all__box
+          %p.F-black
+            一覧を見る'
