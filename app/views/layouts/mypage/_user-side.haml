@@ -1,0 +1,99 @@
+%body
+  .mypage-sideber
+    %ul.user
+      %li.user-info-list
+        .user-info-various
+          = link_to 'マイページ', mypage_path
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to 'お知らせ', mypage_notification_path
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to 'やることリスト', mypage_todo_path
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to 'いいね！一覧  （未）', '#',class:".products-state"
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '出品する  （未）', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '出品した商品ー出品中  (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '出品した商品ー取引中  (未)', '#',class:'user-menu-hover'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '出品した商品-売却済み (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '購入した商品-取引中', mypage_purchase_path
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '購入した商品-過去の取引', mypage_purchased_path
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to 'ニュース一覧  (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '評価一覧  (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to 'ガイド  (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to 'お問い合わせ  (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+    %h3.list-name メルペイ
+    %ul.user-merpay
+      %li.user-info-list
+        .user-info-various
+          = link_to '売り上げ・振込申請  (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to 'ポイント  (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+    %h3.list-name 設定
+    %ul.user-config
+      %li.user-info-list
+        .user-info-various
+          = link_to 'プロフィール', mypage_profile_path
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '発送元・お届け先住所変更  (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '支払い方法  (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to 'メール/パスワード (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '本人情報  (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to '電話番号の確認  (未)', '#'
+          = icon "fas", "chevron-right",class:"other-icon next-icon"
+      %li.user-info-list
+        .user-info-various
+          = link_to 'ログアウト', logout_path
+          = icon "fas", "chevron-right",class:"other-icon next-icon"

@@ -11,15 +11,4 @@ Rails.application.routes.draw do
   get 'mypage/purchase' => 'users#purchase'
   get 'mypage/purchased' => 'users#purchased'
   resources :items
-
-  resources :items, only: [:new, :create] do
-    resources :images, only: :create
-    end
-    resources :items, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
-      #Ajaxで動くアクションのルートを作成
-      collection do
-        get 'get_category_children', defaults: { format: 'json' }
-        get 'get_category_grandchildren', defaults: { format: 'json' }
-      end
-    end
 end

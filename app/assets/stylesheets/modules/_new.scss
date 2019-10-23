@@ -20,13 +20,14 @@
     text-align: center;
     ul{
       padding:0px;
+      height:30px;
     }
     .new-nav-list{
       display: inline-block;
       text-align: center;
       font-size: 12px;
       margin: 0 0 0 16px;
-      a{
+      .user-link{
         color: #333;
       }
     }
@@ -58,6 +59,9 @@
 .facebook-btn{
   background-color: $FBColor;
   color: #fff;
+  .user-link{
+    color: #fff;
+  }
   .facebook-icon{
     background-color: $FBColor;
     color: #fff;
@@ -68,6 +72,9 @@
   background: #fff url(google-icon.png) no-repeat 3px top;
   margin: 16px 0 0;
   border: #979797 solid 1px;
+  .user-link{
+    color: #333;
+  }
 }
 // メール登録ボタン
 .mail-btn{
@@ -198,7 +205,8 @@
   height: 179px;
   background-color: #fff;
   position: relative;
-
+  float: right;
+  margin:0;
   a{
     color:  #fff;
   }
