@@ -8,7 +8,7 @@ Rails.application.config.assets.precompile += %w( ress.css )
 Rails.application.config.assets.precompile += %w( style.css )
 Rails.application.config.assets.precompile += %w( item_show.css )
 Rails.application.config.assets.precompile += %w( item_delete.css )
-Rails.application.config.assets.precompile += %w( item_create.scss )
+Rails.application.config.assets.precompile += %w( item_new.scss )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
