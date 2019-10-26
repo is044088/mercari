@@ -1,0 +1,130 @@
+-# = render '/items/header'
+
+- if flash[:notice]
+  .mypage-flash-notice
+    = flash[:notice]
+
+.mypage_contents
+  .mypage-content.mypage-default-content
+    .mydate-box.mypage-default-content__header
+      .mydate-box__header
+        %h1.mydate-title
+          本人情報の登録
+      .mydate-box__form
+        .mydate-ex
+          .mydate-ex__text
+            %p
+              お客さまの本人情報をご登録ください。
+            %p
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          .mydate-ex__link.text-right
+            = link_to "本人確認書類のアップロードについて","#", class:"form-bottom-text-link"
+            %span.F-bold.form-bottom-text-link
+              >
+        .form-group
+          %label.user-label
+            お名前
+          %p
+            ="#{current_user.family_name} #{current_user.first_name}"
+        .form-group
+          %label.user-label
+            お名前カナ
+          %p
+            ="#{current_user.ja_family_name} #{current_user.ja_first_name}"
+        .form-group
+          %label.user-label
+            生年月日
+          %p
+            ="#{current_user.birthday}"
+        .form-group
+          %label.user-label
+            郵便番号
+          %span.form-arbitrary
+            任意
+          %input{name:"postal_code", type:"string", placeholder:"例）1234567", class:"new-form-default"}
+        .form-group          
+          %label.user-label
+            都道府県
+          %span.form-arbitrary
+            任意
+          .mydate-select-box
+            = icon "fas","chevron-down",class:"mydate-select-arrow"
+            %select{name:"prefecture", type:"text",   class:"select-default-full"}
+              %option{:selected => "selected", :value =>  ""} --
+              %option{:value => "北海道"} 北海道
+              %option{:value => "青森県"} 青森県
+              %option{:value => "岩手県"} 岩手県
+              %option{:value => "宮城県"} 宮城県
+              %option{:value => "秋田県"} 秋田県
+              %option{:value => "山形県"} 山形県
+              %option{:value => "福島県"} 福島県
+              %option{:value => "茨城県"} 茨城県
+              %option{:value => "栃木県"} 栃木県
+              %option{:value => "群馬県"} 群馬県
+              %option{:value => "埼玉県"} 埼玉県
+              %option{:value => "千葉県"} 千葉県
+              %option{:value => "東京都"} 東京都
+              %option{:value => "神奈川県"} 神奈川県
+              %option{:value => "新潟県"} 新潟県
+              %option{:value => "富山県"} 富山県
+              %option{:value => "石川県"} 石川県
+              %option{:value => "福井県"} 福井県
+              %option{:value => "山梨県"} 山梨県
+              %option{:value => "長野県"} 長野県
+              %option{:value => "岐阜県"} 岐阜県
+              %option{:value => "静岡県"} 静岡県
+              %option{:value => "愛知県"} 愛知県
+              %option{:value => "三重県"} 三重県
+              %option{:value => "滋賀県"} 滋賀県
+              %option{:value => "京都府"} 京都府
+              %option{:value => "大阪府"} 大阪府
+              %option{:value => "兵庫県"} 兵庫県
+              %option{:value => "奈良県"} 奈良県
+              %option{:value => "和歌山県"} 和歌山県
+              %option{:value => "鳥取県"} 鳥取県
+              %option{:value => "島根県"} 島根県
+              %option{:value => "岡山県"} 岡山県
+              %option{:value => "広島県"} 広島県
+              %option{:value => "山口県"} 山口県
+              %option{:value => "徳島県"} 徳島県
+              %option{:value => "香川県"} 香川県
+              %option{:value => "愛媛県"} 愛媛県
+              %option{:value => "高知県"} 高知県
+              %option{:value => "福岡県"} 福岡県
+              %option{:value => "佐賀県"} 佐賀県
+              %option{:value => "長崎県"} 長崎県
+              %option{:value => "熊本県"} 熊本県
+              %option{:value => "大分県"} 大分県
+              %option{:value => "宮崎県"} 宮崎県
+              %option{:value => "鹿児島県"} 鹿児島県
+              %option{:value => "沖縄県"} 沖縄県
+        .form-group          
+          %label.user-label
+            市区町村
+          %span.form-arbitrary
+            任意
+          %input{name:"city", type:"string", placeholder:"例）横浜市緑区", class:"new-form-default"}
+        .form-group          
+          %label.user-label
+            番地
+          %span.form-arbitrary
+            任意
+          %input{name:"street_number", type:"string", placeholder:"例）青山1−1−1", class:"new-form-default"}
+        .form-group          
+          %label.user-label
+            建物名
+          %span.form-arbitrary
+            任意
+          %input{name:"building_name", type:"string", placeholder:"例）柳ビル103", class:"new-form-default"}
+        .form-group
+          .other-btn.form-next-btn
+            登録する
+        .form-group.text-right
+          = link_to "本人情報の登録について","#",class:"form-bottom-text-link"
+          %span.F-bold.form-bottom-text-link
+            >
+
+  = render '/layouts/mypage/user-side'
+
+= render '/items/aside'
+= render '/items/footer'

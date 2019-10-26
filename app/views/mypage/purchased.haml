@@ -1,4 +1,4 @@
-= render '/items/header'
+-# = render '/items/header'
 
 .mypage_contents
   .bought-content
@@ -6,10 +6,10 @@
       %h1.bought-content__head__title.F-bold.F-black
         購入した商品
     .bought-content__tab
-      %input#bought-tab1{name:"bought-tab", type:"radio", checked:"checked"}
+      %input#bought-tab1{name:"bought-tab", type:"radio"}
       %label{for:"bought-tab1",class:"bought-tab-label"}
         取引中
-      %input#bought-tab2{name:"bought-tab", type:"radio"}
+      %input#bought-tab2{name:"bought-tab", type:"radio", checked:"checked"}
       %label{for:"bought-tab2",class:"bought-tab-label"}
         過去の取引
 
