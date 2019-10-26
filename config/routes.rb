@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
   root 'items#index'
   devise_for :users
+  
+  resources :signup do
+    collection do
+      get 'step0' # 登録方法
+      get 'step1' # 個人情報入力
+      get 'step2' # 電話番号認証
+      get 'step3' # 発送情報
+      post 'step4' # 支払い情報
+      get 'done' # 登録完了後
+    end
+  end
 
   resources :users
   get 'mypage' => 'users#show'

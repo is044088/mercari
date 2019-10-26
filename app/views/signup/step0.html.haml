@@ -1,0 +1,37 @@
+-# 登録種別
+.new-content
+  .new-box
+    .new-box__header
+      = image_tag "mrcr-logo.png",class:"login-logo"
+
+    .new-box__main
+      .new-box__main__top
+        %h3.top-text
+          新規会員登録
+      .new-box__main__btn
+        %a{href:"/signup/step1",class:""}
+          .other-btn.mail-btn.new-form-btn
+            = icon 'far', 'envelope', class:"other-icon mail-icon"
+            メールアドレスで登録する
+        %a{href:"#",class:""}
+          .other-btn.facebook-btn.new-form-btn
+            = icon 'fab', 'facebook-square',class:"other-icon facebook-icon"
+            Facebookで登録する
+        %a{href:"#",class:""}
+          .other-btn.google-btn.F-black.new-form-btn
+            Googleで登録する
+
+    .new-box__footer
+      .new-box__footer__nav
+        %ul
+          %li.new-nav-list
+            %a{href:"#"}
+              プライバシーポリシー
+          %li.new-nav-list
+            %a{href:"#"}
+              メルカリ利用規約
+          %li.new-nav-list
+            %a{href:"#"}
+              特定商取引に関する規約
+      .new-box__footer__icon
+        = image_tag 'mrcr-footer-icon.png',class:"new-footer-icon"
