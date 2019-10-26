@@ -14,10 +14,15 @@
 
 .form-group{
   margin-top: 32px;
+  color: #333;
   label{
     font-weight: 600;
     font-size: 14px;
   }
+  p{
+    margin: 8px 0 0;
+  }
+// 必須
   .form-require{
     background: $mrcrRed;
     margin: 0 0 0 8px;
@@ -26,10 +31,21 @@
     color: #fff;
     font-size: 12px;
   }
+// 任意
+  .form-arbitrary{
+    background: #ccc;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+  }
+// フォーム半分
   .half{
     margin-right: 8px;
     width: calc(50% - 16px);
   }
+// セレクトボックス
   .select-default{
     width: 60px;
     padding: 0 10px;
@@ -40,6 +56,35 @@
     background: 0;
     font-size: 16px;
     line-height: 1.5;
+    cursor: pointer;
+  }
+// セレクトボックス 100%
+  .select-default-full{
+    width: 100%;;
+    padding: 0 10px;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+// セレクトボックス 矢印
+  .mydate-select-box{
+    margin: 8px 0 0;
+    position: relative;
+  }
+  .mydate-select-arrow{
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    z-index: 2;
+    color: #888;
+    font-size: 8px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
     cursor: pointer;
   }
   .form-text{

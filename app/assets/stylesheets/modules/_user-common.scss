@@ -16,9 +16,17 @@ li{
   color: $mrcrFColor;
 }
 
+.F-gray{
+  color: #888;
+}
+
 .list-icon{
   height: 50px;
   weight: 50px;
+}
+
+.display-none{
+  display: none;
 }
 
 .mypage-flash-notice{
@@ -54,4 +62,5 @@ li{
   width: 60px;
   border-radius: 50%;
   vertical-align: middle;
+  cursor: pointer;
 }
