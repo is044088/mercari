@@ -71,6 +71,11 @@
     line-height: 1.5;
     cursor: pointer;
   }
+// カード情報用 年月サイズ
+  .card-half{
+    width: calc(50% - 50px);
+    display: inline-block;
+  }
 // セレクトボックス 矢印
   .mydate-select-box{
     margin: 8px 0 0;
