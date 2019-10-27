@@ -20,9 +20,6 @@ class MypageController < ApplicationController
   def mydate
   end
 
-  def card
-  end
-
   def authenticate_phone
   end
 
