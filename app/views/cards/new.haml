@@ -1,0 +1,59 @@
+= render '/items/header'
+
+.mypage_contents
+  .mypage-content.mypage-default-content
+    .card-box
+      .card-box__header.mypage-default-content__header
+        %h1.mydate-title
+          クレジットカード情報入力
+      .card-box__form
+        .form-group
+          %label.user-label
+            カード番号
+          %span.form-require
+            必須
+          %input{name:"", type:"string", placeholder:"半角数位のみ", class:"new-form-default"}
+          .card-img
+            = image_tag "mastercard.png",class:"card-img"
+            = image_tag "visa.png",class:"card-img"
+            = image_tag "saisoncard.png",class:"card-img"
+            = image_tag "jcbcard.png",class:"card-img"
+            = image_tag "axcard.png",class:"card-img"
+            = image_tag "discover.png",class:"card-img"
+            = image_tag "dinersclub.png",class:"card-img"
+        .form-group          
+          %label.user-label
+            有効期限
+          %span.form-require
+            必須
+          .div
+            .mydate-select-box.card-half
+              = icon "fas","chevron-down",class:"mydate-select-arrow"
+              %select{name:"", type:"text",   class:"select-default-full"}
+                %option{:selected => "selected", :value =>  ""} --
+            %span.form-text
+              月
+            .mydate-select-box.card-half
+              = icon "fas","chevron-down",class:"mydate-select-arrow"
+              %select{name:"", type:"text",   class:"select-default-full"}
+                %option{:selected => "selected", :value =>  ""} --
+            %span.form-text
+              年
+        .form-group
+          %label.user-label
+            セキュリティコード
+          %span.form-require
+            必須
+          %input{name:"", type:"string", placeholder:"カード背面4桁もしくは3桁の番号", class:"new-form-default"}
+          .text-right
+            = icon 'fas','question-circle',class:"form-bottom-text-link"
+            = link_to "カード背面裏番号とは？","#",class:"form-bottom-text-link"
+        .form-group
+          .other-btn.form-next-btn
+            = link_to '追加する', "#", class:"user-link"
+
+
+  = render '/layouts/mypage/user-side'
+
+= render '/items/aside'
+= render '/items/footer'
