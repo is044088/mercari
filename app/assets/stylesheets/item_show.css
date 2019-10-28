@@ -1,7 +1,5 @@
 .wrapper{
   background-color: #F5F5F5;
-/*   height: auto; */
-  border: 1px solid blue;
 }
 
 .item{
@@ -44,6 +42,12 @@
   display:flex;
   flex-wrap:wrap;
   list-style: none;
+}
+.parent li{
+  height: 60px;
+}
+ul.parent {
+  height: auto;
 }
 .decoration-none{
   text-decoration: none;
@@ -244,6 +248,7 @@
   width:700px;
   margin:24px auto 24px;
   padding: 32px 0 24px;
+  max-height: 122px;
  
 }
 .item-sns{
@@ -257,7 +262,7 @@
   list-style: none;
   float: left;
   display: table;
-  width:50px;  
+  margin-left: 100px; 
 }
 
 .item-sns__box::after{
