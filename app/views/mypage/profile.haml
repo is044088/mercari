@@ -5,14 +5,16 @@
     = flash[:notice]
 
 .mypage_contents
-  .profile-content
-    .profile-box
+  .profile-content.mypage-default-content
+    .profile-box.mypage-default-content__header
       = form_for(current_user) do |f|
         .profile-box__title
           %h1.profile-title
             プロフィール
         .profile-box__head
-          = image_tag "my-icon.jpg",class:"profile-icon"
+          %label.profile-icon-label
+            = image_tag "#{current_user.image_url}.jpg",class:"profile-icon"
+            = f.file_field :image_url, autofocus: true, class:"profile-icon-form display-none"
           = f.text_field :nickname, autofocus: true, class:"profile-nickname", placeholder:"例）HANAKO☆セール中", value:"#{current_user.nickname}"
         .profile-box__text
           = f.text_area :profile, autofocus: true, class:"profile-text", placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", value:"#{current_user.profile}"

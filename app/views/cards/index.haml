@@ -1,0 +1,25 @@
+= render '/items/header'
+
+.mypage_contents
+  .mypage-content.mypage-default-content
+    .card-box
+      .card-box__header.mypage-default-content__header
+        %h1.mydate-title
+          支払い方法 
+      .card-box__main
+        .card-box__main__text.F-bold
+          クレジットカード一覧
+        .card-box__main__btn
+          .other-btn.form-next-btn
+            =icon 'far','credit-card',class:"card-icon"
+            = link_to 'クレジットカードを追加する', new_card_path, class:"user-link"
+        .card-box__main__ex
+          .form-group.text-right
+            = link_to "支払い方法について","#",class:"form-bottom-text-link"
+            %span.F-bold.form-bottom-text-link
+              >
+
+  = render '/layouts/mypage/user-side'
+
+= render '/items/aside'
+= render '/items/footer'
