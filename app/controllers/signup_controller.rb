@@ -22,10 +22,13 @@ class SignupController < ApplicationController
   def step3
     session[:authenticate_phone] = params[:authenticate_phone]
     @user = User.new
+    @user.build_address
   end
 
   def step4
-    
+    session[:address_attributes] = user_params[:address_attributes]
+    @user = User.new
+    @user.build_card
   end
 
   def step5
@@ -45,7 +48,8 @@ class SignupController < ApplicationController
       :first_name, 
       :family_name, 
       :ja_first_name, 
-      :ja_family_name,      
+      :ja_family_name,
+      address_attributes: [:id, :postal_code, :prefecture, :city, :street_name, :building_name, :delivery_phone]
   )
   end
 end
