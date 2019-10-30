@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+
+  
   belongs_to :user, foreign_key: 'salar_id'
   belongs_to :user, foreign_key: 'buyer_id'
   belongs_to :user, foreign_key: 'shipped_saler_id'

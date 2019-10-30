@@ -10,18 +10,21 @@
     <section class="sp_single-container">
       <div class="sp_sell-container-inner">
         <h2 class="sp_single-head">商品の情報を入力</h2>
-        <form class="sp_sell-form" name="form1" oninput="commission.value = (Number(input_price.value) * 0.1) ; sales_profit.value = (Number(input_price.value) - Number(input_price.value) * 0.1);">
+        <form class="sp_sell-form" name="form1">
           <div class="sp_sell-upload-box">
             <h3 class="sp_sell-upload-head">
               出品画像
               <span class="sp_form-require">必須</span>
             </h3>
             <p>最大10枚までアップロードできます</p>
+
+<%# ------------------------------------- %>
+<%# ------------------------------------- %>
+            
             <div class="sp_sell-dropbox-container clearfix state-image-number-10">
               <div class="sp_sell-upload-items-container">
-                <div class="sp_sell-upload-items have-item-5">
+                <div class="sp_sell-upload-items sp_have-item-1">
                   <ul>
-
                     <li class="sp_sell-upload-item">
                       <figure class="sp_sell-upload-image">
                           <img src="<%= asset_path "" %>" alt class/>
@@ -32,57 +35,67 @@
                       </div>
                     </li>
 
-                    <li class="sp_sell-upload-item">
-                      <figure class="sp_sell-upload-image">
-                        <div id="output" alt class></div>
-                      </figure>
-                      <div class="sp_sell-upload-button">
-                        <a href="#" class="sp_sell-upload-edit">編集</a>
-                        <a href="#" class="sp_sell-upload-delite">削除</a>
-                      </div>
-                    </li>
-
-                    <li class="sp_sell-upload-item">
-                        <figure class="sp_sell-upload-image">
-                          <div id="output" alt class></div>
-                        </figure>
-                        <div class="sp_sell-upload-button">
-                          <a href="#" class="sp_sell-upload-edit">編集</a>
-                          <a href="#" class="sp_sell-upload-delite">削除</a>
-                        </div>
-                      </li>
-
-                      <li class="sp_sell-upload-item">
-                          <figure class="sp_sell-upload-image">
-                            <div id="output" alt class></div>
-                          </figure>
-                          <div class="sp_sell-upload-button">
-                            <a href="#" class="sp_sell-upload-edit">編集</a>
-                            <a href="#" class="sp_sell-upload-delite">削除</a>
-                          </div>
-                        </li>
-
-                        <li class="sp_sell-upload-item">
-                            <figure class="sp_sell-upload-image">
-                              <div id="output" alt class></div>
-                            </figure>
-                            <div class="sp_sell-upload-button">
-                              <a href="#" class="sp_sell-upload-edit">編集</a>
-                              <a href="#" class="sp_sell-upload-delite">削除</a>
-                            </div>
-                          </li>
-
                   </ul>
                 </div>
               </div>
-              <div id="dropArea" class="sp_sell-upload-drop-box have-item-5">
+              <div id="dropArea" class="sp_sell-upload-drop-box sp_have-item-1">
                 <input id="fileInput" type="file" class="sp_sell-upload-drop-file" multiple="" name="image1" style="display: none;" accept="image/*">
                 <pre class="sp_visible-pc">ドラッグアンドドロップ
 またはクリックしてファイルをアップロード</pre>
               </div>
             </div>
           </div>
+<%# ------------------------------------- %>
+<%# ------------------------------------- %>
 
+  <%# = form_for @product, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
+    %h2.sell-form__header
+      商品情報を入力
+    .sell-form-container
+      %label.sell-form-container__label
+        出品画像
+      %span.sell-form-container__require
+        必須 %>
+
+<%# ------------------------------------- %>
+<%# product_images  ->  images %>
+<%# ------------------------------------- %>
+
+      <%# = f.fields_for :product_images do |image|
+        .dropzone-container.clearfix
+          #preview
+          .dropzone-area
+            = image.label :image, class: "dropzone-box", for: "upload-image" do
+              .input_area
+                = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+              %p ここをクリックしてください
+          #preview2
+          .dropzone-area2
+            = image.label :image, class: "dropzone-box", for: "upload-image" do
+              %p ここをクリックしてください %>
+    <%= form_for @item do |f| %>
+      <%= f.fields_for :images do |image| %>
+        <div class="dropzone-container clearfix">
+          <div id="preview"></div>
+          <div class="dropzone-area" id="dropArea">
+            <%= image.label :images_url, class: "dropzone-box", for: "upload-image" do %> <%# doとは %>
+              <div class="input_area">
+                <%= image.file_field :images_url, multiple: true, name: 'images[images_url][]', id: "upload-image", class: "upload-image", 'data-image': 0%> 
+              </div>
+              <p> ここをクリックしてください</p>
+            <% end %>
+          </div>
+          <div id="preview2"></div>
+          <div class="dropzone-area2" id="dropArea">
+            <%= image.label :images_url, class: "dropzone-box", for: "upload-image" do %>
+              <p> ここをクリックしてください</p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+<%# ------------------------------------- %>
+<%# ------------------------------------- %>
           <div class="sp_sell-content">
             <div class="sp_form-group">
               <label>商品名
@@ -312,21 +325,21 @@
                     </label>
                     <div class="sp_l-right sp_sell-price-input">¥
                       <div>
-                        <input class="sp_input-default" name="input_price" type="input" placeholder="例）300">
+                        <input id="price_calc" class="sp_input-default" name="input_price" type="input" placeholder="例）300">
+                        
                       </div>
                     </div>
                   </div>
                 </li>
                 <li class="clearfix">
                   <div class="sp_l-left">販売手数料 (10%)</div>
-                  <div class="sp_l-right">
-                    <output name="commission">-</output>
+                  <div class="right_bar sp_l-right">
                   </div>
                 </li>
                 <li class="clearfix bold">
                   <div class="sp_l-left">販売利益</div>
-                  <div class="sp_l-right">
-                    <output name="sales_profit">-</output>
+                   <%# = f.number_field :price, style: "display: none", id: "price" %>
+                  <div class="right_bar_2 sp_l-right">
                   </div>
                 </li>
               </ul>
