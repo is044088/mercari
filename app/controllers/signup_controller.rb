@@ -16,27 +16,62 @@ class SignupController < ApplicationController
     session[:family_name] = user_params[:family_name]
     session[:ja_first_name] = user_params[:ja_first_name]
     session[:ja_family_name] = user_params[:ja_family_name]
+    session[:birthday] = user_params[:birthday]
     @user = User.new 
   end
 
   def step3
-    session[:authenticate_phone] = params[:authenticate_phone]
+    session[:authenticate_phone] = user_params[:authenticate_phone]
     @user = User.new
     @user.build_address
   end
 
   def step4
-    session[:address_attributes] = user_params[:address_attributes]
+    # session[:postal_code] = user_params[:address_attributes]['postal_code']
+    # session[:prefecture] = user_params[:address_attributes]['prefecture']
+    # session[:city] = user_params[:address_attributes]['city']
+    # session[:street_number] = user_params[:address_attributes]['street_number']
+    # session[:building_name] = user_params[:address_attributes]['building_name']
+    # session[:delivery_phone] = user_params[:address_attributes]['delivery_phone']
     @user = User.new
     @user.build_card
   end
 
   def step5
+    @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      first_name: session[:first_name],
+      family_name: session[:family_name],
+      ja_first_name: session[:ja_first_name],
+      ja_family_name: session[:ja_family_name],
+      authenticate_phone: session[:authenticate_phone],
+      birthday: session[:birthday],
+      image_url: "default_image.jp"
+    )
+    # @address = Address.new(
+    #   postal_code: session[:postal_code],
+    #   prefecture: session[:prefecture],
+    #   city: session[:city],
+    #   street_number: session[:street_number],
+    #   building_name: session[:building_name],
+    #   delivery_phone: session[:delivery_phone]
+    # )
+    @user.build_address(user_params[:address_attributes])
+    @user.build_card(user_params[:card_attributes])
+    binding.pry
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to("/")
+    else
+      render step4_signup_index_path 
+    end
     
   end
 
-  def step6
-  end
+  
   
   private
   def user_params
@@ -49,7 +84,10 @@ class SignupController < ApplicationController
       :family_name, 
       :ja_first_name, 
       :ja_family_name,
-      address_attributes: [:id, :postal_code, :prefecture, :city, :street_name, :building_name, :delivery_phone]
+      :birthday,
+      :authenticate_phone,
+      address_attributes: [:id, :postal_code, :prefecture, :city, :street_number, :building_name, :delivery_phone],
+      card_attributes: [:id, :customer_id, :ecard_id]
   )
   end
 end

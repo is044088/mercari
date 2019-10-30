@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get 'step2' # 電話番号認証
       get 'step3' # 発送情報
       get 'step4' # 支払い情報
-      get 'done' # 登録完了後
+      post 'step5' # 登録完了後
     end
   end
 

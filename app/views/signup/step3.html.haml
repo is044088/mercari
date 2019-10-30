@@ -45,13 +45,13 @@
 
             .form-group
               %label 市区町村
-              %span.form-requir 必須
+              %span.form-require 必須
               = a.text_field :city, placeholder:"例) 渋谷区", class:"new-form-default"
 
             .form-group
               %label 番地
               %span.form-require 必須
-              = a.text_field :street_name, placeholder:"例) 神南1-2-3", class:"new-form-default"
+              = a.text_field :street_number, placeholder:"例) 神南1-2-3", class:"new-form-default"
 
             .form-group
               %label 建物名
@@ -59,7 +59,7 @@
               = a.text_field :building_name, placeholder:"例) marumaru 9F ", class:"new-form-default"
             .form-group
               %label 番号
-              %span.form-requir 任意
+              %span.form-require 任意
               = a.text_field :delivery_phone, placeholder:"例) 090-1234-5678", class:"new-form-default"
             
                                           
