@@ -1,5 +1,13 @@
 class ItemsController < ApplicationController
   def index
+    #親カテゴリが「レディース」の商品(作成日付で降順)
+    @ladies_items = Item.where(category_id: 1..218).order(created_at: "desc").limit(10)
+    # @ladies_items = Item.find_by(category_id: 3)
+    #親カテゴリがメンズの商品(作成日付で降順)
+    @mens_items = Item.where(category_id: 219..377).order(created_at: "desc").limit(10)
+
+    #ブランド：シャネルを抽出
+    @syaneru = Brand.find(2447)#@syaneru.items
   end
 
   def new
@@ -35,8 +43,6 @@ class ItemsController < ApplicationController
 
     #クリックした商品と同じカテゴリの商品
      @same_cate_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).limit(6)
-     
-     @same_cate_item = Item.find_by(category_id: @item.category_id)
   end
 
   def create
