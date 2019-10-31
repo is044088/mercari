@@ -45,7 +45,10 @@
         <h3>レディース新着アイテム</h3>
         <a href="#" class="more">もっと見る<span><i class="fas fa-angle-right"></i></span></span></a>
       </div>
-      <%= render partial: 'item_boxes' %>
+        <%# <% @ladies_items.each do |item| %> 
+          <%= render 'item_boxes', ladies_items: @ladies_items %>
+          <%# <%= render partial: 'item_boxes', collection: @ladies_items, as: 'item' %> 
+        <%# <% end %>
     </div>
   </div>
 
@@ -55,7 +58,7 @@
         <h3>メンズ新着アイテム</h3>
         <a href="#" class="more">もっと見る<span><i class="fas fa-angle-right"></i></span></span></a>
       </div>
-      <%= render partial: 'item_boxes' %>
+      <%= render 'item_boxes2', mens_items: @mens_items %>
     </div>
   </div>
 </div>
@@ -87,7 +90,7 @@
       <h3>シャネル新着アイテム</h3>
       <a href="#" class="more">もっと見る<span><i class="fas fa-angle-right"></i></span></span></a>
     </div>
-    <%= render partial: 'item_boxes' %>
+    <%= render 'item_boxes', ladies_items: @ladies_items %>
     </div>
   </div>
 
