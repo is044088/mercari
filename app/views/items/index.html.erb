@@ -1,4 +1,6 @@
 <%= render partial: 'header' %>
+<% if flash[:notice] %>
+<%=  flash[:notice] %>
 
   <div id="slick_container">
     <ul id="mainSlide">
