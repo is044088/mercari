@@ -65,30 +65,33 @@
                 お名前（全角）
               %span.form-require
                 必須
-              = f.text_field :family_name, placeholder:"例) 山田" ,class:"new-form-default half"
-              = f.text_field :first_name, placeholder:"例) 彩" ,class:"new-form-default half"
+              %div
+                = f.text_field :family_name, placeholder:"例) 山田" ,class:"new-form-default half"
+                = f.text_field :first_name, placeholder:"例) 彩" ,class:"new-form-default half"
           .form-group
             %div
               %label.password-label
                 お名前カナ（全角）
               %span.form-require
                 必須
-              = f.text_field :ja_family_name, placeholder:"例) ヤマダ" ,class:"new-form-default half"
-              = f.text_field :ja_first_name, placeholder:"例) アヤ" ,class:"new-form-default half"
+              %div
+                = f.text_field :ja_family_name, placeholder:"例) ヤマダ" ,class:"new-form-default half"
+                = f.text_field :ja_first_name, placeholder:"例) アヤ" ,class:"new-form-default half"
              
           .form-group
             %div
               %label.password-label 生年月日
               %span.form-require 必須
-            = f.text_field :birthday, class:"select-default"
-            %span.form-text 年
+            != sprintf(f.date_select(:birthday,with_scc_classes:'', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+            -# = f.text_field :birthday, class:"select-default"
+            -# %span.form-text 年
             -# = f.text_field :"birthday", class:"select-default"
             -# %span.form-text 月
             -# = f.text_field :"birthday", class:"select-default"
             -# %span.form-text 日
-
-          %p.form-info-text
-            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .form-group
+            %p.form-info-text
+              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
 
           .new-form-box__main__bottom

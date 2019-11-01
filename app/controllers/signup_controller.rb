@@ -16,8 +16,10 @@ class SignupController < ApplicationController
     session[:family_name] = user_params[:family_name]
     session[:ja_first_name] = user_params[:ja_first_name]
     session[:ja_family_name] = user_params[:ja_family_name]
-    session[:birthday] = user_params[:birthday]
-    @user = User.new 
+    session['birthday(1i)'] = params[:user]['birthday(1i)'].to_i
+    session['birthday(2i)'] = params[:user]['birthday(2i)'].to_i
+    session['birthday(3i)'] = params[:user]['birthday(3i)'].to_i
+    @user = User.new
   end
 
   def step3
@@ -33,11 +35,13 @@ class SignupController < ApplicationController
     # session[:street_number] = user_params[:address_attributes]['street_number']
     # session[:building_name] = user_params[:address_attributes]['building_name']
     # session[:delivery_phone] = user_params[:address_attributes]['delivery_phone']
+    session[:address] = user_params[:address_attributes]
     @user = User.new
     @user.build_card
   end
 
   def step5
+    birthday_date = birthday_join
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -48,8 +52,8 @@ class SignupController < ApplicationController
       ja_first_name: session[:ja_first_name],
       ja_family_name: session[:ja_family_name],
       authenticate_phone: session[:authenticate_phone],
-      birthday: session[:birthday],
-      image_url: "default_image.jp"
+      image_url: "default_image.jp",
+      birthday: birthday_date
     )
     # @address = Address.new(
     #   postal_code: session[:postal_code],
@@ -59,7 +63,7 @@ class SignupController < ApplicationController
     #   building_name: session[:building_name],
     #   delivery_phone: session[:delivery_phone]
     # )
-    @user.build_address(user_params[:address_attributes])
+    @user.build_address(session[:address])
     @user.build_card(user_params[:card_attributes])
     binding.pry
     if @user.save
@@ -89,6 +93,11 @@ class SignupController < ApplicationController
       address_attributes: [:id, :postal_code, :prefecture, :city, :street_number, :building_name, :delivery_phone],
       card_attributes: [:id, :customer_id, :ecard_id]
   )
+  end
+
+  def birthday_join
+    birthday_date = Date.new session['birthday(1i)'].to_i,session['birthday(2i)'].to_i,session['birthday(3i)'].to_i
+    return birthday_date
   end
 end
 
