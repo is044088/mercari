@@ -65,7 +65,6 @@ class SignupController < ApplicationController
     # )
     @user.build_address(session[:address])
     @user.build_card(user_params[:card_attributes])
-    binding.pry
     if @user.save
       session[:user_id] = @user.id
       redirect_to("/")
