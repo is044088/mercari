@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   root 'items#index'
   devise_for :users
+  resources :users
+  resources :items
+  resources :cards
+  
+  get "items/index" => "items#index"
+  get "items/show" => "items#show"
+  get "items/delete" => "items#delete"
   
   resources :signup do
     collection do
@@ -13,13 +20,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
-  get 'mypage' => 'users#show'
+  # マイページ
   get 'logout' => 'users#logout'
-  get 'mypage/profile' => 'users#profile'
-  get 'mypage/notification' => 'users#notification'
-  get 'mypage/todo' => 'users#todo'
-  get 'mypage/purchase' => 'users#purchase'
-  get 'mypage/purchased' => 'users#purchased'
-  resources :items
+  get 'mypage' => 'users#show'
+  get 'profile' => 'mypage#profile'
+  get 'notification' =>'mypage#notification'
+  get 'todo' => 'mypage#todo'
+  get 'purchase' => 'mypage#purchase'
+  get 'purchased' => 'mypage#purchased'
+  get 'mydate' => 'mypage#mydate'
+  get 'authenticate_phone' =>'mypage#authenticate_phone'
+  get 'deliver_address' =>'mypage#deliver_address'
 end

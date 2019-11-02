@@ -1,0 +1,23 @@
+= render '/items/header'
+
+.mypage_contents
+  .phone-content.mypage-default-content
+    .phone-box
+      -if current_user.authenticate_phone != nil
+        .phone-box__header.mypage-default-content__header
+          %h1.phone-title.profile-title
+            完了
+        .phone-box-main
+          確認済みです
+      - else
+        .phone-box__header.mypage-default-content__header
+          %h1.phone-title.profile-title
+            未完了
+        .phone-box-main
+          登録をお願いします。     
+
+
+  = render '/layouts/mypage/user-side'
+
+= render '/items/aside'
+= render '/items/footer'
