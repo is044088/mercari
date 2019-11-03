@@ -52,7 +52,7 @@ class SignupController < ApplicationController
       ja_first_name: session[:ja_first_name],
       ja_family_name: session[:ja_family_name],
       authenticate_phone: session[:authenticate_phone],
-      image_url: "default_image.jp",
+      image_url: "default_image",
       birthday: birthday_date
     )
     # @address = Address.new(

@@ -58,7 +58,19 @@
     cursor: pointer;
   }
 // 生年月日専用セレクトボックス
-.year, .month, .day{
+.year{
+  width: 80px;
+  padding: 0 10px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  }
+.month, .day{
   width: 60px;
   padding: 0 10px;
   height: 48px;
