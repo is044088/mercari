@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   resources :items
   resources :cards
   
-  get "items/index" => "items#index"
-  get "items/show" => "items#show"
-  get "items/delete" => "items#delete"
-  
   resources :signup do
     collection do
       get 'step0' # 登録方法

@@ -73,3 +73,5 @@ gem 'font-awesome-sass'
 
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+
+gem 'rspec-rails'
