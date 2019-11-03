@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   root 'items#index'
   devise_for :users
-  resources :users
+  resources :users, only: [:show, :edit, :update] do
+    resources :addresses, only: [:edit, :update]
+  end
   resources :items
+  
   resources :cards
   
   get "items/index" => "items#index"

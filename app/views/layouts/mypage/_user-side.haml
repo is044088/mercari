@@ -75,7 +75,7 @@
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
-          = link_to '発送元・お届け先住所変更', deliver_address_path
+          = link_to '発送元・お届け先住所変更', edit_user_address_path(current_user.id, current_user.address.id)
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
