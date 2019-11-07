@@ -3,7 +3,7 @@
     %ul.user
       %li.user-info-list
         .user-info-various
-          = link_to 'マイページ', mypage_path
+          = link_to 'マイページ', user_path(current_user.id)
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
@@ -71,7 +71,7 @@
     %ul.user-config
       %li.user-info-list
         .user-info-various
-          = link_to 'プロフィール', profile_path
+          = link_to 'プロフィール', edit_mypage_path(current_user.id)
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
@@ -83,7 +83,7 @@
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
-          = link_to 'メール/パスワード', edit_user_registration_path
+          = link_to 'メール/パスワード', edit_user_path(current_user.id)
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
