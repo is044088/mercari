@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
   def show
   end
 
@@ -8,19 +7,22 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.update(profile_params)
-      flash[:notice]= "変更しました"
-      redirect_to profile_path
+    if current_user.update_with_password(pass_params)
+      sign_in(current_user, bypass: true)
+      flash[:notice] = "変更しました"
+      redirect_to edit_user_path
     else
-      render :profile
+      flash[:notice] = "変更はありません"
+      render :edit
     end
-    
   end
-
 
   private
-  def profile_params
-    params.require(:user).permit(:image_url, :nickname, :profile)
+  def email_params
+    params.require(:user).permit(:email)
   end
 
+  def pass_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password)
+  end
 end

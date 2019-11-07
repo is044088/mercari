@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :items
   resources :cards
+  resources :mypage, only: [:edit, :update]
   
   get "items/index" => "items#index"
   get "items/show" => "items#show"
@@ -23,7 +24,6 @@ Rails.application.routes.draw do
   # マイページ
   get 'logout' => 'users#logout'
   get 'mypage' => 'users#show'
-  get 'profile' => 'mypage#profile'
   get 'notification' =>'mypage#notification'
   get 'todo' => 'mypage#todo'
   get 'purchase' => 'mypage#purchase'
