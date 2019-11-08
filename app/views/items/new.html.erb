@@ -1,7 +1,7 @@
 <body class="sp_single-body" data-gr-c-s-loaded="true">
   <header class="sp_single-header">
     <h1>
-      <a href="#">
+      <a href="/">
         <img src="<%= asset_path "logo.png" %>" alt="" width= "185px" height= "49px"/>
       </a>
     </h1>
@@ -10,212 +10,73 @@
     <section class="sp_single-container">
       <div class="sp_sell-container-inner">
         <h2 class="sp_single-head">商品の情報を入力</h2>
-        <form class="sp_sell-form" name="form1">
+        <%= form_for @item, html: { class: 'sp_sell-form', name: 'form1' } do |f| %>
           <div class="sp_sell-upload-box">
             <h3 class="sp_sell-upload-head">
               出品画像
               <span class="sp_form-require">必須</span>
             </h3>
             <p>最大10枚までアップロードできます</p>
-
-<%# ------------------------------------- %>
-<%# ------------------------------------- %>
-            
             <div class="sp_sell-dropbox-container clearfix state-image-number-10">
+              <%= f.fields_for :images do |image| %>
               <div class="sp_sell-upload-items-container">
-                <div class="sp_sell-upload-items sp_have-item-1">
-                  <ul>
-                    <li class="sp_sell-upload-item">
-                      <figure class="sp_sell-upload-image">
-                          <img src="<%= asset_path "" %>" alt class/>
-                      </figure>
-                      <div class="sp_sell-upload-button">
-                        <a href="#" class="sp_sell-upload-edit">編集</a>
-                        <a href="#" class="sp_sell-upload-delite">削除</a>
-                      </div>
-                    </li>
-
-                  </ul>
-                </div>
+                <div class="sp_sell-upload-items">
+            <div id="preview"></div>
+          <div class="dropzone-area">
+            <%= image.label :images_url, id: "fileInput", class: "dropzone-box", for: "upload-image" do %>
+              <div class="input_area sp_sell-upload-drop-box">
+                <%= image.file_field :images_url, multiple: true, name: 'images[images_url][]', id: "upload-image", class: "upload-image", 'data-image': 0 %> 
+              <pre class="sp_visible-pc">画像</pre>
+              <i class="far fa-images"></i>
               </div>
-              <div id="dropArea" class="sp_sell-upload-drop-box sp_have-item-1">
-                <input id="fileInput" type="file" class="sp_sell-upload-drop-file" multiple="" name="image1" style="display: none;" accept="image/*">
-                <pre class="sp_visible-pc">ドラッグアンドドロップ
-またはクリックしてファイルをアップロード</pre>
-              </div>
-            </div>
-          </div>
-<%# ------------------------------------- %>
-<%# ------------------------------------- %>
-
-  <%# = form_for @product, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
-    %h2.sell-form__header
-      商品情報を入力
-    .sell-form-container
-      %label.sell-form-container__label
-        出品画像
-      %span.sell-form-container__require
-        必須 %>
-
-<%# ------------------------------------- %>
-<%# product_images  ->  images %>
-<%# ------------------------------------- %>
-
-      <%# = f.fields_for :product_images do |image|
-        .dropzone-container.clearfix
-          #preview
-          .dropzone-area
-            = image.label :image, class: "dropzone-box", for: "upload-image" do
-              .input_area
-                = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-              %p ここをクリックしてください
-          #preview2
-          .dropzone-area2
-            = image.label :image, class: "dropzone-box", for: "upload-image" do
-              %p ここをクリックしてください %>
-    <%= form_for @item do |f| %>
-      <%= f.fields_for :images do |image| %>
-        <div class="dropzone-container clearfix">
-          <div id="preview"></div>
-          <div class="dropzone-area" id="dropArea">
-            <%= image.label :images_url, class: "dropzone-box", for: "upload-image" do %> <%# doとは %>
-              <div class="input_area">
-                <%= image.file_field :images_url, multiple: true, name: 'images[images_url][]', id: "upload-image", class: "upload-image", 'data-image': 0%> 
-              </div>
-              <p> ここをクリックしてください</p>
-            <% end %>
-          </div>
-          <div id="preview2"></div>
-          <div class="dropzone-area2" id="dropArea">
-            <%= image.label :images_url, class: "dropzone-box", for: "upload-image" do %>
-              <p> ここをクリックしてください</p>
             <% end %>
           </div>
         </div>
       <% end %>
-    <% end %>
-<%# ------------------------------------- %>
-<%# ------------------------------------- %>
+            </div>
+             </div>
+               </div>
           <div class="sp_sell-content">
             <div class="sp_form-group">
-              <label>商品名
+              <%= f.label "商品名" %>
                 <span class="sp_form-require">必須</span>
-              </label>
               <div>
-                <input class="sp_input-default" value="" placeholder="商品名（必須 40文字まで)" maxlength="40">
+                <%= f.text_field :name, class: "sp_input-default", value: "", placeholder: "商品名（必須 40文字まで)", maxlength: "40" %>
               </div>
             </div>
             <div class="sp_form-group">
-              <label>商品の説明
+              <%= f.label "商品の説明" %>
                 <span class="sp_form-require">必須</span>
-              </label>
-              <textarea class="sp_textarea-default" rows="5" placeholder="商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" maxlength="1000"></textarea>
+                <%= f.text_area :explanation, class: "sp_textarea-default", rows: "5", placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", maxlength: "1000" %>
             </div>
           </div>
           <div class="sp_sell-content clearfix">
             <h3 class="sp_sell-sub-head">商品の詳細</h3>
             <div class="sp_sell-form-box">
-              <div class="sp_form-group">
-                <label>カテゴリー
-                  <span class="sp_form-require">必須</span>
-                </label>
-                <div>
-                  <div class="sp_select-wrap">
-                      <img src="<%= asset_path "arrow-bottom.png" %>" alt="" width="16.28" height="10">
-                    <select class="sp_select-default">
-                      <option value="">---</option>
-                      <option value="1">レディース</option>
-                      <option value="2">メンズ</option>
-                      <option value="3">ベビー・キッズ</option>
-                      <option value="4">インテリア・住まい・小物</option>
-                      <option value="5">本・音楽・ゲーム</option>
-                      <option value="1328">おもちゃ・ホビー・グッズ</option>
-                      <option value="6">コスメ・香水・美容</option>
-                      <option value="7">家電・スマホ・カメラ</option>
-                      <option value="8">スポーツ・レジャー</option>
-                      <option value="9">ハンドメイド</option>
-                      <option value="1027">チケット</option>
-                      <option value="1318">自動車・オートバイ</option>
-                      <option value="10">その他</option>
-                    </select>
+              <div class= "listing-product-detail__category">
+                <%= f.label "カテゴリー", class: 'listing-default__label' %>
+                <span class= "sp_form-require">必須</span>
+                <div class="listing-select-wrapper"> 
+                  <div class="listing-select-wrapper__box"> 
+                    <%= f.select :category, @category_parent_array,  {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'} %>
+                      <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
                   </div>
+                  <div id="sp_child-space"></div>
+                  <div id="sp_grandchild-space"></div>
                 </div>
-                <div class="sp_select-wrap">
-                <img src="<%= asset_path "arrow-bottom.png" %>" alt="" width="16.28" height="10">
-                  <select class="sp_select-default">
-                    <option value="">---</option>
-                    <option value="11">トップス</option>
-                    <option value="12">ジャケット/アウター</option>
-                    <option value="13">パンツ</option>
-                    <option value="29">その他</option>
-                  </select>
-                </div>
-                <div class="sp_select-wrap">
-                <img src="<%= asset_path "arrow-bottom.png" %>" alt="" width="16.28" height="10">
-                  <select class="sp_select-default">
-                    <option value="">---</option>
-                    <option value="172">ミニワンピース</option>
-                    <option value="173">ひざ丈ワンピース</option>
-                    <option value="174">ロングワンピース</option>
-                    <option value="175">その他</option>
-                  </select>
-                </div>
-              </div>
-              
-              <div class="sp_form-group">
-                <label>サイズ
-                  <span class="sp_form-require">必須</span>
-                </label>
-                <div class="sp_select-wrap">
-                  <img src="<%= asset_path "arrow-bottom.png" %>" alt="" width="16.28" height="10">
-                  <select class="sp_select-default">
-                    <option value="">---</option>
-                    <option value="153">XXS以下</option>
-                    <option value="154">XS(SS)</option>
-                    <option value="2">S</option>
-                    <option value="3">M</option>
-                    <option value="4">L</option>
-                    <option value="5">XL(LL)</option>
-                    <option value="155">2XL(3L)</option>
-                    <option value="156">3XL(4L)</option>
-                    <option value="157">4XL(5L)以上</option>
-                    <option value="7">FREE SIZE</option>
-                  </select>
-                </div>
-              </div>
-              
-              <div class="sp_form-group">
-                <label>ブランド
-                  <span class="sp_form-arbitrary">任意</span>
-                </label>
-                <div>
-                  <input class="sp_input-default" value="" placeholder="例）シャネル">
-                  <div>
-                    <!-- <ul class="sp_sell-brand-suggest-form-suggest-list">
-                      <li id="18" class="sp_">575デニム</li>
-                      <li id="19" class="sp_">7フォーオールマンカインド</li>
-                      <li id="20" class="sp_">7ユニオン</li>
-                      <li id="25" class="sp_">アーキ</li>
-                    </ul> -->
-                  </div>
-                </div>
-              </div>
+                <div id="sp_size-space"></div>
+                <div id="sp_brand-space"></div>
 
+                <div class="brand-search-result">
+                  <datalist id="keywords"></datalist>
+                </div>
+              </div>
               <div class="sp_form-group">
-                <label>商品の状態
+                <%= f.label "商品の状態" %>
                   <span class="sp_form-require">必須</span>
-                </label>
                 <div class="sp_select-wrap">
-                  <img src="<%= asset_path "arrow-bottom.png" %>" alt="" width="16.28" height="10">
-                  <select class="sp_select-default">
-                    <option value="">---</option>
-                    <option value="1">新品、未使用</option>
-                    <option value="2">未使用に近い</option>
-                    <option value="3">目立った傷や汚れなし</option>
-                    <option value="4">やや傷や汚れあり</option>
-                    <option value="5">傷や汚れあり</option>
-                    <option value="6">全体的に状態が悪い</option>
-                  </select>
+                  <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
+                  <%= f.select :condition, ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"], {prompt: "---"}, {class: 'sp_select-default'} %>
                 </div>
               </div>
             </div>
@@ -224,91 +85,30 @@
             <h3 class="sp_sell-sub-head">配送について</h3>
             <a href="#" target="_blank" class="sp_form-question">?</a>
             <div class="sp_sell-form-box">
-              <div class="sp_form-group">
-                <label>配送料の負担
+              <div class="sp_form-group-first">
+                <%= f.label "配送料の負担" %>
                   <span class="sp_form-require">必須</span>
-                </label>
                 <div class="sp_select-wrap">
-                  <img src="<%= asset_path "arrow-bottom.png" %>" alt="" width="16.28" height="10">
-                  <select class="sp_select-default">
-                    <option value="">---</option>
-                    <option value="2">送料込み(出品者負担)</option>
-                    <option value="1">着払い(購入者負担)</option>
-                  </select>
+                  <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
+                  <%= f.select :shipping_charge, ["送料込み(出品者負担)","着払い(購入者負担)"], {prompt: "---"}, {class: 'sp_select-default', id: 'sp_select-default-ship'} %>
                 </div>
               </div>
-
+              <div id= 'how-to-ship_wrapper'>
+              </div>
               <div class="sp_form-group">
-                <label>発送元の地域
+                <%= f.label "発送元の地域" %>
                   <span class="sp_form-require">必須</span>
-                </label>
                 <div class="sp_select-wrap">
-                  <img src="<%= asset_path "arrow-bottom.png" %>" alt="" width="16.28" height="10">
-                  <select class="sp_select-default">
-                    <option value="">---</option>
-                    <option value="1">北海道</option>
-                    <option value="2">青森県</option>
-                    <option value="3">岩手県</option>
-                    <option value="4">宮城県</option>
-                    <option value="5">秋田県</option>
-                    <option value="6">山形県</option>
-                    <option value="7">福島県</option>
-                    <option value="8">茨城県</option>
-                    <option value="9">栃木県</option>
-                    <option value="10">群馬県</option>
-                    <option value="11">埼玉県</option>
-                    <option value="12">千葉県</option>
-                    <option value="13">東京都</option>
-                    <option value="14">神奈川県</option>
-                    <option value="15">新潟県</option>
-                    <option value="16">富山県</option>
-                    <option value="17">石川県</option>
-                    <option value="18">福井県</option>
-                    <option value="19">山梨県</option>
-                    <option value="20">長野県</option>
-                    <option value="21">岐阜県</option>
-                    <option value="22">静岡県</option>
-                    <option value="23">愛知県</option>
-                    <option value="24">三重県</option>
-                    <option value="25">滋賀県</option>
-                    <option value="26">京都府</option>
-                    <option value="27">大阪府</option>
-                    <option value="28">兵庫県</option>
-                    <option value="29">奈良県</option>
-                    <option value="30">和歌山県</option>
-                    <option value="31">鳥取県</option>
-                    <option value="32">島根県</option>
-                    <option value="33">岡山県</option>
-                    <option value="34">広島県</option>
-                    <option value="35">山口県</option>
-                    <option value="36">徳島県</option>
-                    <option value="37">香川県</option>
-                    <option value="38">愛媛県</option>
-                    <option value="39">高知県</option>
-                    <option value="40">福岡県</option>
-                    <option value="41">佐賀県</option>
-                    <option value="42">長崎県</option>
-                    <option value="43">熊本県</option>
-                    <option value="44">大分県</option>
-                    <option value="45">宮崎県</option>
-                    <option value="46">鹿児島県</option>
-                    <option value="47">沖縄県</option>
-                    <option value="99">未定</option>
-                  </select>
+                  <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
+                  <%= f.select :delivery_source_area, Prefecture.all.collect { |p| [ p.name, p.id ] }, {prompt: "---"}, {class: 'sp_select-default'} %>
                 </div>
               </div>
               <div class="sp_form-group">
-                <label>発送までの日数
+                <%= f.label "発送までの日数" %>
                   <span class="sp_form-require">必須</span>
-                </label>
                 <div class="sp_select-wrap">
-                  <img src="<%= asset_path "arrow-bottom.png" %>" alt="" width="16.28" height="10">
-                  <select class="sp_select-default">
-                    <option value="">---</option>
-                    <option value="1">1~2日で発送</option>
-                    <option value="2">2~3日で発送</option>
-                    <option value="3">4~7日で発送</option>
-                  </select>
+                  <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
+                  <%= f.select :condition, ["1~2日で発送","2~3日で発送","4~7日で発送"], {prompt: "---"}, {class: 'sp_select-default'} %>
                 </div>
               </div>
             </div>
@@ -318,28 +118,27 @@
             <a href="#" target="_blank" class="sp_form-question">?</a>
             <div class="sp_sell-form-box">
               <ul class="sp_sell-price">
-                <li class="sp_form-group">
+                <li class="sp_form-group-first">
                   <div class="clearfix">
-                    <label class="sp_l-left">価格
+                    <label class= "sp_l-left" >価格
                       <span class="sp_form-require">必須</span>
-                    </label>
+                      </label>
                     <div class="sp_l-right sp_sell-price-input">¥
                       <div>
                         <input id="price_calc" class="sp_input-default" name="input_price" type="input" placeholder="例）300">
-                        
                       </div>
                     </div>
                   </div>
                 </li>
                 <li class="clearfix">
                   <div class="sp_l-left">販売手数料 (10%)</div>
-                  <div class="right_bar sp_l-right">
+                  <div class="right_bar sp_l-right">-
                   </div>
                 </li>
                 <li class="clearfix bold">
                   <div class="sp_l-left">販売利益</div>
-                   <%# = f.number_field :price, style: "display: none", id: "price" %>
-                  <div class="right_bar_2 sp_l-right">
+                    <%= f.number_field :price, style: "display: none", id: "price" %>
+                  <div class="right_bar_2 sp_l-right">-
                   </div>
                 </li>
               </ul>
@@ -365,10 +164,10 @@
                 に同意したことになります。
               </p>
             </div>
-            <button type="submit" class="sp_btn-default sp_btn-red">出品する</button>
+            <%= f.submit "出品する", class: 'btn sp_btn-default sp_btn-red'%>
             <a class="sp_btn-default sp_btn-gray">もどる</a>
+                <% end %>
           </div>
-        </form>
         <div class="sp_overlay"></div>
       </div>
     </section>
@@ -395,3 +194,5 @@
     </p>
   </footer>
 </body>
+
+
