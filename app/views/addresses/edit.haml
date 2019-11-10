@@ -11,7 +11,7 @@
         %h1.mydate-title
           発送元・お届け先住所変更
       .deli-address-box__form
-        = form_for @user, url: user_address_path do |f|
+        = form_for current_user, url: user_address_path do |f|
           .form-group
             %label.user-label
               お名前
