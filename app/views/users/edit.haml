@@ -1,0 +1,41 @@
+-# = render '/items/header'
+
+- if flash[:notice]
+  .mypage-flash-notice
+    = flash[:notice]
+
+.mypage_contents
+  .mypage-content.mypage-default-content
+    .user-edit-box
+      .user-edit-box__header.mypage-default-content__header
+        %h1.mydate-title
+          メール/パスワード
+      .user-edit-box__form
+        - current_user.errors.full_messages.each do |message|
+          .user_errors_message
+            = message       
+        = form_for current_user do |f|
+          .form-group
+            %label.user-label
+              メールアドレス
+            = f.email_field :email, autofocus: true,  placeholder:"PC・携帯どちらでも可", class:"new-form-default"
+          .form-group
+            %label.user-label
+              現在のパスワード
+            =f.password_field :current_password, placeholder:"", class:"new-form-default"
+          .form-group
+            %label.user-label
+              新しいパスワード
+            =f.password_field :password, placeholder:"7文字以上", class:"new-form-default"
+          .form-group
+            %label.user-label
+              新しいパスワード確認
+            =f.password_field :assword_confirmation, placeholder:"7文字以上", class:"new-form-default"
+          .form-group
+            .other-btn.form-next-btn
+              = f.submit "変更する", class:"user-link"
+
+  = render '/layouts/mypage/user-side'
+
+= render '/items/aside'
+= render '/items/footer'
