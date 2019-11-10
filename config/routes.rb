@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'items#index'
   devise_for :users
-  resources :users
+  resources :users, only: [:show, :edit, :update] do
+    resources :addresses, only: [:edit, :update]
+  end
   resources :items do
   collection do
     get 'get_category_children', defaults: { format: 'json' }
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
     get 'get_brand', defaults: { format: 'json' }
   end
 end
+
   resources :cards
   
   get "items/index" => "items#index"
