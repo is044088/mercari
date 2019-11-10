@@ -1,6 +1,7 @@
 <%= render partial: 'header' %>
 <% if flash[:notice] %>
 <%=  flash[:notice] %>
+<% end %>
 
   <div id="slick_container">
     <ul id="mainSlide">
@@ -45,10 +46,11 @@
         <h3>レディース新着アイテム</h3>
         <a href="#" class="more">もっと見る<span><i class="fas fa-angle-right"></i></span></span></a>
       </div>
-        <%# <% @ladies_items.each do |item| %> 
-          <%= render 'item_boxes', ladies_items: @ladies_items %>
-          <%# <%= render partial: 'item_boxes', collection: @ladies_items, as: 'item' %> 
-        <%# <% end %>
+        <ul id="flex-container">
+          <% @ladies_items.each do |item| %>
+              <%= render 'item_boxes', item: item %>
+          <% end %>
+        </ul>  
     </div>
   </div>
 
@@ -58,7 +60,11 @@
         <h3>メンズ新着アイテム</h3>
         <a href="#" class="more">もっと見る<span><i class="fas fa-angle-right"></i></span></span></a>
       </div>
-      <%= render 'item_boxes2', mens_items: @mens_items %>
+        <ul id="flex-container">
+          <% @mens_items.each do |item| %>
+              <%= render 'item_boxes', item: item %> 
+          <% end %>
+        </ul>  
     </div>
   </div>
 </div>
@@ -90,9 +96,13 @@
       <h3>シャネル新着アイテム</h3>
       <a href="#" class="more">もっと見る<span><i class="fas fa-angle-right"></i></span></span></a>
     </div>
-    <%= render 'item_boxes', ladies_items: @ladies_items %>
-    </div>
+      <ul id="flex-container">
+          <% @syaneru.each do |item| %>
+              <%= render 'item_boxes', item: item %> 
+          <% end %>
+      </ul>  
   </div>
+</div>
 
 <%= render partial: 'aside' %>
 <%= render partial: 'footer' %>

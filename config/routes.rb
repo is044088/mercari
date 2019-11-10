@@ -4,14 +4,21 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resources :addresses, only: [:edit, :update]
   end
-  resources :items
-  
+  resources :items do
+  collection do
+    get 'get_category_children', defaults: { format: 'json' }
+    get 'get_category_grandchildren', defaults: { format: 'json' }
+    get 'get_size', defaults: { format: 'json' }
+    get 'get_brand', defaults: { format: 'json' }
+  end
+end
+
   resources :cards
   
   get "items/index" => "items#index"
   get "items/show" => "items#show"
   get "items/delete" => "items#delete"
-  
+
   resources :signup do
     collection do
       get 'step0' # 登録方法
