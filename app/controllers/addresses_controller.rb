@@ -5,14 +5,7 @@ class AddressesController < ApplicationController
   end
 
   def update
-    @user.update(
-      first_name: address_params[:first_name],
-      family_name: address_params[:family_name],
-      ja_first_name: address_params[:ja_first_name],
-      ja_family_name: address_params[:ja_family_name]
-    )
-    @user.address.update(address_params[:address_attributes])
-    if @user.save
+    if @user.update(address_params)
       flash[:notice]= "変更しました"
       redirect_to edit_user_address_path(@user.id, @user.address.id)
     else

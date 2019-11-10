@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     else
       render :profile
     end
-    
   end
 
 
