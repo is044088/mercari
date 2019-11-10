@@ -1,13 +1,12 @@
 class AddressesController < ApplicationController
-  before_action :set_user, only: [:edit,:update]
 
   def edit
   end
 
   def update
-    if @user.update(address_params)
+    if current_user.update(address_params)
       flash[:notice]= "変更しました"
-      redirect_to edit_user_address_path(@user.id, @user.address.id)
+      redirect_to edit_user_address_path(current_user.id, current_user.address.id)
     else
       render :edit
     end
@@ -22,10 +21,6 @@ class AddressesController < ApplicationController
       :ja_family_name,
       address_attributes: [:id, :postal_code, :prefecture, :city, :street_number, :building_name, :delivery_phone]
     )
-  end
-
-  def set_user
-    @user = User.find(current_user.id)
   end
 
 end
