@@ -1,7 +1,7 @@
 <%= render partial: 'header' %>
 <% if flash[:notice] %>
 <%=  flash[:notice] %>
-
+<% end %>
   <div id="slick_container">
     <ul id="mainSlide">
       <li><%= image_tag 'slide-1' %></li>
@@ -97,6 +97,3 @@
 <%= render partial: 'aside' %>
 <%= render partial: 'footer' %>
 <%= render partial: 'sell_btn' %>
-
-  </body>
-</html>

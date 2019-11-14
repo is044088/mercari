@@ -1,5 +1,8 @@
 -# 電番認証
 .new-form
+  - if flash[:notice]
+    .mypage-flash-notice
+      = flash[:notice]
   .new-form-box
     .new-form-box__header
       = image_tag "mrcr-logo.png",class:"login-logo"
