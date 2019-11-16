@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
   def show
     # クリックした商品の取得
     @item = Item.find(params[:id])
+    @likes_count = Like.where(item_id: @item.id).count
     #クリックした商品の出品者の取得
     @user = User.find(@item.saler_id)
 

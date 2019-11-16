@@ -6,12 +6,12 @@ Rails.application.routes.draw do
     resources :addresses, only: [:edit, :update]
   end
   resources :items do
-  collection do
-    get 'get_category_children', defaults: { format: 'json' }
-    get 'get_category_grandchildren', defaults: { format: 'json' }
-    get 'get_size', defaults: { format: 'json' }
-    get 'get_brand', defaults: { format: 'json' }
-  end
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_size', defaults: { format: 'json' }
+      get 'get_brand', defaults: { format: 'json' }
+    end
 end
 
   resources :cards
@@ -20,6 +20,8 @@ end
   get "items/index" => "items#index"
   get "items/show" => "items#show"
   get "items/delete" => "items#delete"
+  post "likes/:item_id/create" => "likes#create"
+  delete "likes/:item_id/destroy" => "likes#destroy"
 
   resources :signup do
     collection do
@@ -36,7 +38,7 @@ end
   # マイページ
   get 'logout' => 'users#logout'
   get 'mypage' => 'users#show'
-  get 'notification' =>'mypage#notification'
+get 'notification' =>'mypage#notification'
   get 'todo' => 'mypage#todo'
   get 'purchase' => 'mypage#purchase'
   get 'purchased' => 'mypage#purchased'
