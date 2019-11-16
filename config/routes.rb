@@ -13,7 +13,13 @@ Rails.application.routes.draw do
   end
 end
 
-  resources :cards
+  resources :cards, only: [:index, :new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
   
   get "items/index" => "items#index"
   get "items/show" => "items#show"
