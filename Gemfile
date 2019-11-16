@@ -76,3 +76,5 @@ gem 'devise-i18n-views'
 gem 'active_hash'
 
 gem 'rspec-rails'
+gem 'payjp'
+gem 'dotenv-rails'

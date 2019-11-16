@@ -19,3 +19,6 @@
 public/uploads/*
 
 config/secrets.yml
+
+# 環境変数ファイル
+.env
