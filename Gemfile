@@ -77,7 +77,7 @@ gem 'devise-i18n-views'
 gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2’
+gem 'omniauth-google-oauth2'
 gem 'active_hash'
 
 gem 'rspec-rails'

@@ -127,17 +127,15 @@
         </div>
         <div class="item-button">
           <div class="item-button__left">
-            <button class="iine" type="button" >
-                <i class="far fa-heart"></i>
-                <span>いいね！</span>
-                <span>
-                  <%= @item.like_num%>
-                </span>
-            </button>
-            <a class="report" href="#">
-              <i class="far fa-flag"></i>
-              <span>不適切な商品の報告</span>
-            </a>
+            <div id="item-button__left__iine">
+              <%= render partial:'like', locals: { item: @item, likes_count: @likes_count }%>
+            </div>  
+            <div class="report">  
+              <a href="#">
+                <i class="far fa-flag"></i>
+                <span>不適切な商品の報告</span>
+              </a>
+            </div>  
           </div>
           <div class="item-button__right">
             <a class="-btn -txt" href="#">
