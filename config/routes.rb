@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     get 'get_brand', defaults: { format: 'json' }
   end
 end
-
   resources :cards, only: [:index, :new, :show] do
     collection do
       post 'show', to: 'cards#show'
@@ -20,6 +19,7 @@ end
       post 'delete', to: 'cards#delete'
     end
   end
+  resources :mypage, only: [:edit, :update]
   
   get "items/index" => "items#index"
   get "items/show" => "items#show"
@@ -39,7 +39,6 @@ end
   # マイページ
   get 'logout' => 'users#logout'
   get 'mypage' => 'users#show'
-  get 'profile' => 'mypage#profile'
   get 'notification' =>'mypage#notification'
   get 'todo' => 'mypage#todo'
   get 'purchase' => 'mypage#purchase'

@@ -190,13 +190,19 @@
 }
 
 // メール・パスワード
-.mail-edit-box{
+.user-edit-box{
   color: #333;
   &__header{
     border-bottom:1px solid #f5f5f5;
   }
   &__form{
     padding:64px 180px;
+    .form-group:first-child {
+      margin: 0;
+    }
+    .user-link{
+      color: #fff;
+    }
   }
 }
 
