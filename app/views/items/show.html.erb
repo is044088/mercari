@@ -9,23 +9,12 @@
             <div class="item__inner__picture">
               <div id="left">
                 <div class="bigImage">
-                  <%# <img src="https://placehold.jp/300x300.png" width="300" height="300" alt="mainimage" class="mainImage" /> %>
                   <%= image_tag @image_top.images_url, width:"300", height:"300", alt:"mainimage", class: "mainImage"%>
                 </div>
                 <div>
                   <ul class="parent">
                     <% @images.each do |image| %>
                       <li><%= image_tag image.images_url, width:"60", height:"60", alt:"small_img_thumb", class: "thumb child"%></li>
-                      <%# <li><img src="https://placehold.jp/60x60.png" width="60" height="60" alt="small_img_thumb" class="thumb child" /></li>
-                      <li><img src="https://placehold.jp/60x60.png" width="60" height="60" alt="small_img_thumb" class="thumb child" /></li>
-                      <li><img src="https://placehold.jp/60x60.png" width="60" height="60" alt="small_img_thumb" class="thumb child" /></li>
-                      <li><img src="https://placehold.jp/60x60.png" width="60" height="60" alt="small_img_thumb" class="thumb child" /></li>
-                      <li><img src="https://placehold.jp/60x60.png" width="60" height="60" alt="small_img_thumb" class="thumb child" /></li>
-                      <li><img src="https://placehold.jp/60x60.png" width="60" height="60" alt="small_img_thumb" class="thumb child" /></li>
-                      <li><img src="https://placehold.jp/60x60.png" width="60" height="60" alt="small_img_thumb" class="thumb child" /></li>
-                      <li><img src="https://placehold.jp/60x60.png" width="60" height="60" alt="small_img_thumb" class="thumb child" /></li>
-                      <li><img src="https://placehold.jp/60x60.png" width="60" height="60" alt="small_img_thumb" class="thumb child" /></li>
-                      <li><img src="https://placehold.jp/60x60.png" width="60" height="60" alt="small_img_thumb" class="thumb child" /></li> %>
                     <% end %> 
                   </ul>
                 </div>
@@ -151,9 +140,9 @@
             </a>
           </div>
           <div class="item-button__right">
-            <a class="-btn -bg -txt" href="#">
+            <a class="-btn -txt" href="#">
               <i class="fas fa-user-lock fa-fw"></i>
-              安心・安全への取り組み
+                <span>安心・安全への取り組み</span>
             </a>
           </div>    
         </div>  
@@ -182,10 +171,6 @@
         <ul class="item-sns__box">
           <li class= "item-sns__box__button">
             <a class= "share-button" href="#">
-              <!-- <span class="fa-stack fa-lg facebook">
-                <i class="fas fa-square fa-stack-2x fb-back"></i>
-                <i class="fab fa-facebook-square fa-stack-1x fb-fore fa-inverse"></i>
-              </span> -->
               <i class="fab fa-facebook-square fa-1x facebook "></i>
             </a> 
           </li>
@@ -217,7 +202,6 @@
                   <a href="#">
                     <figure class="figure">
                       <%= image_tag( user_item.images.first.images_url, width: "220px", height: "220px", alt: "image",class: "figure__image" ) unless user_item.images.blank? %>
-                      <%# <img class="figure__image" src="https://placehold.jp/220x220.png" width="220px" height="220px" alt="image"> %>
                       <figcaption class="figcaption">
                         <div class="items-box-body">
                           <h3 class="items-box-name">
@@ -238,111 +222,6 @@
                   </a>
                 </li>
               <% end %>  
-              <%# <li class="item-box-container__one-cotent">
-                <a href="#">
-                  <figure class="figure">
-                    <img class="figure__image" src="https://placehold.jp/220x220.png" width="220px" height="220px" alt="image">
-                    <figcaption class="figcaption">
-                      <div class="items-box-body">
-                        <h3 class="items-box-name">
-                          商品名を入力してください
-                        </h3>
-                        <div class="items-box-num">
-                          <div class="items-box-num__price">¥2,200</div>
-                          <div class="items-box-num__evaluation">
-                              <i class="far fa-heart"></i>
-                              <span>2</span>
-                          </div>
-                        </div>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li class="item-box-container__one-cotent">
-                <a href="#">
-                  <figure class="figure">
-                    <img class="figure__image" src="https://placehold.jp/220x220.png" width="220px" height="220px" alt="image">
-                    <figcaption class="figcaption">
-                      <div class="items-box-body">
-                        <h3 class="items-box-name">
-                          商品名を入力してください
-                        </h3>
-                        <div class="items-box-num">
-                          <div class="items-box-num__price">¥2,200</div>
-                          <div class="items-box-num__evaluation">
-                              <i class="far fa-heart"></i>
-                              <span>2</span>
-                          </div>
-                        </div>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li class="item-box-container__one-cotent">
-                <a href="#">
-                  <figure class="figure">
-                    <img class="figure__image" src="https://placehold.jp/220x220.png" width="220px" height="220px" alt="image">
-                    <figcaption class="figcaption">
-                      <div class="items-box-body">
-                        <h3 class="items-box-name">
-                          商品名を入力してください
-                        </h3>
-                        <div class="items-box-num">
-                          <div class="items-box-num__price">¥2,200</div>
-                          <div class="items-box-num__evaluation">
-                              <i class="far fa-heart"></i>
-                              <span>2</span>
-                          </div>
-                        </div>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li class="item-box-container__one-cotent">
-                <a href="#">
-                  <figure class="figure">
-                    <img class="figure__image" src="https://placehold.jp/220x220.png" width="220px" height="220px" alt="image">
-                    <figcaption class="figcaption">
-                      <div class="items-box-body">
-                        <h3 class="items-box-name">
-                          商品名を入力してください
-                        </h3>
-                        <div class="items-box-num">
-                          <div class="items-box-num__price">¥2,200</div>
-                          <div class="items-box-num__evaluation">
-                              <i class="far fa-heart"></i>
-                              <span>2</span>
-                          </div>
-                        </div>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li class="item-box-container__one-cotent">
-                <a href="#">
-                  <figure class="figure">
-                    <img class="figure__image" src="https://placehold.jp/220x220.png" width="220px" height="220px" alt="image">
-                    <figcaption class="figcaption">
-                      <div class="items-box-body">
-                        <h3 class="items-box-name">
-                          商品名を入力してください
-                        </h3>
-                        <div class="items-box-num">
-                          <div class="items-box-num__price">¥2,200</div>
-                          <div class="items-box-num__evaluation">
-                              <i class="far fa-heart"></i>
-                              <span>2</span>
-                          </div>
-                        </div>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li> %>
             </ul>
           </div>
           <div class="item-box-container same-bland">
@@ -355,7 +234,6 @@
                   <a href="#">
                     <figure class="figure">
                       <%= image_tag( same_cate_item.images.first.images_url, width: "220px", height: "220px", alt: "image",class: "figure__image" ) unless same_cate_item.images.blank? %>
-                      <%# <img class="figure__image" src="https://placehold.jp/220x220.png" width="220px" height="220px" alt="image"> %>
                       <figcaption class="figcaption">
                         <div class="items-box-body">
                           <h3 class="items-box-name">
@@ -376,111 +254,6 @@
                   </a>
                 </li>
               <% end %>  
-              <%# <li class="item-box-container__one-cotent">
-                <a href="#">
-                  <figure class="figure">
-                    <img class="figure__image" src="https://placehold.jp/220x220.png" width="220px" height="220px" alt="image">
-                    <figcaption class="figcaption">
-                      <div class="items-box-body">
-                        <h3 class="items-box-name">
-                          商品名を入力してください
-                        </h3>
-                        <div class="items-box-num">
-                          <div class="items-box-num__price">¥2,200</div>
-                          <div class="items-box-num__evaluation">
-                              <i class="far fa-heart"></i>
-                              <span>2</span>
-                          </div>
-                        </div>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li class="item-box-container__one-cotent">
-                <a href="#">
-                  <figure class="figure">
-                    <img class="figure__image" src="https://placehold.jp/220x220.png" width="220px" height="220px" alt="image">
-                    <figcaption class="figcaption">
-                      <div class="items-box-body">
-                        <h3 class="items-box-name">
-                          商品名を入力してください
-                        </h3>
-                        <div class="items-box-num">
-                          <div class="items-box-num__price">¥2,200</div>
-                          <div class="items-box-num__evaluation">
-                              <i class="far fa-heart"></i>
-                              <span>2</span>
-                          </div>
-                        </div>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li class="item-box-container__one-cotent">
-                <a href="#">
-                  <figure class="figure">
-                    <img class="figure__image" src="https://placehold.jp/220x220.png" width="220px" height="220px" alt="image">
-                    <figcaption class="figcaption">
-                      <div class="items-box-body">
-                        <h3 class="items-box-name">
-                          商品名を入力してください
-                        </h3>
-                        <div class="items-box-num">
-                          <div class="items-box-num__price">¥2,200</div>
-                          <div class="items-box-num__evaluation">
-                              <i class="far fa-heart"></i>
-                              <span>2</span>
-                          </div>
-                        </div>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li class="item-box-container__one-cotent">
-                <a href="#">
-                  <figure class="figure">
-                    <img class="figure__image" src="https://placehold.jp/220x220.png" width="220px" height="220px" alt="image">
-                    <figcaption class="figcaption">
-                      <div class="items-box-body">
-                        <h3 class="items-box-name">
-                          商品名を入力してください
-                        </h3>
-                        <div class="items-box-num">
-                          <div class="items-box-num__price">¥2,200</div>
-                          <div class="items-box-num__evaluation">
-                              <i class="far fa-heart"></i>
-                              <span>2</span>
-                          </div>
-                        </div>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li class="item-box-container__one-cotent">
-                <a href="#">
-                  <figure class="figure">
-                    <img class="figure__image" src="https://placehold.jp/220x220.png" width="220px" height="220px" alt="image">
-                    <figcaption class="figcaption">
-                      <div class="items-box-body">
-                        <h3 class="items-box-name">
-                          商品名を入力してください
-                        </h3>
-                        <div class="items-box-num">
-                          <div class="items-box-num__price">¥2,200</div>
-                          <div class="items-box-num__evaluation">
-                              <i class="far fa-heart"></i>
-                              <span>2</span>
-                          </div>
-                        </div>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </a>
-              </li> %>
             </ul>
           </div>
       </div>
