@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @image = @item.images.build
-
       #セレクトボックスの初期値設定
       @category_parent_array = ["---"]
 
@@ -56,12 +55,14 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_parameter)
-    @item.saler_id = current_user.id
+    @item.saler_id = 2
     respond_to do |format|
+      num = 0
       if @item.save
-          params[:images][:images_url].each do |image|
-            @item.images.create(images_url: image, item_id: @item.id)
-          end
+        while params[:item][:images_url].length > num do
+          @item.images.create(images_url: params[:item][:images_url][num].original_filename)
+          num += 1
+        end
         format.html{redirect_to root_path}
       else
         @item.images.build
@@ -120,8 +121,8 @@ class ItemsController < ApplicationController
       :received_buyer_id,
       :like_num,
       :how_to_ship,
-      images_attributes: [:image_url, :item_id])
-      .merge(saler_id: current_user.id)
+      images_attributes: {images_url: []})
+      .merge(saler_id: 1)
   end
 
   # 親カテゴリーが選択された後に動くアクション

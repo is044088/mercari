@@ -76,3 +76,4 @@ gem 'devise-i18n-views'
 gem 'active_hash'
 
 gem 'rspec-rails'
+gem 'rails-i18n', '~> 5.1'
