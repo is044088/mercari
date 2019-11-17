@@ -52,9 +52,10 @@ li{
 
 .mypage_contents{
   background-color: $bodyColor;
+  width: 1020px;
   min-height: 100vh;
   padding-bottom: 50px;
-  margin: 40px 90px 0px 90px;
+  margin: 40px auto 0;
   overflow: hidden;
 }
 
