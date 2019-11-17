@@ -2,7 +2,6 @@ class SignupController < ApplicationController
   before_action :validates_step1, only: :step2 
   before_action :validates_step2, only: :step3 
   before_action :validates_step3, only: :step4
-  before_action :validates_step4, only: :step5
 
 
   def step0
@@ -22,11 +21,6 @@ class SignupController < ApplicationController
   end
 
   def step4
-    @user = User.new
-    @user.build_card
-  end
-
-  def step5
     birthday_date = birthday_join
     @user = User.new(
       nickname: session[:nickname],
@@ -42,7 +36,6 @@ class SignupController < ApplicationController
       birthday: birthday_date
     )
     @user.build_address(session[:address])
-    @user.build_card(user_params[:card_attributes])
     if @user.save
       session[:user_id] = @user.id
       redirect_to("/signup/done")
@@ -125,17 +118,6 @@ class SignupController < ApplicationController
     end
   end
 
-  def validates_step4
-    session[:card] = user_params[:card_attributes]
-    @card = Card.new(
-      customer_id: session[:card]['customer_id'],
-      ecard_id: session[:card]['ecard_id']
-    )
-    unless @card.valid?(:validates_step4)
-      flash[:notice] = @card.errors.full_messages
-      render :step4
-    end
-  end
 
 
 
@@ -156,7 +138,6 @@ class SignupController < ApplicationController
       :birthday,
       :authenticate_phone,
       address_attributes: [:id, :postal_code, :prefecture, :city, :street_number, :building_name, :delivery_phone],
-      card_attributes: [:id, :customer_id, :ecard_id]
   )
   end
 
