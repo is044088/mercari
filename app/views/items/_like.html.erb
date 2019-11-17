@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+  <% if Like.find_by(user_id: 1, item_id: item.id) %> 
+    <%= link_to("/likes/#{item.id}/destroy", method: :delete, id: "like-button", remote: true) do %>
+      <span class="fas fa-heart like-btn-unlike"></span>
+      <span>いいね！<%= likes_count %></span>
+    <% end %>
+  <% else %>
+    <%= link_to("/likes/#{item.id}/create", method: :post, id: "like-button", remote: true) do %>
+      <span class="far fa-heart like-btn"></span>
+      <span>いいね！<%= likes_count %></span>
+    <% end %>
+  <% end %>
+<% else %>
+  <span class="far fa-heart like-btn"></span>
+  <span>いいね！<%= likes_count %></span>
+<% end %>

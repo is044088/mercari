@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :size
   belongs_to :brand
+  has_many :likes
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
 end
