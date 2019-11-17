@@ -81,4 +81,6 @@ gem 'omniauth-google-oauth2'
 gem 'active_hash'
 
 gem 'rspec-rails'
+gem 'payjp'
+gem 'dotenv-rails'
 gem 'listen', '~> 3.0.5'

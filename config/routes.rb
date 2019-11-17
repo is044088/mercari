@@ -13,8 +13,13 @@ Rails.application.routes.draw do
       get 'get_brand', defaults: { format: 'json' }
     end
 end
-
-  resources :cards
+  resources :cards, only: [:index, :new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
   resources :mypage, only: [:edit, :update]
   
   get "items/index" => "items#index"
