@@ -1,0 +1,31 @@
+-# = render '/items/header'
+
+.mypage_contents
+  .reputations-content
+    .reputations-content__head
+      %h1.reputations-content__head__title.F-bold.F-black
+        購入した商品
+    .reputations-content__tab
+      %input#reputation-tab1{name:"reputation-tab", type:"radio", checked:"checked"}
+      %label{for:"reputation-tab1",class:"reputation-tab-label"}
+        すべて
+      %input#reputation-tab2{name:"reputation-tab", type:"radio"}
+      %label{for:"reputation-tab2",class:"reputation-tab-label"}
+        = icon 'fas', 'grin-hearts',class:"reputation-icon good-icon"
+        良い
+      %input#reputation-tab3{name:"reputation-tab", type:"radio"}
+      %label{for:"reputation-tab3",class:"reputation-tab-label"}
+        = icon 'fas', 'meh',class:"reputation-icon normal-icon"
+        普通
+      %input#reputation-tab4{name:"reputation-tab", type:"radio"}
+      %label{for:"reputation-tab4",class:"reputation-tab-label"}
+        = icon 'fas', 'dizzy',class:"reputation-icon bad-icon"
+        悪い
+
+      = render '/layouts/reputations/all'
+
+
+  = render '/layouts/mypage/user-side'
+
+= render '/items/aside'
+= render '/items/footer'

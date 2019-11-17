@@ -7,19 +7,19 @@
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
-          = link_to 'お知らせ', notification_path
+          = link_to 'お知らせ', mypage_notification_path
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
-          = link_to 'やることリスト', todo_path
+          = link_to 'やることリスト', mypage_todo_path
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
-          = link_to 'いいね！一覧  （未）', '#',class:".products-state"
+          = link_to 'いいね！一覧', reputations_path,class:".products-state"
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
-          = link_to '出品する  （未）', '#'
+          = link_to '出品する', new_item_path
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
@@ -35,15 +35,15 @@
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
-          = link_to '購入した商品-取引中', purchase_path
+          = link_to '購入した商品-取引中', mypage_purchase_path
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
-          = link_to '購入した商品-過去の取引', purchased_path
+          = link_to '購入した商品-過去の取引', mypage_purchased_path
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
-          = link_to 'ニュース一覧  (未)', '#'
+          = link_to 'ニュース一覧', mypage_news_path
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
@@ -71,7 +71,7 @@
     %ul.user-config
       %li.user-info-list
         .user-info-various
-          = link_to 'プロフィール', profile_path
+          = link_to 'プロフィール', mypage_profile_path
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
@@ -87,11 +87,11 @@
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
-          = link_to '本人情報', mydate_path
+          = link_to '本人情報', mypage_mydate_path
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various
-          = link_to '電話番号の確認', authenticate_phone_path
+          = link_to '電話番号の確認', mypage_authenticate_phone_path
           = icon "fas", "chevron-right",class:"other-icon next-icon"
       %li.user-info-list
         .user-info-various

@@ -17,6 +17,9 @@ class MypageController < ApplicationController
   def purchased
   end
 
+  def news
+  end
+
   def mydate
   end
 

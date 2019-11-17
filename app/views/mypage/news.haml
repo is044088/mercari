@@ -1,0 +1,52 @@
+-# = render '/items/header'
+
+.mypage_contents
+  .mypage-content.mypage-default-content
+    .news-box.mypage-default-content__header
+      .news-box__header
+        %h1.mydate-title
+          ニュース一覧
+      .news-box__main
+        %ul.news-box__main__list
+          %li.news-box__main__list
+            .news-box__main__list__item
+              %time.mypage-time
+                = icon 'far', 'clock',class:"mypage-time-icon"
+                %span
+                  10月17日
+              %p.news-text
+                【復旧済み】アプリとWebサイトにつながりにくい状況が発生しておりました
+          %li.news-box__main__list
+            .news-box__main__list__item
+              %time.mypage-time
+                = icon 'far', 'clock',class:"mypage-time-icon"
+                %span
+                  10月17日
+              %span.news-private
+                個別メッセージ
+              %p.news-text
+                Googleログイン通知
+          %li.news-box__main__list
+            .news-box__main__list__item
+              %time.mypage-time
+                = icon 'far', 'clock',class:"mypage-time-icon"
+                %span
+                  10月17日
+              %span.news-private
+                個別メッセージ
+              %p.news-text
+                Googleログイン通知
+          %li.news-box__main__list
+            .news-box__main__list__item
+              %time.mypage-time
+                = icon 'far', 'clock',class:"mypage-time-icon"
+                %span
+                  10月17日
+              %p.news-text
+                【復旧済み】アプリとWebサイトにつながりにくい状況が発生しておりました
+
+
+  = render '/layouts/mypage/user-side'
+
+= render '/items/aside'
+= render '/items/footer'

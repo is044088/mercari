@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def update
     if current_user.update(profile_params)
       flash[:notice]= "変更しました"
-      redirect_to profile_path
+      redirect_to mypage_profile_path
     else
       render :profile
     end

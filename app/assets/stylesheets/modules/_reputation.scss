@@ -1,0 +1,103 @@
+.reputation-icon{
+  font-size: 16px;
+}
+
+.good-icon{
+  color: $goodColor;
+}
+.normal-icon{
+  color: $normalColor;
+}
+.bad-icon{
+  color: $badColor;
+}
+
+.reputations-content{
+  @include content;
+  &__head{
+    padding: 0 16px;
+    background: #fafafa;
+    height: 70px;
+    clear: both;
+    &__title{
+      font-size: 16px;
+      line-height: 70px;
+    }
+  }
+  &__tab {
+    width: 700px;
+    background-color: #fff;
+    .reputation-tab-label {
+      height: 75px;
+      background-color: #eee;
+      width: calc(25%);
+      height: 75%;
+      line-height: 70px;
+      font-size: 16px;
+      text-align: center;
+      color: $mrcrFColor;
+      display: block;
+      text-align: center;
+      font-weight: bold;
+      float: left;
+      cursor: pointer;
+      &:hover{
+        color:#999;
+      }
+    }
+    // マイページ タブの切り替え
+    input[name="reputation-tab"] {
+      display: none;
+    }
+    // マイページ タブの中身
+    &__box {
+      display: none;
+      width: 700px;
+      background-color: #fff;
+      font-size: 13px;
+      clear: both;
+      &__lists {
+        padding: 0px;
+        margin: 0px;
+        overflow: hidden;
+        height: auto;
+        &__item{
+          padding: 16px;
+          border-bottom: 1px solid #eee;
+          figure {
+            float: left;
+            height: 50px;
+          }
+          &__text{
+            margin: 0 40px 0 68px;
+            min-height: 50px;
+            color: $mrcrFColor;
+          }
+        }
+        &__all{
+          padding:16px;
+          &__box{
+            background-color: #eee;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+          }
+          &__box:hover{
+            background-color: rgb(245, 245, 245);
+          }
+        }
+      }
+    }
+
+    // タブの切り替え
+    // reputation-tabをクリックしたら、tab-boxが表示
+    #reputation-tab1:checked ~ #reputation-tab1-box, #reputation-tab2:checked ~ #reputation-tab2-box, #reputation-tab3:checked ~ #reputation-tab3-box, #reputation-tab4:checked ~ #reputation-tab4-box{
+      display: block;
+    }
+
+    input[name="reputation-tab"]:checked + .reputation-tab-label {
+      background-color: #fff;
+      border-top: 2px solid #ea352d;
+    }
+  }
+}
