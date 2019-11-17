@@ -1,5 +1,8 @@
 
 .mypage-content.mypage-default-content
+  - if flash[:notice]
+    .mypage-flash-notice
+      = flash[:notice]  
   .card-box
     .card-box__header.mypage-default-content__header
       %h1.mydate-title

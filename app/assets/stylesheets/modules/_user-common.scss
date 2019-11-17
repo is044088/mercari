@@ -16,6 +16,10 @@ li{
   color: $mrcrFColor;
 }
 
+.F-white{
+  color: #fff;
+}
+
 .F-gray{
   color: #888;
 }
@@ -23,11 +27,6 @@ li{
 .list-icon{
   height: 50px;
   weight: 50px;
-}
-
-.card-img{
-  height: 20px;
-  margin-right: 8px;
 }
 
 .display-none{
@@ -69,4 +68,9 @@ li{
   border-radius: 50%;
   vertical-align: middle;
   cursor: pointer;
+}
+
+.user_errors_message{
+  font-size: 14px;
+  color: $mrcrRed
 }
