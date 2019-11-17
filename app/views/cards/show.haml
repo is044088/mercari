@@ -1,0 +1,36 @@
+-# = render '/items/header'
+
+.mypage_contents
+  .mypage-content.mypage-default-content
+    .card-box
+      .card-box__header.mypage-default-content__header
+        %h1.mydate-title
+          支払い方法
+      .card-box__main
+        .card-box__main__content
+          .card-lists
+            .card-list-title
+              %h3.F-bold
+                クレジットカード一覧
+            %ul.card-list
+              %li
+                = image_tag "#{@card_brand_url}", class:"card-img"
+              %li
+                = "**** **** **** " + @default_card_information.last4
+              %li
+                = @exp_month + " / " + @exp_year
+          .delete-btn-box
+            .card-delete-btn
+              = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+                %input{ type: "hidden", name: "card_id", value: "" }
+                %button 削除する
+        .card-box__main__ex
+          .form-group.text-right
+            = link_to "支払い方法について","#",class:"form-bottom-text-link"
+            %span.F-bold.form-bottom-text-link
+              >
+
+  = render '/layouts/mypage/user-side'
+
+= render '/items/aside'
+= render '/items/footer'

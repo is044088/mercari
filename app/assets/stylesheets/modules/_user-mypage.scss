@@ -189,39 +189,6 @@
   }
 }
 
-// クレジットカード
-.card-box{
-  .user-link{
-    color: #fff;
-  }
-  .card-img{
-    margin-top: 3px;
-  }
-  &__main{
-    padding: 64px;
-    &__text{
-      padding: 0px 126px;
-    }
-    &__btn{
-      padding: 0px 126px;
-      border-bottom:1px solid #f5f5f5;
-      .other-btn{
-        margin:24px 0;
-        max-width: 343px;
-      }
-      .card-icon{
-        margin-right:16px;
-        font-size:16px;
-      }
-    }
-  }
-
-  &__form{
-    max-width: 343px;
-    margin: 0 auto 64px auto;
-  }
-}
-
 // メール・パスワード
 .user-edit-box{
   color: #333;
