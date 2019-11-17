@@ -94,14 +94,17 @@ header {
 
 /*親階層のみ幅を25%にする*/
 .gnav > li {
-  height:45px;
-  width: 310px;
+  height:30px;
+  width: 20%;
   font-weight:600;
 }
 
 /*全てのリスト・リンク共通*/
 .gnav li {
   list-style: none;
+  position: relative;
+  z-index: 100;
+  font-size:14px;
 }
 
 
@@ -117,23 +120,12 @@ header {
   width: 100%;
 }
 
-.gnav li a span.search-category:hover {
-  color:#0095EE;
-}
-
-.gnav li a span.search-brand:hover {
-  color:#0095EE;
-}
-
 /*子階層以降共通*/
 .gnav li li {
   height: 0;
   overflow: hidden;
-  transition: .3s;
-  z-index: 2000;
 }
 .gnav li li a {
-  border-top: 1px solid #eee;
   font-weight:100;
 }
 
@@ -143,6 +135,38 @@ header {
   color:white;
   background-color:#EA352D;
 }
+
+/*孫階層以降共通*/
+/* 子要素狙い撃ちする */
+.gnav li ul li ul {
+  left: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.gnav li ul li ul :hover {
+  background-color:#EEEEEE;
+}
+
+/* 孫要素狙い撃ちする */
+.gnav li ul li ul li ul {
+  background-color:#EEEEEE;
+  left: 100%;
+  position: absolute;
+  top: 0;
+}
+
+
+.gnav li a span.search-category:hover {
+  color:#0095EE;
+}
+
+.gnav li a span.search-brand:hover {
+  color:#0095EE;
+}
+
+
 
 .gnav #search-category:hover > ul > li.parent a.parent-a:hover{
   color:white;
@@ -154,34 +178,12 @@ header {
   background-color:#EA352D;
 }
 
-/*孫階層以降共通*/
-/* 子要素狙い撃ちする */
-.gnav li ul li ul {
-  font-size:14px;
-  left: 100%;
-  position: absolute;
-  top: 33px;
-  left:465px;
-  width: 260px;
+.gnav #search-brand:hover > ul > li.parent a.parent-a:hover{
+  color:white;
+  background-color:#EA352D;
 }
 
-.gnav li ul li ul :hover {
-  background-color:#EEEEEE;
-}
 
-/* 孫要素狙い撃ちする */
-.gnav li ul li ul li ul {
-  font-size:14px;
-  left: 100%;
-  position: absolute;
-  top: 0px;
-  left:255px;
-  width: 260px;
-}
-
-.gnav li ul li ul li ul {
-  background-color:#EEEEEE;
-}
 
 
 
@@ -343,13 +345,13 @@ margin-right: 22px;
 /* スライドショー始まり */
 
 ul {
-  height: 390px;
+  /* height: 390px; */
   margin: 0px auto 0;
 }
 
 #slick_container {
   width:100%;
-  margin:0 auto;
+  margin:-30px auto 0;
   position:relative;
 }
 

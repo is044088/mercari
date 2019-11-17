@@ -1,4 +1,4 @@
-= render '/items/header'
+-# = render '/items/header'
 
 - if flash[:notice]
   .mypage-flash-notice
@@ -7,7 +7,7 @@
 .mypage_contents
   .profile-content.mypage-default-content
     .profile-box.mypage-default-content__header
-      = form_for(current_user) do |f|
+      = form_for current_user, url: mypage_path do |f|
         .profile-box__title
           %h1.profile-title
             プロフィール
