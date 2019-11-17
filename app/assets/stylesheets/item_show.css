@@ -17,12 +17,10 @@
 }
 .item__inner {
   margin: 16px 0 0;
-  /* display:flex; */
   padding: 0 40px 40px 40px;
   height: auto;
 }
 .item__inner__picture {
-  /* border: 0.1px solid #333;  */
   max-width:300px;
   max-height:auto;
   float: left;
@@ -56,11 +54,8 @@ ul.parent {
 .item__inner__table {
   border: 1px solid #f5f5f5; 
   float: right;
-  /* max-width: 300px; */
-  /* width: 100%; */
   width: 300px;
   height: auto;
-  /* margin: 0 auto; */
   margin-bottom: 24px;
   font-size: 14px;
 }
@@ -157,18 +152,19 @@ ul.parent {
   height: 31px; 
   display:inline-block;
 }
-.iine {
+#item-button__left__iine {
   margin-left: 50px;
   background-color:#EFEFEF;
   padding: 5px 10px;
   border-radius:15px;
-  
+  float: left;
 }
 .report{
   margin-left: 20px;
   background-color:#EFEFEF;
   padding: 5px 10px;
   border-radius:15px;
+  float: right;
 }
 .item-button__right { 
   display: inline-block;
