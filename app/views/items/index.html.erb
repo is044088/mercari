@@ -47,7 +47,7 @@
         <a href="#" class="more">もっと見る<span><i class="fas fa-angle-right"></i></span></span></a>
       </div>
         <ul id="flex-container">
-          <% @ladies_items.each do |item| %>
+          <% @ladies_items.preload(:images).each do |item| %>
               <%= render 'item_boxes', item: item %>
           <% end %>
         </ul>  
@@ -61,7 +61,7 @@
         <a href="#" class="more">もっと見る<span><i class="fas fa-angle-right"></i></span></span></a>
       </div>
         <ul id="flex-container">
-          <% @mens_items.each do |item| %>
+          <% @mens_items.preload(:images).each do |item| %>
               <%= render 'item_boxes', item: item %> 
           <% end %>
         </ul>  
@@ -97,7 +97,7 @@
       <a href="#" class="more">もっと見る<span><i class="fas fa-angle-right"></i></span></span></a>
     </div>
       <ul id="flex-container">
-          <% @syaneru.each do |item| %>
+          <% @syaneru.preload(:images).each do |item| %>
               <%= render 'item_boxes', item: item %> 
           <% end %>
       </ul>  

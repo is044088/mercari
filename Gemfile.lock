@@ -138,11 +138,11 @@ GEM
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
-    i18n (1.7.0)
     http-accept (1.7.0)
     http-cookie (1.0.3)
-      domain_name (~> 0.5)
       concurrent-ruby (~> 1.0)
+      domain_name (~> 0.5)
+    i18n (1.7.0)
     ipaddress (0.8.3)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
@@ -347,10 +347,10 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_magick
   mysql2 (>= 0.3.18, < 0.6.0)
-  payjp
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
+  payjp
   pry-rails
   puma (~> 3.0)
   rails (~> 5.0.7, >= 5.0.7.2)
