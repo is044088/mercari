@@ -195,7 +195,7 @@
               <a class="" href=""> <%= @user.nickname %>さんのその他の出品</a>
             </h2>
             <ul class="item-box-container__contents">
-              <% @user_items.each do |user_item| %> 
+              <% @user_items.preload(:images).each do |user_item| %> 
                 <li class="item-box-container__one-cotent">
                   <a href="#">
                     <figure class="figure">
@@ -227,7 +227,7 @@
               <a class="" href=""><%= @cate.name %>(<%= @cate.parent.parent.name %>)のその他の出品</a>
             </h2>
             <ul class="item-box-container__contents">
-              <% @same_cate_items.each do |same_cate_item| %>
+              <% @same_cate_items.preload(:images).each do |same_cate_item| %>
                 <li class="item-box-container__one-cotent">
                   <a href="#">
                     <figure class="figure">
