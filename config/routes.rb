@@ -21,7 +21,15 @@ end
     end
   end
   resources :mypage, only: [:edit, :update]
-  
+
+  resources :purchases do
+    collection do
+      get 'show/:item_id', to: 'purchases#show'
+      post 'pay', to: 'purchases#pay'
+      get 'done', to: 'purchases#done'
+    end
+  end
+
   get "items/index" => "items#index"
   get "items/show" => "items#show"
   get "items/delete" => "items#delete"
@@ -43,7 +51,7 @@ end
   # マイページ
   get 'logout' => 'users#logout'
   get 'mypage' => 'users#show'
-get 'notification' =>'mypage#notification'
+  get 'notification' =>'mypage#notification'
   get 'todo' => 'mypage#todo'
   get 'purchase' => 'mypage#purchase'
   get 'purchased' => 'mypage#purchased'
