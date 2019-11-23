@@ -22,9 +22,8 @@ end
   end
   resources :mypage, only: [:edit, :update]
 
-  resources :purchases do
+  resources :purchases, only: [:show] do
     collection do
-      get 'show/:item_id', to: 'purchases#show'
       post 'pay', to: 'purchases#pay'
       get 'done', to: 'purchases#done'
     end
