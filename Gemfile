@@ -43,6 +43,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -80,6 +81,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'active_hash'
 
-gem 'rspec-rails'
+
 gem 'payjp'
 gem 'listen', '~> 3.0.5'

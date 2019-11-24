@@ -13,11 +13,11 @@
           .other-btn.mail-btn.new-form-btn
             = icon 'far', 'envelope', class:"other-icon mail-icon"
             メールアドレスで登録する
-        %a{href:"#",class:""}
+        %a{href:"/users/auth/facebook", class:"", method: :post}
           .other-btn.facebook-btn.new-form-btn
             = icon 'fab', 'facebook-square',class:"other-icon facebook-icon"
             Facebookで登録する
-        %a{href:"#",class:""}
+        %a{href:"/users/auth/google_oauth2", class:"", method: :post}
           .other-btn.google-btn.F-black.new-form-btn
             Googleで登録する
 
