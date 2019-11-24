@@ -26,7 +26,7 @@ class User < ApplicationRecord
   validates :nickname,               presence: true, length: {maximum: 20}, on: :validates_step1
   validates :email,                  presence: true, length: {minimum: 7, maximum: 20},  uniqueness: true, on: :validates_step1,format: { with: VALID_EMAIL_REGEX }
   validates :password,               presence: true, length: {minimum: 7, maximum: 20},  uniqueness: true, on: :validates_step1,on: :save_to_session_before_phone
-  validates :password_confirmationk, presence: true,                        on: :validates_step1,                               on: :save_to_session_before_phone
+  # validates :password_confirmation, presence: true,                        on: :validates_step1,                               on: :save_to_session_before_phone
   validates :first_name,             presence: true,                        on: :validates_step1
   validates :family_name,            presence: true,                        on: :validates_step1
   validates :ja_first_name,          presence: true,                        on: :validates_step1
