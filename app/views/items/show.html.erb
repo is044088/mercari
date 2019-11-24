@@ -119,7 +119,11 @@
             送料込み
           </span>
         </div>  
-        <%= link_to "購入画面に進む", purchase_path(@item.id),{class:"item__buy-btn"}%>
+        <% if @item.buyer_id.blank? %>
+          <%= link_to "購入画面に進む", purchase_path(@item.id),{class:"item__buy-btn"}%>
+        <% else %>
+          <p class="item__soldout-btn">売り切れました</p>
+        <% end %>
         <div class="item-description">
           <p class="item-description__inner">
             <%= @item.explanation%>
