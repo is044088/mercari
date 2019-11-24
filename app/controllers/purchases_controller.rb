@@ -1,4 +1,6 @@
 class PurchasesController < ApplicationController
+  before_action :buyer_id_present?, only: [:show, :pay]
+  # buyer_idに値が入っているときは、強制的にsoldアクションへ飛ばす（購入者がすでにいるため）
 
   require 'payjp'
 
@@ -10,7 +12,7 @@ class PurchasesController < ApplicationController
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to controller: "cards", action: "new"
-    elsif @item.buyer_id.blank?
+    else 
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -33,8 +35,6 @@ class PurchasesController < ApplicationController
       when "Discover"
         @card_brand_url = "discover.png"
       end
-    else
-      redirect_to action: "sold"
     end
   end
 
@@ -55,5 +55,11 @@ class PurchasesController < ApplicationController
   end
 
   def sold #商品売切
+  end
+
+  private
+  def buyer_id_present?
+    item = Item.find(params[:id])
+    redirect_to action: 'sold' if item.buyer_id.present?
   end
 end
