@@ -1,0 +1,94 @@
+.purchase{
+  @include wallpaper;
+  &__header{
+    @include full-header;
+  }
+  &__content{
+    @include full-content;
+    &__top{
+      @include full-content-top;
+    }
+    &__main{
+      padding: 24px 12.5% 0;
+      text-align: center;
+      &__inner{
+        max-width: 320px;
+        margin: 0 auto;
+        .purchase-item-box{
+          display: flex;
+          .purchase-item-image{
+            width: 64px;
+          }
+          .purchase-item-name{
+            width: calc(100% - 80px);
+            margin: 0 0 0 16px;
+            text-align: left;
+          }
+        }
+        .parchase-main-text{
+          margin: 0 0 0 8px;
+          font-weight: 400;
+        }
+        .purchase-btn{
+          background-color: #ccc;
+        }
+        .purchase-btn.active{
+          background-color: $mrcrRed;
+          color: #fff;
+        }
+        .purchase-price-box{
+          width: 100%;
+          .purchase-price{
+            display: table;
+            width: 100%;
+            font-size: 18px;
+            .purchase-buy-cell{
+              text-align: right;
+              padding: 16px 0;
+              display: table-cell;
+            }
+            .purchase-buy-cell:first-child {
+              text-align: left;
+              padding: 16px 0;
+            }
+          }
+          &__inner{
+            margin: 16px 0;
+          }
+        }
+      }
+    }
+    &__address{
+      border-top: 1px solid #f5f5f5;
+      padding: 24px 12.5% 0;
+      margin: 40px 0 0;
+      font-size: 14px;
+      &__inner{
+        max-width: 320px;
+        margin: 0 auto;
+        .purchase-text{
+          margin: 8px 0 0;
+          line-height: 1.4;
+        }
+      }
+    }
+    &__card{
+      border-top: 1px solid #f5f5f5;
+      padding: 24px 12.5% 40px;
+      margin: 40px 0 0;
+      font-size: 14px;
+      &__inner{
+        max-width: 320px;
+        margin: 0 auto;
+        .purchase-text{
+          margin: 8px 0 0;
+          line-height: 1.4;
+        }
+      }
+    }
+
+  }
+  &__footer{
+    @include full-footer;
+  }
+}

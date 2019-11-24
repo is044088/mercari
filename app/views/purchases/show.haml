@@ -1,0 +1,87 @@
+
+.purchase
+  .purchase__header
+    = image_tag "mrcr-logo.png",class:"header-logo"
+  .purchase__content
+    .purchase__content__top
+      %h3.F-bold
+        購入内容の確認
+    .purchase__content__main
+      .purchase__content__main__inner
+        .purchase-item-box
+          =image_tag "#{@image.images_url}", class: "purchase-item-image"
+          %p.purchase-item-name.F-bold
+            = @item.name
+        .purchase-price-box
+          .purchase-price-box__inner
+            %p.purchase-item-price
+              = "¥" + number_with_delimiter(@item.price)
+              %span.item__price__tax
+                (税込)
+              %span.purchase-main-text
+                送料込み
+          .other-btn.purchase-btn.point-btn
+            ポイントはありません
+          %ul
+            %li.purchase-price
+              .purchase-buy-cell.F-bold
+                支払い金額
+              .purchase-buy-cell.F-bold
+                = "¥" + number_with_delimiter(@item.price)
+                %span.item__price__tax
+                  (税込)
+            = form_tag(action: :pay, method: :post) do
+              = hidden_field_tag :id, @item.id
+              = submit_tag "購入する",class:"other-btn purchase-btn buy-btn active"
+
+    .purchase__content__address
+      .purchase__content__address__inner 
+        %p.purchase-text.F-bold
+          配送先
+        %p.purchase-text
+          = "〒"+  current_user.address.postal_code.to_s.insert(3, "-")
+          %br
+          = current_user.address.prefecture + current_user.address.city + current_user.address.street_number
+          -if current_user.address.building_name
+            %br
+            = current_user.address.building_name
+          %br
+            = current_user.family_name + current_user.first_name
+        .text-right
+          = link_to "変更する",edit_user_address_path(current_user.id, current_user.address.id),class:"form-bottom-text-link"
+          %span.F-bold.form-bottom-text-link
+            >
+    .purchase__content__card
+      .purchase__content__card__inner
+        %p.purchase-text.F-bold
+          支払い方法
+        %p.purchase-text
+          - if @default_card_information.blank?
+            %br /
+          - else
+            %ul.card-list
+              %li
+                = image_tag "#{@card_brand_url}", class:"card-img"
+              %li
+                = "**** **** **** " + @default_card_information.last4
+              %li
+                = @exp_month + " / " + @exp_year
+        .text-right
+          = link_to "変更する",cards_path,class:"form-bottom-text-link"
+          %span.F-bold.form-bottom-text-link
+            >
+            
+  .purchase__footer
+    .purchase__footer__nav
+      %ul
+        %li.nav-list
+          %a{href:"#"}
+            プライバシーポリシー
+        %li.nav-list
+          %a{href:"#"}
+            メルカリ利用規約
+        %li.nav-list
+          %a{href:"#"}
+            特定商取引に関する規約
+    .purchase__footer__icon
+      = image_tag 'mrcr-footer-icon.png',class:"footer-icon"
