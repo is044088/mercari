@@ -26,6 +26,7 @@ end
     collection do
       post 'pay', to: 'purchases#pay'
       get 'done', to: 'purchases#done'
+      get 'sold', to: 'purchases#sold'
     end
   end
 

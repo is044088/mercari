@@ -10,7 +10,7 @@ class PurchasesController < ApplicationController
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to controller: "cards", action: "new"
-    else
+    elsif @item.buyer_id.blank?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -33,6 +33,8 @@ class PurchasesController < ApplicationController
       when "Discover"
         @card_brand_url = "discover.png"
       end
+    else
+      redirect_to action: "sold"
     end
   end
 
@@ -49,4 +51,9 @@ class PurchasesController < ApplicationController
     redirect_to action: 'done' #完了画面に移動
   end
 
+  def done #購入完了
+  end
+
+  def sold #商品売切
+  end
 end
