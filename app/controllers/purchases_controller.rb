@@ -1,16 +1,19 @@
 class PurchasesController < ApplicationController
 
+  before_action :set_item, only: [:show, :pay, :buyer_id_present]
+  before_action :buyer_id_present, only: [:show, :pay]
+  # buyer_idに値が入っているときは、強制的にsoldアクションへ飛ばす（購入者がすでにいるため）
+
   require 'payjp'
 
   def show
-    @item = Item.find(params[:id])
     @image = Image.find_by(item_id: @item.id)
     card = Card.find_by(user_id: current_user.id)
     #テーブルからpayjpの顧客IDを検索
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to controller: "cards", action: "new"
-    else
+    else 
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -37,16 +40,29 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    item = Item.find(params[:id])
     card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-      amount: item.price, #支払金額
+      amount: @item.price, #支払金額
       customer: card.customer_id, #顧客ID
       currency: 'jpy', #日本円
     )
-    item.update(buyer_id: current_user.id)
+    @item.update(buyer_id: current_user.id)
     redirect_to action: 'done' #完了画面に移動
   end
 
+  def done #購入完了
+  end
+
+  def sold #商品売切
+  end
+
+  private
+  def buyer_id_present
+    redirect_to action: 'sold' if @item.buyer_id.present?
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
