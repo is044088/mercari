@@ -18,11 +18,16 @@ class User < ApplicationRecord
   has_many :rater_users,  foreign_key: "rater_id",  class_name: "reputation"
   has_many :target_users, foreign_key: "target_id", class_name: "reputation"
 
+  # ユーザーが売っている商品
   has_many :saling_items,         -> { where("buyer_id is NULL") },              foreign_key: "saler_id", class_name: "Item"
-  has_many :trading_sold_items,   -> { where("buyer_id is not NULL")},           foreign_key: "saler_id", class_name: "Item"
+  # ユーザーが出品取引中の商品
+  has_many :trading_sold_items,   -> { where("buyer_id is NULL")},           foreign_key: "saler_id", class_name: "Item"
+  # ユーザーが売った商品
   has_many :sold_items,           -> { where("received_buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
-  has_many :trading_bought_items, -> { where("buyer_id is not NULL") },          foreign_key: "buyer_id", class_name: "Item"
-  has_many :bought_items,         -> { where("received_buyer_id is not NULL") }, foreign_key: "buyer_id", class_name: "Item"
+  # ユーザーが購入取引中の商品
+  has_many :trading_bought_items, -> { where("received_buyer_id is NULL") },          foreign_key: "buyer_id", class_name: "Item"
+  # ユーザーが買った商品  user.bought_itemで取り出し
+  has_many :bought_items, -> { where("buyer_id is not NULL") },              foreign_key: "received_buyer_id", class_name: "Item"
 
   VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :nickname,               presence: true, length: {maximum: 20}, on: :validates_step1
@@ -35,12 +40,6 @@ class User < ApplicationRecord
   validates :ja_family_name,         presence: true,                        on: :validates_step1
   validates :birthday,               presence: true,                        on: :validates_step1
   validates :authenticate_phone,     presence: true,                        on: :validates_step
-  
-  has_many :saling_items,         -> { where("buyer_id is NULL") },              foreign_key: 'saler_id', class_name: 'Item'
-  has_many :trading_sold_items,   -> { where("buyer_id is not NULL")},           foreign_key: 'saler_id', class_name: 'Item'
-  has_many :sold_items,           -> { where("received_buyer_id is not NULL") }, foreign_key: 'saler_id', class_name: 'Item'
-  has_many :trading_bought_items, -> { where("buyer_id is not NULL") },          foreign_key: 'buyer_id', class_name: 'Item'
-  has_many :bought_items,         -> { where("received_buyer_id is not NULL") }, foreign_key: 'buyer_id', class_name: 'Item'
 
   def self.without_sns_data(auth)
     user = User.where(email: auth.info.email).first

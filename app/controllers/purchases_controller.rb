@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :set_item, only: [:show, :pay, :buyer_id_present]
   before_action :buyer_id_present, only: [:show, :pay]
   # buyer_idに値が入っているときは、強制的にsoldアクションへ飛ばす（購入者がすでにいるため）

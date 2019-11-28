@@ -1,4 +1,6 @@
 class MypageController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_purchases_items, only: [:purchase, :purchased]
 
 # プロフィール
 
@@ -42,5 +44,10 @@ class MypageController < ApplicationController
   private
   def profile_params
     params.require(:user).permit(:image_url, :nickname, :profile)
+  end
+
+  def set_purchases_items
+    @trading_bought_items = current_user.trading_bought_items.all.order('updated_at DESC')
+    @bought_items = current_user.bought_items.all.order('updated_at DESC')
   end
 end
