@@ -1,5 +1,5 @@
 # 洋服のサイズ	1
-if Rails.env == "development"
+# if Rails.env == "development"
   (4..21).each do |i|
     CategoriesSize.create!(category_id: "#{i}", size_id: "1")
   end
@@ -63,10 +63,10 @@ if Rails.env == "development"
   end
   CategoriesSize.create!(category_id: "1128", size_id: "1")
   CategoriesSize.create!(category_id: "1139", size_id: "1")
-end
+# end
 # メンズ靴のサイズ	12
 
-if Rails.env == "development"
+# if Rails.env == "development"
   (272..279).each do |i|
     CategoriesSize.create!(category_id: "#{i}", size_id: "12")
   end
@@ -76,20 +76,20 @@ if Rails.env == "development"
   CategoriesSize.create!(category_id: "1140", size_id: "12")
   CategoriesSize.create!(category_id: "1150", size_id: "12")
   CategoriesSize.create!(category_id: "1162", size_id: "12")
-end
+# end
 
 # レディース靴のサイズ	29
-if Rails.env == "development"
+# if Rails.env == "development"
   (74..83).each do |i|
     CategoriesSize.create!(category_id: "#{i}", size_id: "29")
   end
   CategoriesSize.create!(category_id: "1087", size_id: "29")
   CategoriesSize.create!(category_id: "1151", size_id: "29")
   CategoriesSize.create!(category_id: "1163", size_id: "29")
-end
+# end
 
 # キッズ服のサイズ	52
-if Rails.env == "development"
+# if Rails.env == "development"
   (414..432).each do |i|
     CategoriesSize.create!(category_id: "#{i}", size_id: "52")
   end
@@ -103,19 +103,19 @@ if Rails.env == "development"
   CategoriesSize.create!(category_id: "1168", size_id: "52")
   CategoriesSize.create!(category_id: "1086", size_id: "52")
   CategoriesSize.create!(category_id: "1086", size_id: "52")
-end
+# end
 
 # ベビー・キッズ靴のサイズ	60
-if Rails.env == "development"
+# if Rails.env == "development"
   (460..464).each do |i|
     CategoriesSize.create!(category_id: "#{i}", size_id: "60")
   end
   CategoriesSize.create!(category_id: "1152", size_id: "60")
   CategoriesSize.create!(category_id: "1164", size_id: "60")
-end
+# end
 
 # ベビー服のサイズ	69
-if Rails.env == "development"
+# if Rails.env == "development"
   (381..391).each do |i|
     CategoriesSize.create!(category_id: "#{i}", size_id: "69")
   end
@@ -125,44 +125,44 @@ if Rails.env == "development"
   (404..411).each do |i|
     CategoriesSize.create!(category_id: "#{i}", size_id: "69")
   end
-end
+# end
 
 # テレビのサイズ	75
-if Rails.env == "development"
+# if Rails.env == "development"
   CategoriesSize.create!(category_id: "1122", size_id: "75")
-end
+# end
 
 # カメラレンズのサイズ	86
-if Rails.env == "development"
+# if Rails.env == "development"
   CategoriesSize.create!(category_id: "1015", size_id: "86")
   CategoriesSize.create!(category_id: "1016", size_id: "86")
-end
+# end
 
 # オートバイのサイズ	99
-if Rails.env == "development"
+# if Rails.env == "development"
   CategoriesSize.create!(category_id: "1367", size_id: "99")
-end
+# end
 
 # ヘルメットのサイズ	106
-if Rails.env == "development"
+# if Rails.env == "development"
   CategoriesSize.create!(category_id: "1389", size_id: "106")
-end
+# end
 
 # タイヤのサイズ	115
-if Rails.env == "development"
+# if Rails.env == "development"
   (1333..1336).each do |i|
     CategoriesSize.create!(category_id: "#{i}", size_id: "115")
   end
   CategoriesSize.create!(category_id: "1371", size_id: "115")
   CategoriesSize.create!(category_id: "1376", size_id: "115")
-end
+# end
 
 # スキーのサイズ	129
-if Rails.env == "development"
+# if Rails.env == "development"
   CategoriesSize.create!(category_id: "1161", size_id: "129")
-end
+# end
 
 # スノーボードのサイズ	137
-if Rails.env == "development"
+# if Rails.env == "development"
   CategoriesSize.create!(category_id: "1148", size_id: "137")
-end
+# end
