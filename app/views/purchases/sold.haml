@@ -1,0 +1,29 @@
+.new-form
+  .new-form-box
+    .new-form-box__header
+      = image_tag "mrcr-logo.png",class:"login-logo"
+    .new-form-box__main
+      .new-form-box__main__top
+        %h3.top-text
+          Sold Out
+      .new-form-box__main__form                              
+        .new-form-box__main__bottom
+          売り切れました
+          .form-group
+            .other-btn.form-next-btn
+              = link_to "トップへ戻る", "/", class:"F-white"
+            
+    .new-box__footer
+      .new-box__footer__nav
+        %ul
+          %li.new-nav-list
+            %a{href:"/"}
+              プライバシーポリシー
+          %li.new-nav-list
+            %a{href:"/"}
+              メルカリ利用規約
+          %li.new-nav-list
+            %a{href:"/"}
+              特定商取引に関する規約
+      .new-box__footer__icon
+        = image_tag 'mrcr-footer-icon.png',class:"new-footer-icon"

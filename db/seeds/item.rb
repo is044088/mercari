@@ -33,23 +33,3 @@ item_array = [["レディースアイテム1",1000,"レディースアイテム1
 item_array.each do |item|
   Item.create(name: item[0], price: item[1], explanation:item[2], condition:item[3], shipping_charge:item[4], delivery_source_area:item[5], delivery_days:item[6], commission:item[7], profit:item[8], category_id:item[9], brand_id:item[10], size_id:item[11], saler_id:item[12], buyer_id:item[13], shipped_saler_id:item[14], received_buyer_id:item[15], like_num:item[16], how_to_ship: item[17])
 end
-
-
-  # `name` varchar(255) NOT NULL,
-  # `price` int(11) NOT NULL,
-  # `explanation` text NOT NULL,
-  # `condition` varchar(255) NOT NULL,
-  # `shipping_charge` varchar(255) NOT NULL,
-  # `delivery_source_area` varchar(255) NOT NULL,
-  # `delivery_days` varchar(255) NOT NULL,
-  # `commission` int(11) NOT NULL,
-  # `profit` int(11) NOT NULL,
-  # `category_id` int(11) NOT NULL,
-  # `brand_id` int(11) DEFAULT NULL,
-  # `size_id` int(11) NOT NULL,
-  # `saler_id` int(11) NOT NULL,
-  # `buyer_id` int(11) DEFAULT NULL,
-  # `shipped_saler_id` int(11) DEFAULT NULL,
-  # `received_buyer_id` int(11) DEFAULT NULL,
-  # `like_num` int(11) DEFAULT NULL,
-  # `how_to_ship` varchar(255) NOT NULL,

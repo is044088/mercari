@@ -16,13 +16,18 @@ li{
   color: $mrcrFColor;
 }
 
+.F-white{
+  color: #fff;
+}
+
 .F-gray{
   color: #888;
 }
 
 .list-icon{
   height: 50px;
-  weight: 50px;
+  width: 50px;
+  object-fit: cover;
 }
 
 .display-none{
@@ -69,5 +74,5 @@ li{
 
 .user_errors_message{
   font-size: 14px;
-  color: $mrcrRed
+  color: $mrcrRed;
 }

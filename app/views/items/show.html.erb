@@ -119,7 +119,11 @@
             送料込み
           </span>
         </div>  
-        <a class="item__buy-btn" href="#">購入画面に進む</a>
+        <% if @item.buyer_id.blank? %>
+          <%= link_to "購入画面に進む", purchase_path(@item.id),{class:"item__buy-btn"}%>
+        <% else %>
+          <p class="item__soldout-btn">売り切れました</p>
+        <% end %>
         <div class="item-description">
           <p class="item-description__inner">
             <%= @item.explanation%>
@@ -195,7 +199,7 @@
               <a class="" href=""> <%= @user.nickname %>さんのその他の出品</a>
             </h2>
             <ul class="item-box-container__contents">
-              <% @user_items.each do |user_item| %> 
+              <% @user_items.preload(:images).each do |user_item| %> 
                 <li class="item-box-container__one-cotent">
                   <a href="#">
                     <figure class="figure">
@@ -227,7 +231,7 @@
               <a class="" href=""><%= @cate.name %>(<%= @cate.parent.parent.name %>)のその他の出品</a>
             </h2>
             <ul class="item-box-container__contents">
-              <% @same_cate_items.each do |same_cate_item| %>
+              <% @same_cate_items.preload(:images).each do |same_cate_item| %>
                 <li class="item-box-container__one-cotent">
                   <a href="#">
                     <figure class="figure">

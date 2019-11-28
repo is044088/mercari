@@ -1034,9 +1034,9 @@ li {
 @charset "UTF-8";
 /* Slider */
 /* line 3, /Users/kawaihiroki/projects/mercari/app/assets/stylesheets/slick-theme.scss */
-.slick-loading .slick-list {
+/* .slick-loading .slick-list {
   background: #fff url("./ajax-loader.gif") center center no-repeat;
-}
+} */
 
 /* Icons */
 @font-face {
@@ -1044,7 +1044,7 @@ li {
   font-weight: normal;
   font-style: normal;
   src: url("./fonts/slick.eot");
-  src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
+  /* src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg"); */
 }
 /* Arrows */
 /* line 19, /Users/kawaihiroki/projects/mercari/app/assets/stylesheets/slick-theme.scss */

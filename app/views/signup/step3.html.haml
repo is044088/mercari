@@ -30,7 +30,7 @@
         %h3.top-text
           発送元・お届け先住所入力
       .new-form-box__main__form
-        = form_for @user, url:  step4_signup_index_path, method: :get do |f|
+        = form_for @user, url: step4_signup_index_path, method: :post do |f|
           = f.fields_for :address do |a|
             
             .form-group
@@ -66,7 +66,7 @@
             .new-form-box__main__bottom
               .form-group
                 .other-btn.form-next-btn
-                  = f.submit value: "次ぎへ進む" 
+                  = f.submit value: '登録する', class:"F-white"
             
     .new-box__footer
       .new-box__footer__nav

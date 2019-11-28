@@ -45,73 +45,35 @@
         -# 取引中の中身
         .bought-content__tab__box#bought-tab1-box
           %ul.bought-content__tab__box__lists
-            %li.bought-content__tab__box__lists__item
-              = link_to "#", class:"user-link login-link" do
-                %figure
-                  = image_tag "no_img_icon.png", class:"list-icon"
-                .bought-content__tab__box__lists__item__text
-                  .mypage-item-text
-                    《速報》今なら販売手数料が実質無料！出品が超お得♪
-                  .bought-item-status.F-bold.action-required
-                    受取評価待ち
-            %li.bought-content__tab__box__lists__item
-              = link_to "#", class:"user-link login-link" do
-                %figure
-                  = image_tag "no_img_icon.png", class:"list-icon"
-                .bought-content__tab__box__lists__item__text
-                  .mypage-item-text
-                    《速報》今なら販売手数料が実質無料！出品が超お得♪
-                  .bought-item-status.F-bold.action-required
-                    受取評価待ち
-            %li.bought-content__tab__box__lists__item
-              = link_to "#", class:"user-link login-link" do
-                %figure
-                  = image_tag "no_img_icon.png", class:"list-icon"
-                .bought-content__tab__box__lists__item__text
-                  .mypage-item-text
-                    《速報》今なら販売手数料が実質無料！出品が超お得♪
-                  .bought-item-status.F-bold.action-required
-                    受取評価待ち
-            %li.mypage-content__tab__box__lists__all
-              = link_to purchase_path, class:"user-link login-link" do
-                .mypage-content__tab__box__lists__all__box
-                  %p.F-black
-                    一覧を見る'
+            - if @trading_bought_items.present?
+              - @trading_bought_items.each do |item|
+                = render "/layouts/mypage/user-purchase", {item: item}
+              %li.mypage-content__tab__box__lists__all
+                = link_to mypage_purchase_path, class:"user-link login-link" do
+                  .mypage-content__tab__box__lists__all__box
+                    %p.F-black
+                      一覧を見る'              
+            - else
+              %li.bought-content__tab__box__lists__item
+                = link_to "#", class:"user-link login-link" do
+                  .bought-content__tab__box__lists__item__text
+                    取引中の商品はありません   
         -# 過去の取引タブの中身
         .bought-content__tab__box#bought-tab2-box
           %ul.bought-content__tab__box__lists
-            %li.bought-content__tab__box__lists__item
-              = link_to "#", class:"user-link login-link" do
-                %figure
-                  = image_tag "no_img_icon.png", class:"list-icon"
-                .bought-content__tab__box__lists__item__text
-                  .bought-item-text
-                    「秋冬感満載 フープ × フェザー ピアス イヤリング」 を購入しました。
-                  .bought-item-status.F-bold.done
-                    取引完了
-            %li.bought-content__tab__box__lists__item
-              = link_to "#", class:"user-link login-link" do
-                %figure
-                  = image_tag "no_img_icon.png", class:"list-icon"
-                .bought-content__tab__box__lists__item__text
-                  .bought-item-text
-                    「秋冬感満載 フープ × フェザー ピアス イヤリング」 を購入しました。
-                  .bought-item-status.F-bold.done
-                    取引完了
-            %li.bought-content__tab__box__lists__item
-              = link_to "#", class:"user-link login-link" do
-                %figure
-                  = image_tag "no_img_icon.png", class:"list-icon"
-                .bought-content__tab__box__lists__item__text
-                  .bought-item-text
-                    「秋冬感満載 フープ × フェザー ピアス イヤリング」 を購入しました。
-                  .bought-item-status.F-bold.done
-                    取引完了
-            %li.mypage-content__tab__box__lists__all
-              = link_to purchased_path, class:"user-link login-link" do
-                .mypage-content__tab__box__lists__all__box
-                  %p.F-black
-                    一覧を見る'
+            - if @bought_items.present?
+              - @bought_items.each do |item|
+                = render "/layouts/mypage/user-purchased", {item: item}
+              %li.mypage-content__tab__box__lists__all
+                = link_to mypage_purchased_path, class:"user-link login-link" do
+                  .mypage-content__tab__box__lists__all__box
+                    %p.F-black
+                      一覧を見る'
+            - else
+              %li.bought-content__tab__box__lists__item
+                = link_to "#", class:"user-link login-link" do
+                  .bought-content__tab__box__lists__item__text
+                    過去に取引した商品はありません   
 
   = render '/layouts/mypage/user-side'
 

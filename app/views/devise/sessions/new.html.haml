@@ -1,37 +1,74 @@
-.contents
-  .login-content
-    .login-box
-      .new-box__header
-        = image_tag "mrcr-logo.png",class:"login-logo"
-      .login-box__signup
-        %p.login-text
-          アカウントをお持ちでない方はこちら
-        = link_to '新規会員登録', root_path, class:"login-signup-btn login-btn"
-      .login-box__other-login
-        .other-btn.facebook-btn
-          = icon 'fab', 'facebook-square',class:"other-icon facebook-icon"
-          = link_to 'Facebookでログイン', root_path, class:"user-link"
-        .other-btn.google-btn.F-black
-          = link_to 'Googleでログイン', root_path, class:"user-link"
-      .login-box__form
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .login-box__form__group
-            = f.email_field :email, autofocus: true, class:'login-form', placeholder:"メールアドレス", value:""
-          .login-box__form__group
-            = f.password_field :password, autocomplete: "current-password",class:"login-form", placeholder:"パスワード", value:""
-          .login-box__form__captcha
-            （仮）reCAPTCHA
-          .login-box__form__btn
-            = f.submit "ログイン", class:"login-send-btn login-btn"
-        = link_to 'パスワードをお忘れの方', root_path, class:"user-link login-link"
-      .new-box__footer
-        .new-box__footer__nav
-          %ul
-            %li.new-nav-list
-              = link_to 'プライバシーポリシー', root_path, class:"user-link"
-            %li.new-nav-list
-              = link_to 'メルカリ利用規約', root_path, class:"user-link"
-            %li.new-nav-list
-              = link_to '特定商取引に関する規約', root_path, class:"user-link"
-        .new-box__footer__icon
-          = image_tag 'mrcr-footer-icon.png',class:"new-footer-icon"
+-# .contents
+-#   .login-content
+-#     .login-box
+-#       .new-box__header
+-#         = image_tag "mrcr-logo.png",class:"login-logo"
+-#       .login-box__signup
+-#         %p.login-text
+-#           アカウントをお持ちでない方はこちら
+-#         = link_to '新規会員登録', root_path, class:"login-signup-btn login-btn"
+-#       .login-box__other-login
+-#         .other-btn.facebook-btn
+-#           = icon 'fab', 'facebook-square',class:"other-icon facebook-icon"
+-#           = link_to 'Facebookでログイン', root_path, class:"user-link"
+-#         .other-btn.google-btn.F-black
+-#           = link_to 'Googleでログイン', root_path, class:"user-link"
+-#       .login-box__form
+-#         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#           .login-box__form__group
+-#             = f.email_field :email, autofocus: true, class:'login-form', placeholder:"メールアドレス", value:""
+-#           .login-box__form__group
+-#             = f.password_field :password, autocomplete: "current-password",class:"login-form", placeholder:"パスワード", value:""
+-#           .login-box__form__captcha
+-#             （仮）reCAPTCHA
+-#           .login-box__form__btn
+-#             = f.submit "ログイン", class:"login-send-btn login-btn"
+-#         = link_to 'パスワードをお忘れの方', root_path, class:"user-link login-link"
+-#       .new-box__footer
+-#         .new-box__footer__nav
+-#           %ul
+-#             %li.new-nav-list
+-#               = link_to 'プライバシーポリシー', root_path, class:"user-link"
+-#             %li.new-nav-list
+-#               = link_to 'メルカリ利用規約', root_path, class:"user-link"
+-#             %li.new-nav-list
+-#               = link_to '特定商取引に関する規約', root_path, class:"user-link"
+-#         .new-box__footer__icon
+-#           = image_tag 'mrcr-footer-icon.png',class:"new-footer-icon"
+-# 登録種別
+.new-content
+  .new-box
+    .new-box__header
+      = image_tag "mrcr-logo.png",class:"login-logo"
+
+    .new-box__main
+      .new-box__main__top
+        %h3.top-text
+          新規会員登録
+      .new-box__main__btn
+        %a{href:"/signup/step1",class:""}
+          .other-btn.mail-btn.new-form-btn
+            = icon 'far', 'envelope', class:"other-icon mail-icon"
+            メールアドレスで登録する
+        %a{href:"/users/auth/facebook", class:"", method: :post}
+          .other-btn.facebook-btn.new-form-btn
+            = icon 'fab', 'facebook-square',class:"other-icon facebook-icon"
+            Facebookで登録する
+        %a{href:" /users/auth/google_oauth2", class:"", method: :post}
+          .other-btn.google-btn.F-black.new-form-btn
+            Googleで登録する
+
+    .new-box__footer
+      .new-box__footer__nav
+        %ul
+          %li.new-nav-list
+            %a{href:"#"}
+              プライバシーポリシー
+          %li.new-nav-list
+            %a{href:"#"}
+              メルカリ利用規約
+          %li.new-nav-list
+            %a{href:"#"}
+              特定商取引に関する規約
+      .new-box__footer__icon
+        = image_tag 'mrcr-footer-icon.png',class:"new-footer-icon"

@@ -107,8 +107,20 @@ ul.parent {
   text-align: center;
   font-weight: 600;
   text-decoration: none;
-  
 }
+/* SoldOut時の「売り切れ」ボタン（11/24 浅井追加） */
+.item__soldout-btn{
+  display: block;
+  margin: 16px 50px 0 50px ;
+  background: #ccc;
+  font-size: 24px;
+  color: #fff;
+  line-height: 60px;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+}
+/* ここまで */
 .item-user-rating{
   display: inline;
 }
