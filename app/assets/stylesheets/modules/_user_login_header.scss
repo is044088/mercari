@@ -1,0 +1,194 @@
+.nav_right {
+  width: 500px;
+  height: 40px;
+  position: relative;
+
+}
+
+.nav_right .menu {
+  display: inline-block;
+  z-index: 10;
+  height: 44px;
+  position: absolute;
+  top: -15px;
+  right: -440px;
+
+}
+
+.menu .menu-user {
+  position: relative;
+  display: inline;
+  margin: 0 14px 0 0;
+}
+
+.menu li img {
+  margin: 5px 5px 0 0;
+
+}
+
+.menu li span {
+  color: black;
+  font-size: 14px;
+}
+
+
+.menu li span:hover {
+  color: aqua;
+}
+
+.menu li ul {
+  display: none;
+  position: absolute;
+  top: 15px;
+  left: -100px;
+  padding: 0 5px;
+  width: 300px;
+  background: #fff;
+  border: solid 1px #ccc;
+  margin: 0;
+  border-top: none;
+}
+
+.menu li ul .info-list {
+  display: block;
+  margin: 10px 0 0 0;
+  width: 290px;
+  height: 70px;
+  border-bottom: solid 1px #ccc;  
+}
+
+.menu li ul li a {
+  display: block;
+  width: 290px;
+  font-size: 14px;
+  color: black;
+}
+
+
+.menu li ul li a:hover {
+  cursor: pointer;
+}
+ 
+.mercari_logo {
+  display: block;
+  float: left;
+  padding: 0 5px 0 0;
+}
+
+.menu li ul li span { 
+  text-align: center;
+  color: gray;
+  font-size: 13px;
+}
+
+.clock {
+  display: block;
+  float: left;
+}
+   
+.user_mypage {
+  padding-left: 30px;
+}
+.nav_icon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -13px;
+  left: -5px;
+  
+}
+.user-info {
+  height: 590px;
+  border-bottom: 2px solid #ccc;
+}
+.user-info-point {
+  width: 290px;
+}
+
+.user-bg {
+  width: 290px;
+  height: 80px;
+}
+
+
+.user-detail {
+  height: 200px;
+  text-align: center;
+  border-bottom: 2px solid #ccc;
+  margin: 0;
+  overflow: hidden;
+}
+.user-image2 {
+  width: 60px;
+  height: 60px;
+  
+}
+
+.user-name {
+  font-size: 15px;
+  font-weight: bold;
+  
+}
+ .score {
+   float: left;
+   font-size: 14px;
+   margin-left: 90px;
+ }
+
+ .have-products {
+  font-size: 14px;
+  margin-right: 60px;
+ }
+
+ .sales-box {
+   margin-top: 10px 0;
+   height: 80px;
+ }
+
+ .sales {
+   background-color: rgb(245, 245, 245);
+   border: solid 1px  #ccc;
+   height: 40px;
+   width: 100%;
+   font-size: 14px;
+   text-align: left;
+   
+ } 
+
+ .sales-money {
+   line-height: 40px;
+   color: black;
+ }
+
+ #my_page .user-info-list {
+   margin: 0;
+ }
+
+ .user-info-various {
+   border-bottom: #eee solid 1px;
+   height: 50px;
+   
+ }
+
+ .user-info-list .user-info-various a {
+   font-size: 14px;
+   display: block;
+   height: 50px;
+   line-height: 50px;
+   color: #333333;
+ }
+ 
+ .user-info-list .user-info-various a:hover {
+   color: black;
+   font-weight: bold;
+   
+ }
+
+ .blank {
+   opacity: 0;
+ }
+
+ .ufas {
+   color: #ccc;
+   padding-right: 4px;
+ }

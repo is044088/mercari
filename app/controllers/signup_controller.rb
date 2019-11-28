@@ -8,14 +8,17 @@ class SignupController < ApplicationController
   end
 
   def step1
+    flash[:notice] = nil
     @user = User.new
   end
 
   def step2
+    flash[:notice] = nil
     @user = User.new
   end
 
   def step3
+    flash[:notice] = nil
     @user = User.new
     @user.build_address
   end

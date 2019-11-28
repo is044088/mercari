@@ -33,6 +33,7 @@ header {
   width:100%;
   margin:0;
   padding-top:8px;
+  height: 150px;
 }
 
 .header-inner {
@@ -76,20 +77,23 @@ header {
   border-image: initial;
   border-radius: 0px 4px 4px 0px;
   padding: 0px;
-  top:10px;
-  right: 300px;
+  top:6px;
+  right: 290px;
 }
 
 
 .header-bottom__left {
   display:block;
+  width: 500px;
 }
 
 
 .gnav {
   display: flex;
   height: 2rem;
-  width: 1020px;
+  width: 900px;
+  margin: 0;
+  padding-top: 15px;
 }
 
 /*親階層のみ幅を25%にする*/
@@ -183,149 +187,26 @@ header {
   background-color:#EA352D;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* header {
-  background-color: #ffffff;
-  width: 100vw;
-  height: 120px;
-}
-
-.header-inner {
-  margin: 0 auto;
-}
-
-.top_header {
-  width: 1020px;
-  height: 60px;
-  margin: 0 auto;
-  padding-top: 8px;
-}
-
-.logo_main {
-  width: 134px;
-  height: 36px;
-  float: left;
-  margin: 0 45px 0 0;
-}
-
-.top_header form {
+.header-bottom__right {
+  display: inline;
   float: right;
-  width: 840px;
-  height: 100%;
   position: relative;
 }
 
-.search_products .search_bar {
-  background-color: #F5F5F5;
-  padding: 0 40px 0 10px;
-  height: 40px;
-  width: 840px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(204, 204, 204);
-  border-image: initial;
-  border-radius: 4px;
-  outline: none;
-  position: relative;
-}
-
-.search_products button {
-  background-color: transparent;
-  cursor: pointer;
-  height: 45px;
-  width: 40px;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  border-width: initial;
-  border-style: none;
-  border-color: initial;
-  border-image: initial;
-  border-radius: 0px 4px 4px 0px;
-  padding: 0px;
-}
-
-.bottom_header {
-  width: 1020px;
-  height: 44px;
-  margin: 0 auto;
-  padding-top: 8;
-}
-
-.nav_left {
-  float: left;
-  width: 308px;
-  height: 44px;
-  margin-top: 13px;
-}
-
-i.search_tag {
-  float: left;
-  padding: 0;
-}
-
-.nav_left ul li {
-  display: inline;
-}
-
-.nav_left .category_search {
-float: left;
-margin-right: 22px;
-}
-
-.nav_left .brand_search {
-  float: right;
-}
-
-.search_type {
-  color: black;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.nav_right {
-  float: right;
-
-}
-
-.nav_right ul {
-  margin: 14px 0;
-  width: 200px;
-  height: 32px;
-  padding: 0;
-
-}
-
-.nav_right ul li {
-  display: inline;
-  /* margin-top: 15px; */
-
-
-.nav_right ul .user_sign_up {
+.header-bottom__right .user_sign_up {
   background-color: #EA352D;
   color: white;
   padding: 8px;
   font-size: 14px;
   border-radius: 4px;
   margin-left: 10px;
+  width: 100px;
+  position: absolute;
+  top:-18px;
+  right: 180px;
 }
 
-.nav_right ul .user_sign_in {
+.header-bottom__right .user_sign_in {
   background-color: white;
   padding: 8px;
   color: #0099E8;
@@ -333,8 +214,12 @@ margin-right: 22px;
   border-radius: 4px;
   font-size: 14px;
   margin-left: 10px;
+  width: 75px;
+  position: absolute;
+  top:-20px;
+  right: 90px;
 }
-.nav_right ul .user_sign_in:hover {
+.header-bottom__right .user_sign_in:hover {
   color: white;
   background-color: #0095EE;
 }
