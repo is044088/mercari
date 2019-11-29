@@ -41,7 +41,7 @@ Image.create!(
       item_id: 9
     },
     {
-      images_url: 'https://d1f5hsy4d47upe.cloudfront.net/d9/d9efeef158e8de5b951bfc5a0b6efbdd_w.jpg',
+      images_url: 'https://d1f5hsy4d47upe.cloudfront.net/d5/d503d4e75908cc8e6cd823436b0274f3_w.jpg',
       item_id: 10
     },
     {
