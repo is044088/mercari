@@ -229,13 +229,11 @@ ul.parent {
 }
 .item-link{
   list-style: none; 
-/*   background-color: #FFFFFF; */
   height:28px;
   width:700px;
   margin:24px auto 0;
 }
 .item-link ul{
-  /* display: inline-block; */
   overflow: hidden;
 }
 
@@ -253,7 +251,6 @@ ul.parent {
 
 .item-sns__box{
   background-color: #FFFFFF;
-  /* height:150px; */
   width:700px;
   margin:24px auto 24px;
   padding: 32px 0 24px;
