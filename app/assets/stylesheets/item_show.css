@@ -330,7 +330,18 @@ ul.parent {
 .item-box-container__one-cotent a{
  color: #333;
  font-size: 16px;
-/*  font: 66.66667% sans-serif; */
+}
+.figure{
+  position: relative;
+}
+.sold{
+  padding: 10px;
+  background-color: red;
+  color: white;
+  position: absolute;
+  top: 0;
+  left:0;
+  font-family: sans-serif;
 }
 .figcaption{
   background-color: #F5F5F5;
@@ -345,12 +356,12 @@ ul.parent {
 }
 .items-box-name:after{
   display: block;
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    height: 1.5em;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 1.5em;
 }
 .items-box-name{
   font-weight:400;

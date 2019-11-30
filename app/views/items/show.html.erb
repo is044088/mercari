@@ -204,6 +204,9 @@
                   <%= link_to "/items/#{user_item.id}" do %>
                     <figure class="figure">
                       <%= image_tag( user_item.images.first.images_url, width: "220px", height: "220px", alt: "image",class: "figure__image" ) unless user_item.images.blank? %>
+                      <% unless user_item.buyer_id.blank? %>
+                        <h3 class = "sold">SOLD</h3>
+                      <% end %>
                       <figcaption class="figcaption">
                         <div class="items-box-body">
                           <h3 class="items-box-name">
@@ -236,7 +239,10 @@
                   <%= link_to "/items/#{same_cate_item.id}" do %>
                     <figure class="figure">
                       <%= image_tag( same_cate_item.images.first.images_url, width: "220px", height: "220px", alt: "image",class: "figure__image" ) unless same_cate_item.images.blank? %>
-                      <figcaption class="figcaption-k">
+                      <% unless same_cate_item.buyer_id.blank? %>
+                        <h3 class = "sold">SOLD</h3>
+                      <% end %>
+                      <figcaption class="figcaption">
                         <div class="items-box-body">
                           <h3 class="items-box-name">
                             <%= same_cate_item.name %>
