@@ -34,8 +34,7 @@
           </li>  
         </ul>
       </div>
-      <% current_user = User.find_by(id: session[:user_id]) %>
-        <% if current_user %>
+        <% if user_signed_in? %>
           <div class="nav_right">
             <ul class="menu">
 
@@ -124,17 +123,20 @@
                   </li>
                   <li class="user-info-list">
                     <div class="user-info-various">
-                      <a href="#" class="products-state">出品した商品-売却済<span class="blank">ーーーーーーーーー-</span>＞</a>
+                      <a href="#" class="products-state">出品した商品-売却済
+                      <span class="blank">ーーーーーーーーー-</span>＞</a>
                     </div>
                   </li>
                   <li class="user-info-list">
                     <div class="user-info-various">
-                      <a href="#">購入した商品-取引中<span class="blank">ーーーーーーーーー-</span>＞</a>
+                      <a href="/mypage/purchase" class="products-state">購入した商品-取引中
+                      <span class="blank">ーーーーーーーーー-</span>＞</a>
                     </div>
                   </li>
                   <li class="user-info-list">
                     <div class="user-info-various">
-                      <a href="#">購入した商品-過去の取引<span class="blank">ーーーーーーー-</span>＞</a>
+                      <a href="/mypage/purchased" class="products-state">購入した商品-取引中
+                      <span class="blank">ーーーーーーーーー-</span>＞</a>
                     </div>
                   </li>
                 </ul>
