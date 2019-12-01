@@ -123,7 +123,7 @@ class ItemsController < ApplicationController
       :like_num,
       :how_to_ship,
       images_attributes: {images_url: []})
-      .merge(saler_id: 2)
+      .merge(saler_id: current_user.id)
   end
 
   # 親カテゴリーが選択された後に動くアクション
