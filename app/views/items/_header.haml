@@ -69,7 +69,7 @@
                     %i.fas.fa.ufas.fa-clock-o
                     %span 3時間
               %li#my_page.menu-user
-                = link_to "/users/#{current_user.id}" do
+                = link_to user_path(current_user.id) do
                   = image_tag("#{current_user.image_url}.jpg", class:'nav_icon')
                   %span.user_mypage マイページ
                 %ul.user-info
@@ -111,13 +111,13 @@
                           %span.blank ーーーーーーーーー-
                   %li.user-info-list
                     .user-info-various
-                      = link_to "/mypage/purchase",{class:"products-state"} do
+                      = link_to mypage_purchase_path,{class:"products-state"} do
                         購入した商品-取引中
                         = succeed "\u{ff1e}" do
                           %span.blank ーーーーーーーーー-
                   %li.user-info-list
                     .user-info-various
-                      = link_to "/mypage/purchased", {class:"products-state"} do
+                      = link_to mypage_purchased_path, {class:"products-state"} do
                         購入した商品-取引中
                         = succeed "\u{ff1e}" do
                           %span.blank ーーーーーーーーー-
@@ -125,6 +125,6 @@
           .header-bottom__right
             %div
               %div
-                %a.user_sign_up{:href => "/signup/step0"} 新規会員登録
+                = link_to "新規会員登録", step0_signup_index_path,{class:"user_sign_up"}
               %div
-                %a.user_sign_in{:href => "/users/sign_in"} ログイン
+                = link_to "ログイン", user_session_path,{class:"user_sign_in"}
