@@ -14,13 +14,13 @@ class ItemsController < ApplicationController
     @item = Item.new
     @image = @item.images.build
 
-      #セレクトボックスの初期値設定
-      @category_parent_array = ["---"]
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["---"]
 
-      #データベースから、親カテゴリーのみ抽出し、配列化
-      Category.where(ancestry: nil).each do |parent|
-         @category_parent_array << parent.name
-      end
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def edit
@@ -49,10 +49,10 @@ class ItemsController < ApplicationController
     @image_top = Image.find_by(item_id: @item.id)
 
     #クリックした商品の出品者が出している商品全て(クリックした商品以外) 
-     @user_items = Item.where(saler_id: @item.saler_id).where.not(id: @item.id).limit(6)
+    @user_items = Item.where(saler_id: @item.saler_id).where.not(id: @item.id).limit(6)
 
     #クリックした商品と同じカテゴリの商品
-     @same_cate_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).limit(6)
+    @same_cate_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).limit(6)
   end
 
   def create
@@ -100,6 +100,10 @@ class ItemsController < ApplicationController
     redirect_to("/")
   end
 
+  def search #検索
+    @items = Item.search(params[:search])
+    @key_word = params[:search]
+  end
 
   def item_parameter
     params.require(:item).permit(
@@ -122,48 +126,51 @@ class ItemsController < ApplicationController
       :like_num,
       :how_to_ship,
       images_attributes: [:image_url, :item_id])
-      .merge(saler_id: current_user.id)
+      .merge(saler_id: current_user.id
+      )
+
   end
 
   # 親カテゴリーが選択された後に動くアクション
-   def get_category_children
-      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得：親カテゴリー名で検索
-      @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-   end
-
-   # 子カテゴリーが選択された後に動くアクション
-   def get_category_grandchildren
-      #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得:idで検索
-      @category_grandchildren = Category.find("#{params[:child_id]}").children
-   end
-
-   def get_size
-        selected_grandchild = Category.find(params[:grandchild_id]) #孫カテゴリーを取得
-    if related_size_parent = selected_grandchild.sizes[0] #孫カテゴリーと紐付くサイズ（親）があれば取得
-       @sizes = related_size_parent.children #紐づいたサイズ（親）の子供の配列を取得
-
-    else
-        selected_child = Category.find(params[:grandchild_id]).parent #孫カテゴリーの親を取得
-       if related_size_parent = selected_child.sizes[0] #孫カテゴリーの親と紐付くサイズ（親）があれば取得
-          @sizes = related_size_parent.children #紐づいたサイズ（親）の子供の配列を取得
-       end
-    end
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得：親カテゴリー名で検索
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
 
-      def get_brand
-        selected_grandchild = Category.find(params[:grandchild_id]) #孫カテゴリーを取得
-        @brands = []
-      if related_brand_parent = selected_grandchild.brands[0] #孫カテゴリーと紐付くサイズ（親）があれば取得
-        Brand.where('name LIKE(?)', "%#{params[:keyword]}%").where(ancestry: related_brand_parent.id).limit(10).each do |brand|
-        @brands << brand
-        end
-      else
-        selected_child = Category.find(params[:grandchild_id]).parent #孫カテゴリーの親を取得
-      if related_brand_parent = selected_child.brands[0] #孫カテゴリーの親と紐付くサイズ（親）があれば取得
-        Brand.where('name LIKE(?)', "%#{params[:keyword]}%").where(ancestry: related_brand_parent.id).limit(10).each do |brand|
-          @brands << brand
-          end
+   # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得:idで検索
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
+  def get_size
+    selected_grandchild = Category.find(params[:grandchild_id]) #孫カテゴリーを取得
+    if related_size_parent = selected_grandchild.sizes[0] #孫カテゴリーと紐付くサイズ（親）があれば取得
+      @sizes = related_size_parent.children #紐づいたサイズ（親）の子供の配列を取得
+
+    else
+      selected_child = Category.find(params[:grandchild_id]).parent #孫カテゴリーの親を取得
+      if related_size_parent = selected_child.sizes[0] #孫カテゴリーの親と紐付くサイズ（親）があれば取得
+        @sizes = related_size_parent.children #紐づいたサイズ（親）の子供の配列を取得
       end
     end
   end
+
+  def get_brand
+    selected_grandchild = Category.find(params[:grandchild_id]) #孫カテゴリーを取得
+    @brands = []
+    if related_brand_parent = selected_grandchild.brands[0] #孫カテゴリーと紐付くサイズ（親）があれば取得
+      Brand.where('name LIKE(?)', "%#{params[:keyword]}%").where(ancestry: related_brand_parent.id).limit(10).each do |brand|
+        @brands << brand
+      end
+    else
+      selected_child = Category.find(params[:grandchild_id]).parent #孫カテゴリーの親を取得
+      if related_brand_parent = selected_child.brands[0] #孫カテゴリーの親と紐付くサイズ（親）があれば取得
+        Brand.where('name LIKE(?)', "%#{params[:keyword]}%").where(ancestry: related_brand_parent.id).limit(10).each do |brand|
+          @brands << brand
+        end
+      end
+    end
+  end
+  
 end
