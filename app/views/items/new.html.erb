@@ -6,7 +6,7 @@
       </a>
     </h1>
   </header>
-  <main class="sp_single-main">
+  <main class="sp_single-main" >
     <section class="sp_single-container">
       <div class="sp_sell-container-inner">
         <h2 class="sp_single-head">商品の情報を入力</h2>
@@ -17,35 +17,35 @@
               <span class="sp_form-require">必須</span>
             </h3>
             <p>最大10枚までアップロードできます</p>
-            <div class="sp_sell-dropbox-container clearfix state-image-number-10">
-              <%= f.fields_for :images do |image| %>
-              <div class="sp_sell-upload-items-container">
-                <div class="sp_sell-upload-items">
-            <div id="preview"></div>
-          <div class="dropzone-area">
-            <%= image.label :images_url, id: "fileInput", class: "dropzone-box", for: "upload-image" do %>
-              <div class="input_area sp_sell-upload-drop-box">
-                <%= image.file_field :images_url, multiple: true, name: 'images[images_url][]', id: "upload-image", class: "upload-image", 'data-image': 0 %> 
-              <pre class="sp_visible-pc">画像</pre>
-              <i class="far fa-images"></i>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+            <div class="sp_sell-dropbox-container clearfix">
+              <%= f.fields_for :image,@image do |image| %>
+                <div class="sp_sell-upload-items-container">
+                  <div class="sp_sell-upload-items" >
+                    <ul id="preview"></ul>
+                    <div class="dropzone-area sp_sell-upload-drop-box">
+                      <%= image.label :images_url, id: "fileInput", class: "dropzone-box", for: "upload-image-0" do %>
+                        <div class="input_area">
+                          <%= image.file_field :images_url ,name: "item[images_url][]", type: "file", id: "upload-image-0", class: "upload-image" %>
+                          <pre class="sp_visible-pc">画像</pre>
+                          <i class="far fa-images"></i>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             </div>
-             </div>
-               </div>
+          </div>
           <div class="sp_sell-content">
-            <div class="sp_form-group">
-              <%= f.label "商品名" %>
+            <div class="sp_form-group-first">
+              <%= f.label :name, "商品名" %>
                 <span class="sp_form-require">必須</span>
               <div>
                 <%= f.text_field :name, class: "sp_input-default", value: "", placeholder: "商品名（必須 40文字まで)", maxlength: "40" %>
               </div>
             </div>
             <div class="sp_form-group">
-              <%= f.label "商品の説明" %>
+              <%= f.label :explanation, "商品の説明" %>
                 <span class="sp_form-require">必須</span>
                 <%= f.text_area :explanation, class: "sp_textarea-default", rows: "5", placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", maxlength: "1000" %>
             </div>
@@ -58,7 +58,20 @@
                 <span class= "sp_form-require">必須</span>
                 <div class="listing-select-wrapper"> 
                   <div class="listing-select-wrapper__box"> 
-                    <%= f.select :category, @category_parent_array,  {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'} %>
+                    <select class="listing-select-wrapper__box--select" id="parent_category"><option value="---">---</option>
+                      <option value="レディース">レディース</option>
+                      <option value="メンズ">メンズ</option>
+                      <option value="ベビー・キッズ">ベビー・キッズ</option>
+                      <option value="インテリア・住まい・小物">インテリア・住まい・小物</option>
+                      <option value="本・音楽・ゲーム">本・音楽・ゲーム</option>
+                      <option value="おもちゃ・ホビー・グッズ">おもちゃ・ホビー・グッズ</option>
+                      <option value="コスメ・香水・美容">コスメ・香水・美容</option>
+                      <option value="家電・スマホ・カメラ">家電・スマホ・カメラ</option>
+                      <option value="スポーツ・レジャー">スポーツ・レジャー</option>
+                      <option value="ハンドメイド">ハンドメイド</option>
+                      <option value="チケット">チケット</option>
+                      <option value="自動車・オートバイ">自動車・オートバイ</option>
+                      <option value="その他">その他</option></select>
                       <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
                   </div>
                   <div id="sp_child-space"></div>
@@ -66,13 +79,9 @@
                 </div>
                 <div id="sp_size-space"></div>
                 <div id="sp_brand-space"></div>
-
-                <div class="brand-search-result">
-                  <datalist id="keywords"></datalist>
-                </div>
               </div>
               <div class="sp_form-group">
-                <%= f.label "商品の状態" %>
+                <%= f.label :condition, "商品の状態" %>
                   <span class="sp_form-require">必須</span>
                 <div class="sp_select-wrap">
                   <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
@@ -86,7 +95,7 @@
             <a href="#" target="_blank" class="sp_form-question">?</a>
             <div class="sp_sell-form-box">
               <div class="sp_form-group-first">
-                <%= f.label "配送料の負担" %>
+                <%= f.label :shipping_charge, "配送料の負担" %>
                   <span class="sp_form-require">必須</span>
                 <div class="sp_select-wrap">
                   <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
@@ -96,19 +105,19 @@
               <div id= 'how-to-ship_wrapper'>
               </div>
               <div class="sp_form-group">
-                <%= f.label "発送元の地域" %>
+                <%= f.label :delivery_source_area, "発送元の地域" %>
                   <span class="sp_form-require">必須</span>
                 <div class="sp_select-wrap">
                   <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
-                  <%= f.select :delivery_source_area, Prefecture.all.collect { |p| [ p.name, p.id ] }, {prompt: "---"}, {class: 'sp_select-default'} %>
+                  <%= f.select :delivery_source_area, Prefecture.all.collect { |p| [ p.name ] }, {prompt: "---"}, {class: 'sp_select-default'} %>
                 </div>
               </div>
               <div class="sp_form-group">
-                <%= f.label "発送までの日数" %>
+                <%= f.label :delivery_days, "発送までの日数" %>
                   <span class="sp_form-require">必須</span>
                 <div class="sp_select-wrap">
                   <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
-                  <%= f.select :condition, ["1~2日で発送","2~3日で発送","4~7日で発送"], {prompt: "---"}, {class: 'sp_select-default'} %>
+                  <%= f.select :delivery_days, ["1~2日で発送","2~3日で発送","4~7日で発送"], {prompt: "---"}, {class: 'sp_select-default'} %>
                 </div>
               </div>
             </div>
@@ -120,24 +129,24 @@
               <ul class="sp_sell-price">
                 <li class="sp_form-group-first">
                   <div class="clearfix">
-                    <label class= "sp_l-left" >価格
-                      <span class="sp_form-require">必須</span>
-                      </label>
+                    <%= f.label :price, "価格", {class: "sp_l-left"} %>
+                      <span class="sp_form-require-price">必須</span>
                     <div class="sp_l-right sp_sell-price-input">¥
                       <div>
-                        <input id="price_calc" class="sp_input-default" name="input_price" type="input" placeholder="例）300">
+                      <%= f.text_field :price, class: "sp_input-default", value: "", id: "price_calc", placeholder: "例）300", type: "input" %>
                       </div>
                     </div>
                   </div>
                 </li>
                 <li class="clearfix">
-                  <div class="sp_l-left">販売手数料 (10%)</div>
+                  <%= f.label :commission, "販売手数料 (10%)", {class: "sp_l-left"} %>
+                  <%= f.number_field :commission, style: "display: none", value: "", id: "commission" %>
                   <div class="right_bar sp_l-right">-
                   </div>
                 </li>
                 <li class="clearfix bold">
-                  <div class="sp_l-left">販売利益</div>
-                    <%= f.number_field :price, style: "display: none", id: "price" %>
+                  <%= f.label :profit, "販売利益", {class: "sp_l-left-bold"} %>
+                    <%= f.number_field :profit, style: "display: none", value: "", id: "profit" %>
                   <div class="right_bar_2 sp_l-right">-
                   </div>
                 </li>
@@ -164,7 +173,7 @@
                 に同意したことになります。
               </p>
             </div>
-            <%= f.submit "出品する", class: 'btn sp_btn-default sp_btn-red'%>
+            <%= f.submit "出品する", class: 'btn sp_btn-default sp_btn-red', id: 'submit'%>
             <a class="sp_btn-default sp_btn-gray">もどる</a>
                 <% end %>
           </div>
@@ -194,5 +203,3 @@
     </p>
   </footer>
 </body>
-
-

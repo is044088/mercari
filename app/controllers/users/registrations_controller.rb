@@ -63,10 +63,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     password = Devise.friendly_token.first(7)
     if session[:provider].present? && session[:uid].present?
-      @user = User.create(nickname:session[:nickname], email: session[:email], password: "password", password_confirmation: "password", f_name_kana: session[:f_name_kana],l_name_kana: session[:l_name_kana], f_name_kanji: session[:f_name_kanji], l_name_kanji: session[:l_name_kanji], birthday: session[:birthday], tel: params[:user][:tel])
+      @user = User.create(nickname:session[:nickname], email: session[:email], password: "password", password_confirmation: "password", family_name: session[:family_name],first_name: session[:first_name], ja_family_name: session[:ja_family_name], ja_first_name: session[:ja_first_name], birthday: session[:birthday], authenticate_phone: session[:authenticate_phone])
       sns = SnsCredential.create(user_id: @user.id,uid: session[:uid], provider: session[:provider])
     else
-      @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], f_name_kana: session[:f_name_kana],l_name_kana: session[:l_name_kana], f_name_kanji: session[:f_name_kanji], l_name_kanji: session[:l_name_kanji], birthday: session[:birthday], tel: params[:user][:tel])
+      @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], family_name: session[:family_name],first_name: session[:first_name], ja_family_name: session[:ja_family_name], ja_first_name: session[:ja_first_name], birthday: session[:birthday], authenticate_phone: session[:authenticate_phone])
     end
   end
 
