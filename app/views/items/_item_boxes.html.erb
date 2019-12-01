@@ -1,7 +1,7 @@
     <li id="flex-container__item-box">
       <%= link_to "/items/#{item.id}" do %>
         <figure class="figure">
-        <%= image_tag(item.images.first.images_url, width: "188px", height: "188px", alt: "image",class: "figure__image") unless item.images.blank? %>
+          <%= image_tag(item.images.first.images_url, width: "188px", height: "188px", alt: "image",class: "figure__image") unless item.images.blank? %>
             <div>
               <span class="flex-container__item-box__yen" aria-label="Price">
                 ¥<%= number_with_delimiter(item.price) %>

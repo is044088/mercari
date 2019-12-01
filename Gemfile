@@ -84,4 +84,7 @@ gem 'active_hash'
 
 gem 'payjp'
 gem 'listen', '~> 3.0.5'
+
 gem "recaptcha", require: "recaptcha/rails"
+gem 'gretel'
+

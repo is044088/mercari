@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
 
   def show
+    @trading_bought_items = current_user.trading_bought_items.limit(3).order('updated_at DESC')
+    @bought_items = current_user.bought_items.limit(3).order('updated_at DESC')
   end
 
   def edit

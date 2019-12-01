@@ -107,8 +107,20 @@ ul.parent {
   text-align: center;
   font-weight: 600;
   text-decoration: none;
-  
 }
+/* SoldOut時の「売り切れ」ボタン（11/24 浅井追加） */
+.item__soldout-btn{
+  display: block;
+  margin: 16px 50px 0 50px ;
+  background: #ccc;
+  font-size: 24px;
+  color: #fff;
+  line-height: 60px;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+}
+/* ここまで */
 .item-user-rating{
   display: inline;
 }
@@ -217,13 +229,11 @@ ul.parent {
 }
 .item-link{
   list-style: none; 
-/*   background-color: #FFFFFF; */
   height:28px;
   width:700px;
   margin:24px auto 0;
 }
 .item-link ul{
-  /* display: inline-block; */
   overflow: hidden;
 }
 
@@ -241,7 +251,6 @@ ul.parent {
 
 .item-sns__box{
   background-color: #FFFFFF;
-  /* height:150px; */
   width:700px;
   margin:24px auto 24px;
   padding: 32px 0 24px;
@@ -321,7 +330,18 @@ ul.parent {
 .item-box-container__one-cotent a{
  color: #333;
  font-size: 16px;
-/*  font: 66.66667% sans-serif; */
+}
+.figure{
+  position: relative;
+}
+.sold{
+  padding: 10px;
+  background-color: red;
+  color: white;
+  position: absolute;
+  top: 0;
+  left:0;
+  font-family: sans-serif;
 }
 .figcaption{
   background-color: #F5F5F5;
@@ -336,12 +356,12 @@ ul.parent {
 }
 .items-box-name:after{
   display: block;
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    height: 1.5em;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 1.5em;
 }
 .items-box-name{
   font-weight:400;

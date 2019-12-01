@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
 
   require "payjp"
+  before_action :authenticate_user!
   before_action :card_exit, only: [:index, :new]
   # 今回、カード情報は１つだけ登録できるようにしているため、カード情報がある場合はshow（カード一覧）へ強制的にとばす
 

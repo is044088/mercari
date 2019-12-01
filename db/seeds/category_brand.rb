@@ -1,5 +1,4 @@
 # レディースのブランド	1
-if Rails.env == "development"
   (4..21).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "1")
   end
@@ -54,10 +53,8 @@ if Rails.env == "development"
   (216..218).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "1")
   end
-end
 
 # メンズのブランド	6565
-if Rails.env == "development"
   (222..233).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "6565")
   end
@@ -94,10 +91,8 @@ if Rails.env == "development"
   (373..376).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "6565")
   end
-end
 
 # ベビー・キッズのブランド	11581
-if Rails.env == "development"
   (381..391).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "11581")
   end
@@ -143,10 +138,8 @@ if Rails.env == "development"
   (526..527).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "11581")
   end
-end
 
 # インテリア・住まい・雑貨のブランド	12227
-if Rails.env == "development"
   (544..557).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "12227")
   end
@@ -177,27 +170,21 @@ if Rails.env == "development"
   (639..661).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "12227")
   end
-end
 
 # キッチン・食器のブランド	12370
-if Rails.env == "development"
   (531..541).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "12370")
   end
-end
 
 # 時計のブランド	12703
-if Rails.env == "development"
   (170..175).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "12703")
   end
   (353..358).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "12703")
   end
-end
 
 # コスメ・香水・美容のブランド	13088
-if Rails.env == "development"
   (875..883).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "13088")
   end
@@ -231,17 +218,13 @@ if Rails.env == "development"
   (979..982).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "13088")
   end
-end
 
 # テレビゲームのブランド	14504
-if Rails.env == "development"
   (742..747).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "14504")
   end
-end
 
 # スポーツ・レジャーのブランド	14534
-if Rails.env == "development"
   (1082..1089).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "14534")
   end
@@ -278,10 +261,8 @@ if Rails.env == "development"
   (1198..1199).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "14534")
   end
-end
 
 # スマートフォン・携帯電話のブランド	14968
-if Rails.env == "development"
   (985..990).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "14968")
   end
@@ -310,25 +291,19 @@ if Rails.env == "development"
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "14968")
   end
   CategoriesBrand.create!(category_id: "1078", brand_id: "14968")
-end
 
 # バイクのブランド	15009
-if Rails.env == "development"
   (1371..1386).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "15009")
   end
   CategoriesBrand.create!(category_id: "1367", brand_id: "15009")
-end
 
 # 楽器のブランド	15021
-if Rails.env == "development"
   (806..820).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "15021")
   end
-end
 
 # 自動車パーツのブランド	15037
-if Rails.env == "development"
   (1333..1336).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "15037")
   end
@@ -338,24 +313,17 @@ if Rails.env == "development"
   (1355..1366).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "15037")
   end
-end
 
 # 食品のブランド	15083
-if Rails.env == "development"
   (1412..1420).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "1")
   end
   (1423..1433).each do |i|
     CategoriesBrand.create!(category_id: "#{i}", brand_id: "1")
   end
-end
 
 # 国内自動車本体のブランド	15118
-if Rails.env == "development"
   CategoriesBrand.create!(category_id: "1329", brand_id: "15118")
-end
 
 # 外国自動車本体のブランド	15135
-if Rails.env == "development"
   CategoriesBrand.create!(category_id: "1330", brand_id: "15135")
-end
