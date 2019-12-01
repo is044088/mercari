@@ -22,4 +22,12 @@ class Item < ApplicationRecord
   validates :how_to_ship, presence: true
   validates :category_id, presence: true
   validates :size_id, presence: true
+
+  def self.search(search)
+    if search
+      Item.where(['name LIKE ?', "%#{search}%"])
+    else
+      Item.all
+    end
+  end
 end

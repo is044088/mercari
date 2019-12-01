@@ -12,9 +12,26 @@
   padding: 10px 16px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  background: #fff;
+  background-color: #fff;
   line-height: 1.5;
   font-size: 16px;
+}
+
+.search-select-box{
+  background-color: #fff;
+  position: relative;
+}
+
+.search-select-arrow{
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  z-index: 2;
+  color: #888;
+  font-size: 8px;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
 }
 
 .form-group{
@@ -51,6 +68,19 @@
     width: calc(50% - 16px);
   }
 // セレクトボックス
+
+  .select-default-full{
+    width: 100%;
+    padding: 0 10px;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+  }
   .select-default{
     width: 60px;
     padding: 0 10px;
@@ -94,6 +124,21 @@
     line-height: 1.5;
     cursor: pointer;
   }
+// チェックボックス
+  .checkbox-default{
+    display: inline-block;
+    width: 48%;
+    margin: 16px 0 0;
+    vertical-align: middle;
+    word-break: break-word;
+    font-size: 14px;
+    label{
+      font-size: 14px;
+      font-weight: 400;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+  }
 // カード情報用 年月サイズ
   .card-half{
     width: calc(50% - 50px);
@@ -127,7 +172,6 @@
     margin-top: 8px;
   }
 }
-
 
 .new-form{
   color: #333;
