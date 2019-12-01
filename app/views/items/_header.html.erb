@@ -5,12 +5,16 @@
         <img src="https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg" width="135px" height="35px">
       </div>
       <div class="header-top__search">
-        <form class="search_products">
-          <input class="search_bar" type="search" placeholder="何かお探しですか？">
-          <button>
-            <span class="search-scope"><i class="fas fa-search"></i></span>
-          </button>
-        </form>
+<%# 商品検索 %>
+        <div class="search_products">
+          <%= form_tag(search_items_path, :method => 'get') do %>
+            <%= text_field_tag :search, "",{class: "search_bar", placeholder:"何かお探しですか？"} %>
+            <%= button_tag type: "submit", :name => nil do %>
+              <i class="fas fa-search "></i>
+            <% end %>
+          <% end %>
+        </div>
+<%# ここまで %>
       </div>
     </div>
 

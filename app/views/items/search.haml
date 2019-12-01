@@ -1,0 +1,30 @@
+= render '/items/header'
+.search-item
+  .search-item__main
+    -if @key_word.present?
+      %h2.search-result-head
+        = @key_word
+        %span.search-result-head-text
+          の検索結果
+      .search-result-number
+        = @items.count.to_s + "件"
+    -else
+      %h2.search-result-head
+        すべての商品
+      
+    .search-item__main__container
+      %ul
+        - @items.preload(:images).each do |item|
+          %li.search-item__main__container__box
+            = link_to "/items/#{item.id}" do
+              %figure.figure
+                = image_tag(item.images.first.images_url, width: "188px", height:   "188px", alt: "image",class: "figure__image") unless item.images.blank?
+                %div
+                  %span.search-item__main__container__box__yen{"aria-label" => "Price"}
+                    ¥#{number_with_delimiter(item.price)}
+                %figcaption
+                  %span
+                    = item.explanation
+
+  = render '/items/search-side'
+
