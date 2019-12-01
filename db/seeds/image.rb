@@ -41,7 +41,7 @@ Image.create!(
       item_id: 9
     },
     {
-      images_url: 'https://d1f5hsy4d47upe.cloudfront.net/d9/d9efeef158e8de5b951bfc5a0b6efbdd_w.jpg',
+      images_url: 'https://d1f5hsy4d47upe.cloudfront.net/d5/d503d4e75908cc8e6cd823436b0274f3_w.jpg',
       item_id: 10
     },
     {
@@ -93,11 +93,11 @@ Image.create!(
       item_id: 22
     },
     {
-      images_url: 'https://economoto.org/materials/2d/for_members/207brand_accessory/original.png',
+      images_url: 'https://d1f5hsy4d47upe.cloudfront.net/5b/5bbea6295518e2095ffc98ee5a75b15c_w.jpg',
       item_id: 23
     },
     {
-      images_url: 'https://economoto.org/materials/2d/for_members/721clock_kirei/original.png',
+      images_url: 'https://d1f5hsy4d47upe.cloudfront.net/bf/bf49dc20ff08f144b395be67282fb390_w.jpg',
       item_id: 24
     },
     {
