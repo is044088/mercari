@@ -65,9 +65,5 @@ end
   get 'mypage/authenticate_phone' =>'mypage#authenticate_phone'
   get 'deliver_address' =>'mypage#deliver_address'
   
-  # devise_for :users,
-#  controllers: {
-#   registrations: 'users/registrations' ,
-#   omniauth_callbacks: 'users/omniauth_callbacks'
-#  }
+  
 end
