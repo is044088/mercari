@@ -1,0 +1,131 @@
+%body
+  %header
+    .header-inner
+      .header-top
+        .header-top__logo
+          %a{:href => "/"}
+            %img{:height => "35px", :src => "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg", :width => "135px"}/
+        .header-top__search
+          .search_products
+            = form_tag(search_items_path, :method => 'get') do
+              = text_field_tag :search, "",{class: "search_bar", placeholder:"何かお探しですか？"}
+              = button_tag type: "submit", :name => nil do
+                %i.fas.fa-search
+      .header-bottom
+        .header-bottom__left
+          %ul.gnav
+            = render partial: 'items/search_category'
+            %li#search-brand
+              %a{:href => "#"}
+                %i.fas.fa-tag.fa-fw
+                %span.search-brand ブランドから探す
+              %ul
+                %li.parent
+                  %a.parent-a{:href => ""} シャネル
+                %li.parent
+                  %a.parent-a{:href => ""} ナイキ
+                %li.parent
+                  %a.parent-a{:href => ""} ルイヴィトン
+                %li.parent
+                  %a.parent-a{:href => ""} シュプリーム
+                %li.parent
+                  %a.parent-a{:href => ""} アディダス
+                %li.parent
+                  %a.parent-a{:href => ""} ブランド一覧
+        - if current_user
+          .nav_right
+            %ul.menu
+              %li.menu-user
+                %a{:href => "/users/sign_out"}
+                  %i.fas.fa.fa-thumbs-up.ufas
+                  %span.user_operation いいね！一覧
+              %li.menu-user
+                %a{:href => "#"}
+                  %i.fas.fa.fa-bell.ufas
+                  %span.user_operation お知らせ
+                %ul
+                  %li.info-list
+                    = image_tag('mercari_mark.png', class:'mercari_logo')
+                    %a{:href => "#"} 明日、P999還元クーポンの期限が切れます！タップして詳細確認！
+                    %i.fas.fa.ufas.fa-clock-o
+                    %span 5時間
+                  %li.info-list
+                    = image_tag('mercari_mark.png', class:'mercari_logo')
+                    %a{:href => "#"} 《今なら販売手数料実質無料》詳しくはこちらから♪
+                    %i.fas.fa.ufas.fa-clock-o
+                    %span 3時間
+              %li.menu-user
+                %a{:href => "#"}
+                  %i.fas.fa.fa-check.ufas
+                  %span.user_operation やる事リスト
+                %ul
+                  %li.info-list
+                    = image_tag('mercari_mark.png', class:'mercari_logo')
+                    %a{:href => "#"} 未発送の商品があります。確認して発送してください。
+                    %i.fas.fa.ufas.fa-clock-o
+                    %span 3時間
+                  %li.info-list
+                    = image_tag('mercari_mark.png', class:'mercari_logo')
+                    %a{:href => "#"} 佐竹さんがあなたを評価しました。これで取引完了です。
+                    %i.fas.fa.ufas.fa-clock-o
+                    %span 3時間
+              %li#my_page.menu-user
+                %a{:href => "/users/:id"}
+                  = image_tag("#{current_user.image_url}.jpg", class:'nav_icon')
+                  %span.user_mypage マイページ
+                %ul.user-info
+                  %li.user-info-point
+                    = image_tag('user-bg.jpg', class: 'user-bg')
+                    .user-detail
+                      = image_tag('default_image.jpg', class: 'user-image2')
+                      %h2.user-name= current_user.nickname
+                      .score 評価：０
+                      .have-products 出品数：０
+                      .sales-box
+                        .sales
+                          %span.sales-money 売上金
+                        .sales
+                          %span.sales-money ポイント
+                  %li.user-info-list
+                    .user-info-various
+                      %a{:href => ""}
+                        いいね！一覧
+                        %span.blank> ーーーーーーーーーーーーー
+                        ＞
+                  %li.user-info-list
+                    .user-info-various
+                      %a{:href => "#"}
+                        出品した商品-出品中
+                        %span.blank> ーーーーーーーーー-
+                        ＞
+                  %li.user-info-list
+                    .user-info-various
+                      %a{:href => "#"}
+                        出品した商品-取引中
+                        %span.blank> ーーーーーーーーー-
+                        ＞
+                  %li.user-info-list
+                    .user-info-various
+                      %a.products-state{:href => "#"}
+                        出品した商品-売却済
+                        = succeed "\u{ff1e}" do
+                          %span.blank ーーーーーーーーー-
+                  %li.user-info-list
+                    .user-info-various
+                      %a.products-state{:href => "/mypage/purchase"}
+                        購入した商品-取引中
+                        = succeed "\u{ff1e}" do
+                          %span.blank ーーーーーーーーー-
+                  %li.user-info-list
+                    .user-info-various
+                      %a.products-state{:href => "/mypage/purchased"}
+                        購入した商品-取引中
+                        = succeed "\u{ff1e}" do
+                          %span.blank ーーーーーーーーー-
+        - else
+          .header-bottom__right
+            %div
+              %div
+                %a.user_sign_up{:href => "/signup/step0"} 新規会員登録
+              %div
+                %a.user_sign_in{:href => "/users/sign_in"} ログイン
