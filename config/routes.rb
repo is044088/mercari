@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json' }
       get 'get_brand', defaults: { format: 'json' }
+      get 'search', to: 'items#search'
     end
 end
   resources :cards, only: [:index, :new, :show] do
