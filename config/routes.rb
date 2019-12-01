@@ -66,4 +66,5 @@ end
   get 'mypage/authenticate_phone' =>'mypage#authenticate_phone'
   get 'deliver_address' =>'mypage#deliver_address'
   
+
 end
