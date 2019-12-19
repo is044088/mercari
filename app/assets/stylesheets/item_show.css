@@ -236,6 +236,60 @@ ul.parent {
   text-align: center;
 }
 
+.item-edit__button__gray-stop{
+  width:100%;
+  height:50px;
+  line-height:50px;
+}
+
+.item-edit__button__gray-stop a{
+  display:block;
+  width:100%;
+  height:100%;
+  text-decoration: none;
+  background:#AAAAAA;
+  text-align:center;
+  color:#FFFFFF;
+  font-size:16px;
+  font-weight:bold;
+  transition: all 0.3s ease;
+}
+
+.item-edit__button__gray-stop a:hover{
+  background:#C3C3C3;
+  color:#FFFFFF;
+  margin-left:0px;
+  margin-top:0px;
+  box-shadow:none;
+}
+
+.item-edit__button__gray-delete{
+  margin-top:20px;
+    width:100%;
+    height:50px;
+    line-height:50px;
+}
+.item-edit__button__gray-delete a{
+    display:block;
+    width:100%;
+    height:100%;
+    text-decoration: none;
+    background:#AAAAAA;
+    text-align:center;
+    color:#FFFFFF;
+    font-size:16px;
+    font-weight:bold;
+    transition: all 0.3s ease;
+}
+
+.item-edit__button__gray-delete a:hover{
+    background:#C3C3C3;
+    color:#FFFFFF;
+    margin-left:0px;
+    margin-top:0px;
+    box-shadow:none;
+}
+
 .comments {
   background-color: #FFFFFF;
   height:320px;
