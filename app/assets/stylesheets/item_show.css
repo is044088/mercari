@@ -1,3 +1,8 @@
+.clearfix:after{
+  content: "";
+  clear: both;
+  display: block;
+}
 .wrapper{
   background-color: #F5F5F5;
 }
@@ -18,7 +23,7 @@
 .item__inner {
   margin: 16px 0 0;
   padding: 0 40px 40px 40px;
-  height: auto;
+  clear: both;
 }
 .item__inner__picture {
   max-width:300px;
@@ -56,7 +61,6 @@ ul.parent {
   float: right;
   width: 300px;
   height: auto;
-  margin-bottom: 24px;
   font-size: 14px;
 }
 
@@ -80,8 +84,7 @@ ul.parent {
 }
 
 .item__price{
-  clear: both;
-  margin: auto 50px;
+  margin: -20px 0 0 0;
   text-align: center;
   
 }
@@ -110,6 +113,7 @@ ul.parent {
 }
 /* SoldOut時の「売り切れ」ボタン（11/24 浅井追加） */
 .item__soldout-btn{
+  clear:both;
   display: block;
   margin: 16px 50px 0 50px ;
   background: #ccc;
@@ -119,6 +123,7 @@ ul.parent {
   text-align: center;
   font-weight: 600;
   text-decoration: none;
+  height: 64px;
 }
 /* ここまで */
 .item-user-rating{
@@ -141,7 +146,8 @@ ul.parent {
   color: #000;
 }
 .item-description{
-  margin: 32px 50px 0 50px;
+  margin: 10px 50px;
+  padding-bottom: 20px;
   height: auto;
   font-size: 18px;
   color: #333;
@@ -189,11 +195,53 @@ ul.parent {
   color: #0099e8;
   font-size: 14px;
 }
+.modification{
+  background-color: #FFFFFF;
+  height: auto;
+  width:700px;
+  margin: 0 auto 10px;
+}
+.modification__inner{
+  margin: 20px 10px;
+}
+
+.item-edit__button__red{
+  width:100%;
+  height:50px;
+  line-height:50px;
+}
+
+.item-edit__button__red a{
+  display:block;
+  width:100%;
+  text-decoration: none;
+  background:#EA352D;
+  text-align:center;
+  color:#FFFFFF;
+  font-size:16px;
+  font-weight:bold;
+  transition: all 0.3s ease;
+}
+
+.item-edit__button__red a:hover{
+    background:#EA5E53;
+    color:#FFFFFF;
+    margin-left:0px;
+    margin-top:0px;
+    box-shadow:none;
+}
+
+.item-edit__inner__or{
+  margin:0px;
+  text-align: center;
+}
+
 .comments {
   background-color: #FFFFFF;
   height:320px;
   width:700px;
   margin:10px auto 10px;
+  clear: both;
 }
 
 .comments__container {
@@ -295,7 +343,6 @@ ul.parent {
   font-size: 44px;
 }
 .items-user-profile{
-/*   height:1500px; */
   width:700px;
   margin: 0 auto 10px;
 }
