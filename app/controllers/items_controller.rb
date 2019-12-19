@@ -96,9 +96,15 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find_by(id: params[:id])
+    @image = Image.find_by(item_id: @item.id)
+    @like = Like.find_by(item_id: @item.id)
+    if @like.present? 
+      @like.destroy
+    end
+    @image.destroy
     @item.destroy
-    flash[:notice] = "投稿を削除しました"
     redirect_to("/")
+    flash[:notice] = "商品を削除しました"
   end
 
   def search #検索

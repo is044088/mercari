@@ -5,7 +5,7 @@
         <h1 class="item__title">
           <%= @item.name %>
         </h1>
-          <div class="item__inner">
+          <div class="item__inner clearfix">
             <div class="item__inner__picture">
               <div id="left">
                 <div class="bigImage">
@@ -110,174 +110,193 @@
               </table>
             </div>
           </div>
-        <div class="item__price">
-          <span class="item__price__total">
-            ¥<%= number_with_delimiter(@item.price) %>
-          </span>
-          <span class="item__price__tax">(税込)</span>
-          <span class="item__price__shipping">
-            送料込み
-          </span>
-        </div>  
-        <% if @item.buyer_id.blank? %>
-          <%= link_to "購入画面に進む", purchase_path(@item.id),{class:"item__buy-btn"}%>
-        <% else %>
-          <p class="item__soldout-btn">売り切れました</p>
-        <% end %>
-        <div class="item-description">
-          <p class="item-description__inner">
-            <%= @item.explanation%>
-          </p>
-        </div>
-        <div class="item-button">
-          <div class="item-button__left">
-            <div id="item-button__left__iine">
-              <%= render partial:'like', locals: { item: @item, likes_count: @likes_count }%>
-            </div>  
-            <div class="report">  
-              <a href="#">
-                <i class="far fa-flag"></i>
-                <span>不適切な商品の報告</span>
-              </a>
-            </div>  
+          <div class="item__price">
+             <span class="item__price__total">
+              ¥<%= number_with_delimiter(@item.price) %>
+             </span>
+            <span class="item__price__tax">(税込)</span>
+            <span class="item__price__shipping">
+              送料込み
+            </span>
           </div>
-          <div class="item-button__right">
-            <a class="-btn -txt" href="#">
-              <i class="fas fa-user-lock fa-fw"></i>
-                <span>安心・安全への取り組み</span>
-            </a>
-          </div>    
-        </div>  
-      </div>
-      <div class="comments">
-          <form action="post">
-            <div class="comments__container">
-              <div class="comments__container__caution">
-                <p>相手のことを考え丁寧なコメントを心がけましょう。<br>不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          <% unless user_signed_in? && current_user.id == @item.saler_id %>
+            <% if @item.buyer_id.blank? %>
+              <%= link_to "購入画面に進む", purchase_path(@item.id),{class:"item__buy-btn"}%> 
+            <% else %>
+              <p class="item__soldout-btn">売り切れました</p>
+            <% end %>
+          <% end %>
+          <div class="item-description">
+            <p class="item-description__inner"><%= @item.explanation%> </p>
+          </div>
+          <% unless user_signed_in? && current_user.id == @item.saler_id %>
+            <div class="item-button">
+              <div class="item-button__left">
+                <div id="item-button__left__iine">
+                  <%= render partial:'like', locals: { item: @item, likes_count: @likes_count }%>
+                </div>  
+                <div class="report">  
+                  <a href="#">
+                    <i class="far fa-flag"></i>
+                    <span>不適切な商品の報告</span>
+                  </a>
+                </div>  
               </div>
-              <textarea name="body" class="comments__container__textarea" cols="30" rows="10"></textarea>
-              <button type="submit" class="comments__container__comment-btn">コメントする</button>
+              <div class="item-button__right">
+                <a class="-btn -txt" href="#">
+                  <i class="fas fa-user-lock fa-fw"></i>
+                    <span>安心・安全への取り組み</span>
+                </a>
+              </div>   
+            </div>  
+          <% end %>                       
+      </div>
+      <div class= "modification">
+        <div class= "modification__inner">
+          <% if user_signed_in? && current_user.id == @item.saler_id %>
+            <div class='item-edit__button__red'>
+              <%= link_to '商品の編集', "/items/#{@item.id}/edit", method: :get %>
             </div>
-          </form>
+            <p class="item-edit__inner__or">or</p>
+            <div class='item-edit__button__gray-stop'>
+              <a href='#'>出品を一旦停止する</a>
+            </div>
+            <div class='item-edit__button__gray-delete'>
+              <%= link_to 'この商品を削除する', "/items/#{@item.id}/", method: :delete %>
+            </div> 
+          <% end %>  
         </div>
-      
-      <ul class="item-link">
-        <li class="item-link__prev">
-            <a class="" href="#"><i class="fas fa-angle-left fa-fw"></i>前の商品へ</a>
-        </li>
-        <li class="item-link__next">
-            <a class="" href="#">次の商品へ<i class="fas fa-angle-right fa-fw"></i></a>
-        </li>
-      </ul>
-      <div class="item-sns">
-        <ul class="item-sns__box">
-          <li class= "item-sns__box__button">
-            <a class= "share-button" href="#">
-              <i class="fab fa-facebook-square fa-1x facebook "></i>
-            </a> 
+      </div>  
+      <div class="comments">
+        <form action="post">
+          <div class="comments__container">
+            <div class="comments__container__caution">
+              <p>相手のことを考え丁寧なコメントを心がけましょう。<br>不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            </div>
+            <textarea name="body" class="comments__container__textarea" cols="30" rows="10"></textarea>
+            <button type="submit" class="comments__container__comment-btn">コメントする</button>
+          </div>
+        </form>
+      </div>
+      <% unless user_signed_in? && current_user.id == @item.saler_id %>
+        <ul class="item-link">
+          <li class="item-link__prev">
+              <a class="" href="#"><i class="fas fa-angle-left fa-fw"></i>前の商品へ</a>
           </li>
-          <li class= "item-sns__box__button">
-            <a class= "share-button" href="#">
-              <i class="fab fa-twitter-square fa-1x twitter"></i>
-            </a> 
-          </li>
-          <li class= "item-sns__box__button">
-            <a class= "share-button" href="#">
-              <i class="fab fa-line fa-1x line"></i>
-            </a> 
-          </li>
-          <li class= "item-sns__box__button">
-            <a class= "share-button" href="#">
-              <i class="fab fa-pinterest-square fa-1x pinterest"></i>
-            </a> 
+          <li class="item-link__next">
+              <a class="" href="#">次の商品へ<i class="fas fa-angle-right fa-fw"></i></a>
           </li>
         </ul>
-      </div>
-      <div class="items-user-profile">
-          <div class="item-box-container same-seller">
-            <h2 class="item-box-container__head">
-              <a class="" href=""> <%= @user.nickname %>さんのその他の出品</a>
-            </h2>
-            <ul class="item-box-container__contents">
-              <% @user_items.preload(:images).each do |user_item| %> 
-                <li class="item-box-container__one-cotent">
-                  <%= link_to "/items/#{user_item.id}" do %>
-                    <figure class="figure">
-                      <%= image_tag( user_item.images.first.images_url, width: "220px", height: "220px", alt: "image",class: "figure__image" ) unless user_item.images.blank? %>
-                      <% unless user_item.buyer_id.blank? %>
-                        <h3 class = "sold">SOLD</h3>
-                      <% end %>
-                      <figcaption class="figcaption">
-                        <div class="items-box-body">
-                          <h3 class="items-box-name">
-                            <%= user_item.name %>
-                          </h3>
-                          <div class="items-box-num">
-                            <div class="items-box-num__price">
-                              ¥<%= number_with_delimiter(user_item.price) %>
-                            </div>
-                            <div class="items-box-num__evaluation">
-                              <i class="far fa-heart"></i>
-                              <span><%= user_item.like_num %></span>
-                            </div>
-                          </div>
-                        </div>
-                      </figcaption>
-                    </figure>
-                  <% end %>
-                </li>
-              <% end %>  
-            </ul>
-          </div>
-          <div class="item-box-container same-bland">
-            <h2 class="item-box-container__head">
-              <a class="" href=""><%= @cate.name %>(<%= @cate.parent.parent.name %>)のその他の出品</a>
-            </h2>
-            <ul class="item-box-container__contents">
-              <% @same_cate_items.preload(:images).each do |same_cate_item| %>
-                <li class="item-box-container__one-cotent">
-                  <%= link_to "/items/#{same_cate_item.id}" do %>
-                    <figure class="figure">
-                      <%= image_tag( same_cate_item.images.first.images_url, width: "220px", height: "220px", alt: "image",class: "figure__image" ) unless same_cate_item.images.blank? %>
-                      <% unless same_cate_item.buyer_id.blank? %>
-                        <h3 class = "sold">SOLD</h3>
-                      <% end %>
-                      <figcaption class="figcaption">
-                        <div class="items-box-body">
-                          <h3 class="items-box-name">
-                            <%= same_cate_item.name %>
-                          </h3>
-                          <div class="items-box-num">
-                            <div class="items-box-num__price">
-                              ¥<%= number_with_delimiter(same_cate_item.price) %>
-                            </div>
-                            <div class="items-box-num__evaluation">
+        <div class="item-sns">
+          <ul class="item-sns__box">
+            <li class= "item-sns__box__button">
+              <a class= "share-button" href="#">
+                <i class="fab fa-facebook-square fa-1x facebook "></i>
+              </a> 
+            </li>
+            <li class= "item-sns__box__button">
+              <a class= "share-button" href="#">
+                <i class="fab fa-twitter-square fa-1x twitter"></i>
+              </a> 
+            </li>
+            <li class= "item-sns__box__button">
+              <a class= "share-button" href="#">
+                <i class="fab fa-line fa-1x line"></i>
+              </a> 
+            </li>
+            <li class= "item-sns__box__button">
+              <a class= "share-button" href="#">
+                <i class="fab fa-pinterest-square fa-1x pinterest"></i>
+              </a> 
+            </li>
+          </ul>
+        </div>
+        <div class="items-user-profile">
+            <div class="item-box-container same-seller">
+              <h2 class="item-box-container__head">
+                <a class="" href=""> <%= @user.nickname %>さんのその他の出品</a>
+              </h2>
+              <ul class="item-box-container__contents">
+                <% @user_items.preload(:images).each do |user_item| %> 
+                  <li class="item-box-container__one-cotent">
+                    <%= link_to "/items/#{user_item.id}" do %>
+                      <figure class="figure">
+                        <%= image_tag( user_item.images.first.images_url, width: "220px", height: "220px", alt: "image",class: "figure__image" ) unless user_item.images.blank? %>
+                        <% unless user_item.buyer_id.blank? %>
+                          <h3 class = "sold">SOLD</h3>
+                        <% end %>
+                        <figcaption class="figcaption">
+                          <div class="items-box-body">
+                            <h3 class="items-box-name">
+                              <%= user_item.name %>
+                            </h3>
+                            <div class="items-box-num">
+                              <div class="items-box-num__price">
+                                ¥<%= number_with_delimiter(user_item.price) %>
+                              </div>
+                              <div class="items-box-num__evaluation">
                                 <i class="far fa-heart"></i>
-                                <span><%= same_cate_item.like_num %></span>
+                                <span><%= user_item.like_num %></span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </figcaption>
-                    </figure>
-                  <% end %>
-                </li>
-              <% end %>  
-            </ul>
-          </div>
-      </div>
-      <nav class="bottom-pankuzu">
-        <ul class="bottom-pankuzu__ul">
-          <li class="bottom-pankuzu__ul__li">
-            <a href="">
-              <span>メルカリ</span>
-            </a>
-            <i class="fas fa-angle-right fa-fw"></i>
-          </li>
-          <li class="bottom-pankuzu__ul__li">
-              <span><%= @item.name %></span>
-          </li>
-        </ul>
-      </nav>
+                        </figcaption>
+                      </figure>
+                    <% end %>
+                  </li>
+                <% end %>  
+              </ul>
+            </div>
+            <div class="item-box-container same-bland">
+              <h2 class="item-box-container__head">
+                <a class="" href=""><%= @cate.name %>(<%= @cate.parent.parent.name %>)のその他の出品</a>
+              </h2>
+              <ul class="item-box-container__contents">
+                <% @same_cate_items.preload(:images).each do |same_cate_item| %>
+                  <li class="item-box-container__one-cotent">
+                    <%= link_to "/items/#{same_cate_item.id}" do %>
+                      <figure class="figure">
+                        <%= image_tag( same_cate_item.images.first.images_url, width: "220px", height: "220px", alt: "image",class: "figure__image" ) unless same_cate_item.images.blank? %>
+                        <% unless same_cate_item.buyer_id.blank? %>
+                          <h3 class = "sold">SOLD</h3>
+                        <% end %>
+                        <figcaption class="figcaption">
+                          <div class="items-box-body">
+                            <h3 class="items-box-name">
+                              <%= same_cate_item.name %>
+                            </h3>
+                            <div class="items-box-num">
+                              <div class="items-box-num__price">
+                                ¥<%= number_with_delimiter(same_cate_item.price) %>
+                              </div>
+                              <div class="items-box-num__evaluation">
+                                  <i class="far fa-heart"></i>
+                                  <span><%= same_cate_item.like_num %></span>
+                              </div>
+                            </div>
+                          </div>
+                        </figcaption>
+                      </figure>
+                    <% end %>
+                  </li>
+                <% end %>  
+              </ul>
+            </div>
+        </div>
+        <nav class="bottom-pankuzu">
+          <ul class="bottom-pankuzu__ul">
+            <li class="bottom-pankuzu__ul__li">
+              <a href="">
+                <span>メルカリ</span>
+              </a>
+              <i class="fas fa-angle-right fa-fw"></i>
+            </li>
+            <li class="bottom-pankuzu__ul__li">
+                <span><%= @item.name %></span>
+            </li>
+          </ul>
+        </nav>
+      <% end %>
 
 <%= render partial: 'aside' %>
 <%= render partial: 'footer' %>

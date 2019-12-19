@@ -127,19 +127,16 @@
       <div id="item-edit__area">
         <div id="item-edit__inner">
           <% if user_signed_in? && current_user.id == @item.saler_id %>
-          <div class='item-edit__button__red'>
-            <%= link_to '商品の編集', "/tweets/#{@item.id}/edit", method: :get %>
-          </div>
-
-          <p class="item-edit__inner__or">or</p>
-
-          <div class='item-edit__button__gray-stop'>
-            <a href='#'>出品を一旦停止する</a>
-          </div>
-
-          <div class='item-edit__button__gray-delete'>
-            <a href='#'>この商品を削除する</a>
-          </div>
+            <div class='item-edit__button__red'>
+              <%= link_to '商品の編集', "/tweets/#{@item.id}/edit", method: :get %>
+            </div>
+            <p class="item-edit__inner__or">or</p>
+            <div class='item-edit__button__gray-stop'>
+              <a href='#'>出品を一旦停止する</a>
+            </div>
+            <div class='item-edit__button__gray-delete'>
+              <a href='#'>この商品を削除する</a>
+            </div>
         </div>
       </div>
     </div>
